@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="B006001">
+
+	<insert id="insertData01"
+		parameterClass="jp.terasoluna.batch.functionsample.b006.SampleFileLineObject">
+		INSERT
+		INTO
+		PERSONAL_INFORMATION (
+		code
+		,name
+		,name_kana
+		,sex
+		,telnum
+		,mail
+		,birth
+		,age
+		,hometown
+		,bloodtype
+		)
+		VALUES (
+		#code#
+		,#name#
+		,#name_kana#
+		,#sex#
+		,#telnum#
+		,#mail#
+		,#birth#
+		,#age#
+		,#hometown#
+		,#bloodtype#
+		)
+	</insert>
+	<update id="updateData01"
+		parameterClass="jp.terasoluna.batch.functionsample.b006.SampleFileLineObject">
+		UPDATE
+		PERSONAL_INFORMATION
+		SET
+		code = #code#
+		,name = #name#
+		,name_kana =
+		#name_kana#
+		,sex = #sex#
+		,telnum = #telnum#
+		,mail = #mail#
+		,birth =
+		#birth#
+		,age = #age#
+		,hometown = #hometown#
+		,bloodtype =
+		#bloodtype#
+		WHERE
+		code = #code#
+	</update>
+	<delete id="deleteData01"
+		parameterClass="jp.terasoluna.batch.functionsample.b006.SampleFileLineObject">
+		DELETE
+		FROM
+		PERSONAL_INFORMATION
+		WHERE
+		code = #code#
+	</delete>
+	<insert id="insertData99"
+		parameterClass="jp.terasoluna.batch.functionsample.b006.SampleFileLineObject">
+		INSERT
+		INTO
+		PERSONAL_INFORMATION (
+		code
+		,name
+		,name_kana
+		,sex
+		,telnum
+		,mail
+		,birth
+		,age
+		,hometown
+		,bloodtype
+		)
+		VALUES (
+		#code#
+		,#name#
+		,#name_kana#
+		,#sex#
+		,#telnum#
+		,#mail#
+		,#birth#
+		,#age#
+		,#hometown#
+		,#bloodtype#
+		)
+	</insert>
+
+	<delete id="deleteData09"
+		parameterClass="jp.terasoluna.batch.functionsample.b006.SampleFileLineObject">
+		DELETE
+		FROM
+		PERSONAL_INFORMATION
+		WHERE
+		code = #code#
+	</delete>
+
+
+</sqlMap>
