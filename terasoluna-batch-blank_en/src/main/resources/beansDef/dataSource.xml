@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Definition of DBCP datasource  -->
+    <context:property-placeholder location="mybatis/jdbc.properties" />
+    <bean id="dataSource" destroy-method="close"
+        class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxActive" value="10" />
+        <property name="maxIdle" value="1" />
+        <property name="maxWait" value="5000" />
+    </bean>
+
+    <!-- Definition of OracleLobHandler for dealing with LOB field  -->
+    <bean id="oracleLobHandler"
+        class="org.springframework.jdbc.support.lob.OracleLobHandler">
+        <property name="nativeJdbcExtractor" ref="simpleExtractor" />
+    </bean>
+
+    <bean id="simpleExtractor"
+        class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor">
+        <property name="nativeConnectionNecessaryForNativeStatements"
+            value="true" />
+        <property name="nativeConnectionNecessaryForNativePreparedStatements"
+            value="true" />
+        <property name="nativeConnectionNecessaryForNativeCallableStatements"
+            value="true" />
+    </bean>
+
+    <!-- Definition of SqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="mybatis/mybatis-config.xml" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- Definition of transaction manager -->
+    <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+        <!-- Setting of avoid transaction synchronization to connect with multiple Databases -->
+        <!-- When multiple DataSource definitions are to be used, remove the comment-out from below. -->
+        <!-- <property name="transactionSynchronization" value="2"/> -->
+    </bean>
+
+</beans>

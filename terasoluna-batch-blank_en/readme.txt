@@ -1,41 +1,48 @@
 *******************************************************************************
       TERASOLUNA Batch Framework for Java
-      Procedure manual for implementing blank project
+      ブランクプロジェクト 導入手順
 
       Copyright 2011 NTT DATA Corporation.
 *******************************************************************************
 
-Brief
+■  概要：
 
-  This README is the procedure manual for using the blank project of TERASOLUNA Batch Framework for Java.
-  By using this blank project an application development environment using TERASOLUNA Framework can be created.
+  このreadmeは、TERASOLUNA Batch Framework for Javaのブランクプロジェクトを導入する手順書です。
+　ブランクプロジェクトを導入することにより、TERASOLUNAフレームワークを使った
+　アプリケーション開発環境を構築することが可能になります。 
 
-Preconditions
+■  前提条件：
 
-  It is required that folloing softwares are installed in the development environment.
-  The behavior has been confirmed for the version written on the right, however this does not imply limiting behavior in      environments other than the versions stated below.
-  See the manuals on web if for installation as well as configuration procedure for further details.
+  開発環境には、あらかじめ下記のものが用意されている必要があります。
+  また併記されているバージョンを元に動作確認を行なっていますが、
+  このバージョン以外の環境で動作を制限することを示すものではありません。
+  また、これらのインストール及び設定の手順については、
+  別途Web上の利用ガイド等を参照してください。 
 
-   - Java SE Runtime Environment Standard Edition 1.6.0
-   - Eclipse SDK 3.4.2 
-   - PostgreSQL Database Server 8.4
-     or
-   - Oracle11g
+  ・Java SE Runtime Environment Standard Edition 1.6.0
+  ・Eclipse SDK 3.4.2 
+  ・PostgreSQL Database Server 8.4	
+  　または
+  ・Oracle11g
 
-How to import the project
+■  プロジェクトのインポート：
 
-  1. Unzip the zip file
-     Unzip terasoluna-batch-blank-(version number).zip to any arbitrary location.
-     Confirm that the unzipped folder name of terasoluna-batch-blank-(version number).zip is "terasoluna-batch-blank".
-     Change the name into "terasoluna-batch-blank" if it was "terasoluna-batch-blank-(version number)". 
+  ①ZIPファイルの展開
+    terasoluna-batch-blank-(バージョン番号).zipを任意のフォルダに展開します。 
 
-   2. Import to Eclipse
-      (1) Open Eclipse and select "Import" from the "File" menu.
-      (2) The import dialog will appear. From the list of import options, select "Existing Projects into Workspace"
-          and then click "Next".
-      (3) In the new dialog, click on the "Select root directory" radio button 
-          and then click the "Browse" button on the right.
-      (4) Click on the "Finish" button at the bottom of the dialog 
-          after confirming "Copy projects into workspace" check box is checked
+    展開されたterasoluna-batch-blank-(バージョン番号).zipのフォルダ名が
+    「terasoluna-batch-blank」であることを確認します。
+    展開ツールや展開のしかたによっては、フォルダ名が
+    「terasoluna-batch-blank-(バージョン番号)」となる場合がありますが、
+    フォルダ名を手動で「terasoluna-batch-blank」に変更してください。 
+
+  ②Eclipseへのインポート
+    ・Eclipse画面にて「ファイル＞インポート」を実行し、
+      「一般＞既存プロジェクトをワークスペースへ」を選択し「次へ」をクリックします。
+    ・「ルート・ディレクトリーの選択」にチェックが入った状態で「参照」をクリックし、
+    　プロジェクト内容のブラウズから②で展開したディレクトリを指定します。
+    ・「プロジェクトをワークスペースへコピー」にチェックが入っていることを確認後、
+      「終了」をクリックします。
+
 -------------------------------------------------------------------------------
 Copyright 2011 NTT DATA Corporation.
