@@ -8,6 +8,25 @@
     <description>TERASOLUNA Batch Framework for Java Blank Project</description>
     <dependencies>
         <dependency>
+            <groupId>jp.terasoluna.fw.batch</groupId>
+            <artifactId>terasoluna-batch</artifactId>
+            <version>${terasoluna-fw-batch.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.oracle</groupId>
+                    <artifactId>ojdbc5</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>jp.terasoluna.fw</groupId>
             <artifactId>terasoluna-batch-fw</artifactId>
             <version>${terasoluna-fw-batch.version}</version>
