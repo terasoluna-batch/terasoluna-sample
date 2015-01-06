@@ -1,67 +1,60 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
-	<artifactId>terasoluna-batch-blank_en</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>TERASOLUNA Batch Framework for Java Blank Project(English)</name>
-	<description>TERASOLUNA Batch Framework for Java Blank Project(English)</description>
-	<dependencies>
-		<dependency>
-			<groupId>jp.terasoluna.fw.batch</groupId>
-			<artifactId>terasoluna-batch</artifactId>
-			<version>${terasoluna-fw-batch.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.oracle</groupId>
-					<artifactId>ojdbc5</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>postgresql</groupId>
-					<artifactId>postgresql</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>jp.terasoluna.fw</groupId>
-			<artifactId>terasoluna-batch-fw</artifactId>
-			<version>${terasoluna-fw-batch.version}</version>
-			<type>pom</type>
-			<exclusions>
-				<exclusion>
-					<groupId>com.oracle</groupId>
-					<artifactId>ojdbc5</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>postgresql</groupId>
-					<artifactId>postgresql</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-<!--
-		<dependency>
-			<groupId>jp.terasoluna.fw</groupId>
-			<artifactId>terasoluna-filedao</artifactId>
-			<version>${terasoluna-fw-batch.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>jp.terasoluna.fw</groupId>
-			<artifactId>terasoluna-logger</artifactId>
-			<version>${terasoluna-fw-batch.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>jp.terasoluna.fw</groupId>
-			<artifactId>terasoluna-validator</artifactId>
-			<version>${terasoluna-fw-batch.version}</version>
-		</dependency>
--->
-		<!-- == End terasoluna == -->
-	</dependencies>
-	<properties>
-		<terasoluna-fw-batch.version>3.5.0-SNAPSHOT</terasoluna-fw-batch.version>
-	</properties>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
+    <artifactId>terasoluna-batch-blank_en</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>TERASOLUNA Batch Framework for Java Blank Project(English)</name>
+    <description>TERASOLUNA Batch Framework for Java Blank Project(English)</description>
+    <dependencies>
+        <dependency>
+            <groupId>jp.terasoluna.fw</groupId>
+            <artifactId>terasoluna-batch-fw</artifactId>
+            <version>${terasoluna-fw-batch.version}</version>
+            <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.oracle</groupId>
+                    <artifactId>ojdbc5</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- == End terasoluna == -->
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin.version}</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/distribution.xml</descriptor>
+                    </descriptors>
+                    <attach>false</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <terasoluna-fw-batch.version>3.5.0-SNAPSHOT</terasoluna-fw-batch.version>
+        <maven-assembly-plugin.version>2.5</maven-assembly-plugin.version>
+    </properties>
 </project>
