@@ -2,7 +2,7 @@
       TERASOLUNA Batch Framework for Java
       ブランクプロジェクト 導入手順
 
-      Copyright 2011 NTT DATA Corporation.
+      Copyright 2015 NTT DATA Corporation.
 *******************************************************************************
 
 ■  概要：
@@ -19,8 +19,8 @@
   また、これらのインストール及び設定の手順については、
   別途Web上の利用ガイド等を参照してください。 
 
-  ・Java SE Runtime Environment Standard Edition 1.6.0
-  ・Eclipse SDK 3.4.2 
+  ・Java SE Runtime Environment Standard Edition 1.7.0
+  ・Eclipse SDK 3.7.2 
   ・PostgreSQL Database Server 8.4	
   　または
   ・Oracle11g
@@ -28,12 +28,12 @@
 ■  プロジェクトのインポート：
 
   ①ZIPファイルの展開
-    terasoluna-batch-blank-(バージョン番号).zipを任意のフォルダに展開します。 
+    terasoluna-batch-blank4j-(バージョン番号).zipを任意のフォルダに展開します。 
 
-    展開されたterasoluna-batch-blank-(バージョン番号).zipのフォルダ名が
+    展開されたterasoluna-batch4j-blank-(バージョン番号).zipのフォルダ名が
     「terasoluna-batch-blank」であることを確認します。
     展開ツールや展開のしかたによっては、フォルダ名が
-    「terasoluna-batch-blank-(バージョン番号)」となる場合がありますが、
+    「terasoluna-batch-blank4j-(バージョン番号)」となる場合がありますが、
     フォルダ名を手動で「terasoluna-batch-blank」に変更してください。 
 
   ②Eclipseへのインポート
@@ -45,4 +45,4 @@
       「終了」をクリックします。
 
 -------------------------------------------------------------------------------
-Copyright 2011 NTT DATA Corporation.
+Copyright 2015 NTT DATA Corporation.
