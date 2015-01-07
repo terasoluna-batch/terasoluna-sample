@@ -19,10 +19,10 @@
         </encoder>
     </appender>
 -->
-    <logger name="org.terasoluna.gfw.batch" level="INFO" />
-    <logger name="org.terasoluna.gfw" level="INFO" />
+    <logger name="jp.terasoluna.fw" level="INFO" />
     <logger name="org.springframework" level="ERROR" />
-    <logger name="com.ibatis" level="ERROR" />
+    <logger name="org.apache.ibatis" level="ERROR" />
+    <logger name="org.mybatis.spring" level="ERROR" />
     <logger name="java.sql.Connection" level="ERROR" />
     <logger name="java.sql.Statement" level="ERROR" />
     <logger name="java.sql.PreparedStatement" level="ERROR" />
@@ -31,7 +31,7 @@
 
     <root level="INFO">
         <appender-ref ref="consoleLog" />
-        <appender-ref ref="fileLog" />
+        <!-- <appender-ref ref="fileLog" /> -->
     </root>
 
 </configuration>
