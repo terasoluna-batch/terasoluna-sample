@@ -46,6 +46,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>jp.terasoluna.fw.lib</groupId>
+            <artifactId>terasoluna-collector</artifactId>
+            <version>${terasoluna-fw-batch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.terasoluna.fw</groupId>
+            <artifactId>terasoluna-dao</artifactId>
+            <version>${terasoluna-fw-batch.version}</version>
+        </dependency>
         <!-- == End terasoluna == -->
     </dependencies>
     <build>
