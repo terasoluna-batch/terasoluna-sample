@@ -15,4 +15,3 @@
 \i insert_all_data.sql
 
 COMMIT;
-QUIT;

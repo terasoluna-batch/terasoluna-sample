@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+  <formset>
+    <form name="class-name">
+      <field property="field-name"></field>
+    </form>
+  
+    <!-- 単項目の入力チェック -->
+    <!-- 
+    <form name="singleData">
+      <field property="requiredTest" depends="required">
+        <arg key="required要素" position="0"/>
+      </field>              
+      <field property="maskTest" depends="mask">
+        <arg key="mask要素" position="0"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>[a-z]</var-value>
+        </var>        
+      </field>                    
+      <field property="byteTest" depends="byte">
+        <arg key="byte要素" position="0"/>
+      </field>      
+      <field property="shortTest" depends="short">
+        <arg key="short要素" position="0"/>
+      </field>      
+      <field property="integerTest" depends="integer">
+        <arg key="integer要素" position="0"/>
+      </field>      
+      <field property="longTest" depends="long">
+        <arg key="long要素" position="0"/>
+      </field>
+      <field property="floatTest" depends="float">
+        <arg key="float要素" position="0"/>
+      </field>
+      <field property="doubleTest" depends="double">
+        <arg key="double要素" position="0"/>
+      </field>      
+      <field property="dateTest" depends="date">
+        <arg key="date要素" position="0"/>
+        <var>
+          <var-name>datePatternStrict</var-name>
+          <var-value>yyyy-MM-dd</var-value>
+        </var>
+      </field>      
+      <field property="intRangeTest" depends="intRange">
+        <arg key="intRange要素" position="0"/>
+        <arg key="${var:intRangeMin}" position="1"/>        
+        <arg key="${var:intRangeMax}" position="2"/>        
+        <var>
+          <var-name>intRangeMin</var-name>
+          <var-value>10</var-value>
+        </var>
+        <var>
+          <var-name>intRangeMax</var-name>
+          <var-value>100</var-value>
+        </var>                
+      </field>
+      <field property="doubleRangeTest" depends="doubleRange">
+        <arg key="doubleRange要素" position="0"/>
+        <arg key="${var:doubleRangeMin}" position="1"/>        
+        <arg key="${var:doubleRangeMax}" position="2"/>        
+        <var>
+          <var-name>doubleRangeMin</var-name>
+          <var-value>10</var-value>
+        </var>
+        <var>
+          <var-name>doubleRangeMax</var-name>
+          <var-value>100</var-value>
+        </var>                
+      </field>      
+      <field property="floatRangeTest" depends="floatRange">
+        <arg key="floatRange要素" position="0"/>
+        <arg key="${var:floatRangeMin}" position="1"/>        
+        <arg key="${var:floatRangeMax}" position="2"/>        
+        <var>
+          <var-name>floatRangeMin</var-name>
+          <var-value>10</var-value>
+        </var>
+        <var>
+          <var-name>floatRangeMax</var-name>
+          <var-value>100</var-value>
+        </var>                
+      </field>  
+      <field property="maxlengthTest" depends="maxLength">
+        <arg key="maxLength要素" position="0"/>
+        <arg key="${var:maxlength}" position="1"/>        
+        <var>
+          <var-name>maxlength</var-name>
+          <var-value>4</var-value>
+        </var>                
+      </field>      
+      <field property="minlengthTest" depends="minLength">
+        <arg key="minLength要素" position="0"/>
+        <arg key="${var:minlength}" position="1"/>        
+        <var>
+          <var-name>minlength</var-name>
+          <var-value>4</var-value>
+        </var>                
+      </field>      
+      <field property="alphaNumericStringTest" depends="alphaNumericString">
+        <arg key="alphaNumericString要素" position="0"/>
+      </field>
+      <field property="capAlphaNumericStringTest" depends="capAlphaNumericString">
+        <arg key="capAlphaNumericString要素" position="0"/>
+      </field>      
+      <field property="numberTest" depends="number">
+        <arg key="number要素" position="0"/>
+        <arg key="${var:integerLength}" position="1" resource="false"/>
+        <arg key="%{var:scale}" position="2" resource="false"/>
+        <var>
+          <var-name>integerLength</var-name>
+          <var-value>3</var-value>
+        </var>
+        <var>
+          <var-name>scale</var-name>
+          <var-value>2</var-value>
+        </var>
+        <var>
+          <var-name>isAccordedInteger</var-name>
+          <var-value>true</var-value>
+        </var>
+        <var>
+          <var-name>isAccordedScale</var-name>
+          <var-value>true</var-value>
+        </var>
+      </field>      
+      <field property="hankakuKanaStringTest" depends="hankakuKanaString">
+        <arg key="hankakuKanaString要素" position="0"/>
+      </field>            
+      <field property="hankakuStringTest" depends="hankakuString">
+        <arg key="hankakuString要素" position="0"/>
+      </field>                  
+      <field property="zenkakuStringTest" depends="zenkakuString">
+        <arg key="zenkakuString要素" position="0"/>
+      </field>                        
+      <field property="zenkakuKanaStringTest" depends="zenkakuKanaString">
+        <arg key="zenkakuKanaString要素" position="0"/>
+      </field>      
+      <field property="prohibitedTest" depends="prohibited">
+        <arg key="prohibited要素" position="0"/>
+        <arg key="${var:chars}" position="1" resource="false"/>        
+        <var>
+          <var-name>chars</var-name>
+          <var-value>!"#'()</var-value>
+        </var>                
+      </field>      
+      <field property="numericStringTest" depends="numericString">
+        <arg key="numericString要素" position="0"/>
+      </field>      
+      <field property="stringLengthTest" depends="stringLength">
+        <arg key="stringLength要素" position="0"/>
+        <arg key="${var:stringLength}" position="1" resource="false"/>        
+        <var>
+          <var-name>stringLength</var-name>
+          <var-value>5</var-value>
+        </var>                
+      </field>                                          
+	  <field property="urlTest" depends="url">
+	    <arg key="url要素" position="0"/>
+	    <var>
+	      <var-name>schemes</var-name>
+	      <var-value>http,ftp</var-value>
+	    </var>
+	  </field>
+	  <field property="dateRangeTest" depends="dateRange">
+	    <arg key="dateRange要素" position="0" />
+	    <arg key="${var:startDate}" position="1" resource="false" />
+	    <arg key="${var:endDate}" position="2" resource="false" />
+	    <var>
+	      <var-name>startDate</var-name>
+	      <var-value>2000/1/1</var-value>
+	    </var>
+	    <var>
+	     <var-name>endDate</var-name>
+	      <var-value>2000/12/31</var-value>
+	    </var>
+	    <var>
+	      <var-name>datePattern</var-name>
+	      <var-value>yyyy/MM/dd</var-value>
+	    </var>
+	  </field>
+	  <field property="byteRangeTest" depends="byteRange">
+	    <arg key="byteRange要素" position="0" />
+	    <arg key="${var:minByteLength}" position="1" resource="false" />
+	    <arg key="${var:maxByteLength}" position="2" resource="false" />
+	    <var>
+	      <var-name>minByteLength</var-name>
+	      <var-value>20</var-value>
+	    </var>
+	    <var>
+	      <var-name>maxByteLength</var-name>
+	      <var-value>30</var-value>
+	    </var>
+	    <var>
+	      <var-name>encoding</var-name>
+	      <var-value>UTF-8</var-value>
+	    </var>
+	  </field>    
+	  <field property="arrayRangeTest" depends="arrayRange">
+	    <arg key="arrayRange要素" position="0" />
+	    <arg key="${var:minArrayLength}" position="1" resource="false" />
+	    <arg key="${var:maxArrayLength}" position="2" resource="false" />
+	    <var>
+	      <var-name>minArrayLength</var-name>
+	      <var-value>0</var-value>
+	    </var>
+	    <var>
+	      <var-name>maxArrayLength</var-name>
+	      <var-value>2</var-value>
+	    </var>
+	  </field>    	   
+    </form>
+	-->
+    
+    <!-- 配列・コレクション型への入力チェック -->
+    <!--  
+    <form name="arrayData">
+      <field property="requiredArray" depends="requiredArray">
+        <arg key="requiredArray要素" position="0"/>
+      </field>              
+      <field property="maskArray" depends="maskArray">
+        <arg key="maskArray要素" position="0"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>[a-z]</var-value>
+        </var>        
+      </field>                    
+      <field property="byteArray" depends="byteArray">
+        <arg key="byteArray要素" position="0"/>
+      </field>      
+      <field property="shortArray" depends="shortArray">
+        <arg key="shortArray要素" position="0"/>
+      </field>
+      <field property="integerArray" depends="integerArray">
+        <arg key="integerArray要素" position="0"/>
+      </field>      
+      <field property="longArray" depends="longArray">
+        <arg key="longArray要素" position="0"/>
+      </field>
+      <field property="floatArray" depends="floatArray">
+        <arg key="floatArray要素" position="0"/>
+      </field>
+      <field property="doubleArray" depends="doubleArray">
+        <arg key="doubleArray要素" position="0"/>
+      </field>      
+      <field property="dateArray" depends="dateArray">
+        <arg key="dateArray要素" position="0"/>
+        <var>
+          <var-name>datePatternStrict</var-name>
+          <var-value>yyyy-MM-dd</var-value>
+        </var>
+      </field>      
+      <field property="intRangeArray" depends="intRangeArray">
+        <arg key="intRangeArray要素" position="0"/>
+        <arg key="${var:intRangeMin}" position="1"/>        
+        <arg key="${var:intRangeMax}" position="2"/>        
+        <var>
+          <var-name>intRangeMin</var-name>
+          <var-value>10</var-value>
+        </var>
+        <var>
+          <var-name>intRangeMax</var-name>
+          <var-value>100</var-value>
+        </var>                
+      </field>
+      <field property="doubleRangeArray" depends="doubleRangeArray">
+        <arg key="doubleRangeArray要素" position="0"/>
+        <arg key="${var:doubleRangeMin}" position="1"/>        
+        <arg key="${var:doubleRangeMax}" position="2"/>        
+        <var>
+          <var-name>doubleRangeMin</var-name>
+          <var-value>10</var-value>
+        </var>
+        <var>
+          <var-name>doubleRangeMax</var-name>
+          <var-value>100</var-value>
+        </var>                
+      </field>      
+      <field property="floatRangeArray" depends="floatRangeArray">
+        <arg key="floatRangeArray要素" position="0"/>
+        <arg key="${var:floatRangeMin}" position="1"/>        
+        <arg key="${var:floatRangeMax}" position="2"/>        
+        <var>
+          <var-name>floatRangeMin</var-name>
+          <var-value>10</var-value>
+        </var>
+        <var>
+          <var-name>floatRangeMax</var-name>
+          <var-value>100</var-value>
+        </var>                
+      </field>  
+      <field property="maxLengthArray" depends="maxLengthArray">
+        <arg key="maxLengthArray要素" position="0"/>
+        <arg key="${var:maxlength}" position="1"/>        
+        <var>
+          <var-name>maxlength</var-name>
+          <var-value>4</var-value>
+        </var>                
+      </field>      
+      <field property="minLengthArray" depends="minLengthArray">
+        <arg key="minLengthArray要素" position="0"/>
+        <arg key="${var:minlength}" position="1"/>        
+        <var>
+          <var-name>minlength</var-name>
+          <var-value>4</var-value>
+        </var>                
+      </field>      
+      <field property="alphaNumericStringArray" depends="alphaNumericStringArray">
+        <arg key="alphaNumericStringArray要素" position="0"/>
+      </field>
+      <field property="capAlphaNumericStringArray" depends="capAlphaNumericStringArray">
+        <arg key="capAlphaNumericStringArray要素" position="0"/>
+      </field>      
+      <field property="numberArray" depends="numberArray">
+        <arg key="numberArray要素" position="0"/>
+        <arg key="${var:integerLength}" position="1" resource="false"/>
+        <arg key="%{var:scale}" position="2" resource="false"/>
+        <var>
+          <var-name>integerLength</var-name>
+          <var-value>3</var-value>
+        </var>
+        <var>
+          <var-name>scale</var-name>
+          <var-value>2</var-value>
+        </var>
+        <var>
+          <var-name>isAccordedInteger</var-name>
+          <var-value>true</var-value>
+        </var>
+        <var>
+          <var-name>isAccordedScale</var-name>
+          <var-value>true</var-value>
+        </var>
+      </field>      
+      <field property="hankakuKanaStringArray" depends="hankakuKanaStringArray">
+        <arg key="hankakuKanaStringArray要素" position="0"/>
+      </field>            
+      <field property="hankakuStringArray" depends="hankakuStringArray">
+        <arg key="hankakuStringArray要素" position="0"/>
+      </field>                  
+      <field property="zenkakuStringArray" depends="zenkakuStringArray">
+        <arg key="zenkakuStringArray要素" position="0"/>
+      </field>                        
+      <field property="zenkakuKanaStringArray" depends="zenkakuKanaStringArray">
+        <arg key="zenkakuKanaStringArray要素" position="0"/>
+      </field>      
+      <field property="prohibitedArray" depends="prohibitedArray">
+        <arg key="prohibitedArray要素" position="0"/>
+        <arg key="${var:chars}" position="1" resource="false"/>        
+        <var>
+          <var-name>chars</var-name>
+          <var-value>!"#'()</var-value>
+        </var>                
+      </field>      
+      <field property="numericStringArray" depends="numericStringArray">
+        <arg key="numericStringArray要素" position="0"/>
+      </field>      
+      <field property="stringLengthArray" depends="stringLengthArray">
+        <arg key="stringLengthArray要素" position="0"/>
+        <arg key="${var:stringLength}" position="1" resource="false"/>        
+        <var>
+          <var-name>stringLength</var-name>
+          <var-value>5</var-value>
+        </var>                
+      </field>                                          
+	  <field property="urlArray" depends="urlArray">
+	    <arg key="urlArray要素" position="0"/>
+	    <var>
+	      <var-name>schemes</var-name>
+	      <var-value>http,ftp</var-value>
+	    </var>
+	  </field>
+	  <field property="byteRangeArray" depends="byteRangeArray">
+	    <arg key="byteRangeArray要素" position="0" />
+	    <arg key="${var:minByteLength}" position="1" resource="false" />
+	    <arg key="${var:maxByteLength}" position="2" resource="false" />
+	    <var>
+	      <var-name>minByteLength</var-name>
+	      <var-value>20</var-value>
+	    </var>
+	    <var>
+	      <var-name>maxByteLength</var-name>
+	      <var-value>30</var-value>
+	    </var>
+	    <var>
+	      <var-name>encoding</var-name>
+	      <var-value>UTF-8</var-value>
+	    </var>
+	  </field>    
+	  <field property="dateRangeArray" depends="dateRangeArray">
+	    <arg key="dateRangeArray要素" position="0" />
+	    <arg key="${var:startDate}" position="1" resource="false" />
+	    <arg key="${var:endDate}" position="2" resource="false" />
+	    <var>
+	      <var-name>startDate</var-name>
+	      <var-value>2000/1/1</var-value>
+	    </var>
+	    <var>
+	     <var-name>endDate</var-name>
+	      <var-value>2000/12/31</var-value>
+	    </var>
+	    <var>
+	      <var-name>datePattern</var-name>
+	      <var-value>yyyy/MM/dd</var-value>
+	    </var>
+	  </field>
+    </form>
+    -->
+  </formset>
+</form-validation>
