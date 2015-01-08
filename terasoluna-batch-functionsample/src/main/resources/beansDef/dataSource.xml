@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- DBCPのデータソースを設定する。 -->
+    <context:property-placeholder location="mybatis/jdbc.properties"
+        order="2" ignore-unresolvable="true" />
+    <bean id="dataSource" destroy-method="close"
+        class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxActive" value="10" />
+        <property name="maxIdle" value="1" />
+        <property name="maxWait" value="5000" />
+    </bean>
+
+    <!-- LOBフィールドを扱うためのOracleLobHandlerの定義 -->
+    <bean id="oracleLobHandler"
+        class="org.springframework.jdbc.support.lob.OracleLobHandler">
+        <property name="nativeJdbcExtractor" ref="simpleExtractor" />
+    </bean>
+
+    <bean id="simpleExtractor"
+        class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor">
+        <property name="nativeConnectionNecessaryForNativeStatements"
+            value="true" />
+        <property name="nativeConnectionNecessaryForNativePreparedStatements"
+            value="true" />
+        <property name="nativeConnectionNecessaryForNativeCallableStatements"
+            value="true" />
+    </bean>
+
+    <!-- SqlSessionFactory定義 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="mybatis/mybatis-config.xml" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- SqlSessionTemplate定義 -->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="REUSE" />
+    </bean>
+
+    <!-- バッチ更新用SqlSessionTemplate定義 -->
+    <bean id="batchSqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="BATCH" />
+    </bean>
+
+    <!-- トランザクションマネージャの定義 -->
+    <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+        <!-- 複数DB接続を行うためにトランザクション同期を行わない設定 -->
+        <property name="transactionSynchronization" value="2" />
+    </bean>
+</beans>

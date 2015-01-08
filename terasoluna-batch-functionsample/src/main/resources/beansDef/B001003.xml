@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- アノテーションによる設定 -->
+    <context:annotation-config />
+
+    <!-- 共通コンテキスト(フレームワークの共通機能を使う場合、かならずインポートすること。) -->
+    <import resource="classpath:beansDef/commonContext.xml" />
+
+    <!-- データソース設定 -->
+    <import resource="classpath:beansDef/dataSource.xml" />
+
+    <!-- コンポーネントスキャン設定 -->
+    <context:component-scan
+        base-package="jp.terasoluna.batch.functionsample.b001.b001003" />
+
+    <!-- B001003BatchDao設定 -->
+    <bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="jp.terasoluna.batch.functionsample.b001.b001003.B001003BatchDao" />
+        <property name="sqlSessionTemplate" ref="batchSqlSessionTemplate" />
+    </bean>
+
+</beans>
