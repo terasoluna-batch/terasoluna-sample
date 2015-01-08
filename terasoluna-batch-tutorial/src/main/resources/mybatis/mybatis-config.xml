@@ -9,8 +9,4 @@
         <setting name="localCacheScope" value="STATEMENT" />
     </settings>
 
-    <typeAliases>
-        <package name="jp.terasoluna.batch.sample.b000001" />
-    </typeAliases>
-
 </configuration>
