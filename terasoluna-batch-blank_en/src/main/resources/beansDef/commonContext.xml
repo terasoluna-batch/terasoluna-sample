@@ -112,24 +112,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
         </entry>
     </util:map>
 
-    <!-- Definition of SqlSessionFactory -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="configLocation" value="mybatis/mybatis-config.xml" />
-        <property name="dataSource" ref="dataSource" />
-    </bean>
-
-    <!-- Definition of SqlSessionTemplate -->
-    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg index="0" ref="sqlSessionFactory" />
-        <constructor-arg index="1" value="REUSE" />
-    </bean>
-
-    <!-- Definition of SqlSessionFactory for BatchUpdate -->
-    <bean id="batchSqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg index="0" ref="sqlSessionFactory" />
-        <constructor-arg index="1" value="BATCH" />
-    </bean>
-
     <!-- Definition of factory class that create input check class -->
     <bean id="validatorFactory"
         class="jp.terasoluna.fw.validation.springmodules.DefaultValidatorFactoryEx">
