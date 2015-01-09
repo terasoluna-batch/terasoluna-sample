@@ -1,6 +1,7 @@
 package jp.terasoluna.batch.functionsample.b009.b009002;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import jp.terasoluna.batch.functionsample.b009.CsvRecord;
 import jp.terasoluna.batch.functionsample.b009.CustomCollectorExceptionHandler;
@@ -13,8 +14,6 @@ import jp.terasoluna.fw.collector.util.CollectorUtility;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Validator;
 
@@ -41,9 +40,9 @@ public class B009002BLogic extends AbstractTransactionBLogic {
     @Inject
     private B009002BatchDao dao;
 
-    @Autowired
-    @Qualifier("beanValidator")
-    private Validator beanValidator = null;
+    @Inject
+    @Named("beanValidator")
+    private Validator beanValidator;
 
     public int doMain(BLogicParam arg0) {
 

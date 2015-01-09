@@ -3,6 +3,7 @@ package jp.terasoluna.batch.functionsample.b008.b008001;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import jp.terasoluna.batch.functionsample.b008.ZipCode;
 import jp.terasoluna.fw.batch.blogic.BLogic;
@@ -15,10 +16,8 @@ import jp.terasoluna.fw.collector.util.CollectorUtility;
 import jp.terasoluna.fw.collector.util.ControlBreakChecker;
 import jp.terasoluna.fw.file.dao.FileQueryDAO;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
@@ -42,22 +41,22 @@ import org.springframework.transaction.TransactionStatus;
 @Component
 public class B008001BLogic implements BLogic {
 
-    private Log log = LogFactory.getLog(B008001BLogic.class);
+    private Logger log = LoggerFactory.getLogger(B008001BLogic.class);
 
     private static final int BATCH_NORMAL_END = 0;
 
     private static final String INPUT_FILE = "C:\\tmp\\KEN_ALL.CSV";
 
-    @Autowired
-    @Qualifier("csvFileQueryDAO")
-    private FileQueryDAO csvFileQueryDAO = null;
+    @Inject
+    @Named("csvFileQueryDAO")
+    private FileQueryDAO csvFileQueryDAO;
 
     @Inject
     private B008001BatchDao dao;
 
-    @Autowired
-    @Qualifier("transactionManager")
-    private PlatformTransactionManager transactionManager = null;
+    @Inject
+    @Named("transactionManager")
+    private PlatformTransactionManager transactionManager;
 
     public int execute(BLogicParam param) {
         TransactionStatus stat = null;

@@ -3,6 +3,9 @@ package jp.terasoluna.batch.functionsample.b009.b009001;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import jp.terasoluna.batch.functionsample.b009.CsvRecord;
 import jp.terasoluna.batch.functionsample.b009.SkipValidationErrorHandler;
 import jp.terasoluna.fw.batch.blogic.BLogic;
@@ -17,8 +20,6 @@ import jp.terasoluna.fw.file.dao.FileUpdateDAO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -47,17 +48,17 @@ public class B009001BLogic implements BLogic {
 
     private static final String OUTPUT_FILE = "C:\\tmp\\outputB009001.csv";
 
-    @Autowired
-    @Qualifier("csvFileQueryDAO")
-    private FileQueryDAO csvFileQueryDAO = null;
+    @Inject
+    @Named("csvFileQueryDAO")
+    private FileQueryDAO csvFileQueryDAO;
 
-    @Autowired
-    @Qualifier("csvFileUpdateDAO")
-    private FileUpdateDAO csvFileUpdateDAO = null;
+    @Inject
+    @Named("csvFileUpdateDAO")
+    private FileUpdateDAO csvFileUpdateDAO;
 
-    @Autowired
-    @Qualifier("jsr303BeanValidator")
-    private Validator beanValidator = null;
+    @Inject
+    @Named("jsr303BeanValidator")
+    private Validator beanValidator;
 
     public int execute(BLogicParam arg0) {
 

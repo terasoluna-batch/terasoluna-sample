@@ -1,11 +1,11 @@
 package jp.terasoluna.batch.functionsample.b004.b004001;
 
+import javax.inject.Inject;
+
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.file.util.FileControl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,8 +22,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class B004001BLogic implements BLogic {
 
-    @Autowired()
-    @Qualifier("fileControl")
+    @Inject
     FileControl fileControl = null;
 
     public int execute(BLogicParam arg0) {

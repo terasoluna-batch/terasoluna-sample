@@ -5,30 +5,29 @@ import jp.terasoluna.fw.collector.exception.CollectorExceptionHandlerStatus;
 import jp.terasoluna.fw.collector.validate.ValidationErrorException;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author btyamurat
- *
  */
 public class CustomCollectorExceptionHandler implements
                                             CollectorExceptionHandler {
     /**
      * ログ.<br>
      */
-    private static Log log = LogFactory
-            .getLog(CustomCollectorExceptionHandler.class);
+    private static Logger log = LoggerFactory
+            .getLogger(CustomCollectorExceptionHandler.class);
 
     /**
      * 入力チェックエラー件数.<br>
      */
     protected int errorFieldCount = 0;
-    
+
     public CollectorExceptionHandlerStatus handleException(
             DataValueObject dataValueObject) {
         errorFieldCount++;
-        
+
         if (log.isErrorEnabled()) {
             if (dataValueObject.getThrowable() instanceof ValidationErrorException) {
                 log.error("ValidationErrorException is Thrown...");

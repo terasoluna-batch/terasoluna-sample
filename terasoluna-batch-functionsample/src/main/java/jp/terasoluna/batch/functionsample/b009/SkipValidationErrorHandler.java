@@ -25,8 +25,8 @@ import jp.terasoluna.fw.collector.validate.ValidateErrorStatus;
 import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
@@ -41,8 +41,8 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(SkipValidationErrorHandler.class);
+    private static Logger logger = LoggerFactory
+            .getLogger(SkipValidationErrorHandler.class);
 
     /** ÉçÉOÉåÉxÉã(TRACE) */
     public static final String LOG_LEVEL_TRACE = "trace";
@@ -167,9 +167,6 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
         } else if (LOG_LEVEL_ERROR.equalsIgnoreCase(this.logLevel)
                 && logger.isErrorEnabled()) {
             logger.error(logEdit(dataValueObject, errors));
-        } else if (LOG_LEVEL_FATAL.equalsIgnoreCase(this.logLevel)
-                && logger.isFatalEnabled()) {
-            logger.fatal(logEdit(dataValueObject, errors));
         } else if (logger.isTraceEnabled()) {
             logger.trace(logEdit(dataValueObject, errors));
         }

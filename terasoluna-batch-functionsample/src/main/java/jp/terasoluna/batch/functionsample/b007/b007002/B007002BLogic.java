@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import jp.terasoluna.batch.functionsample.b007.CsvRecord;
 import jp.terasoluna.fw.batch.blogic.BLogic;
@@ -18,8 +19,6 @@ import jp.terasoluna.fw.file.dao.FileUpdateDAO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
@@ -46,13 +45,13 @@ public class B007002BLogic implements BLogic {
     @Inject
     private B007002Dao dao;
 
-    @Autowired
-    @Qualifier("csvFileUpdateDAO")
-    private FileUpdateDAO csvFileUpdateDAO = null;
+    @Inject
+    @Named("csvFileUpdateDAO")
+    private FileUpdateDAO csvFileUpdateDAO;
 
-    @Autowired
-    @Qualifier("transactionManager")
-    private PlatformTransactionManager transactionManager = null;
+    @Inject
+    @Named("transactionManager")
+    private PlatformTransactionManager transactionManager;
 
     public int execute(BLogicParam arg0) {
 

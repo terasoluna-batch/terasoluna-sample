@@ -4,8 +4,8 @@ import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.util.MessageUtil;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class B005001BLogic implements BLogic {
 
-    private static Log log = LogFactory.getLog(B005001BLogic.class);
+    private static Logger log = LoggerFactory.getLogger(B005001BLogic.class);
 
     public int execute(BLogicParam arg0) {
 
