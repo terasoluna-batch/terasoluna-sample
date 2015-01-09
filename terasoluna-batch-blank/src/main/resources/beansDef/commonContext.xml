@@ -112,27 +112,8 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
         </entry>
     </util:map>
 
-    <!-- 入力チェッククラスを生成するファクトリ -->
-    <bean id="validatorFactory"
-        class="jp.terasoluna.fw.validation.springmodules.DefaultValidatorFactoryEx">
-        <property name="validationConfigLocations">
-            <list>
-                <value>/validation/validator-rules.xml</value>
-                <value>/validation/validator-rules-ex.xml</value>
-                <value>/beansDef/validation.xml</value>
-            </list>
-        </property>
-    </bean>
-
-    <!-- デフォルト入力チェッククラス クラス名をForm名として扱う -->
+    <!-- 入力チェック用Validator -->
     <bean id="beanValidator"
-        class="org.springmodules.validation.commons.DefaultBeanValidator">
-        <property name="useFullyQualifiedClassName" value="true" />
-        <property name="validatorFactory" ref="validatorFactory" />
-    </bean>
-
-    <!-- JSR-303 Bean Validator定義 -->
-    <bean id="jsr303BeanValidator"
         class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
 </beans>
