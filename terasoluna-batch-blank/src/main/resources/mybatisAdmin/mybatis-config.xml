@@ -10,7 +10,7 @@
     </settings>
 
     <typeAliases>
-        <package name="jp.terasoluna.fw.batch.executor.vo"/>
+        <package name="jp.terasoluna.fw.batch.executor.vo" />
     </typeAliases>
 
 </configuration>
