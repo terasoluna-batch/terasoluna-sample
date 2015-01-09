@@ -5,7 +5,7 @@ import jp.terasoluna.batch.functionsample.b007.CsvRecord;
 public interface B007001BatchDao {
 
     /**
-     * EMPLOYテーブルのデータを削除する。
+     * EMPLOYEEテーブルのデータを削除する。
      * @param object SQLパラメータ引数オブジェクト
      * @param handler ResultHandler
      */

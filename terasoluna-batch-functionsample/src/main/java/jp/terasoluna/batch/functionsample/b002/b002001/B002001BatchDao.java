@@ -5,7 +5,7 @@ import org.apache.ibatis.session.ResultHandler;
 public interface B002001BatchDao {
 
     /**
-     * EMPLOYテーブルのデータを取得する。
+     * EMPLOYEEテーブルのデータを取得する。
      * @param object SQLパラメータ引数オブジェクト
      * @param handler ResultHandler
      */
