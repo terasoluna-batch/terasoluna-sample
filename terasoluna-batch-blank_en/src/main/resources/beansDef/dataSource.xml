@@ -8,7 +8,7 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- Definition of DBCP datasource  -->
+    <!-- Definition of DBCP datasource -->
     <context:property-placeholder location="mybatis/jdbc.properties" />
     <bean id="dataSource" destroy-method="close"
         class="org.apache.commons.dbcp.BasicDataSource">
@@ -21,7 +21,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <property name="maxWait" value="5000" />
     </bean>
 
-    <!-- Definition of OracleLobHandler for dealing with LOB field  -->
+    <!-- Definition of OracleLobHandler for dealing with LOB field -->
     <bean id="oracleLobHandler"
         class="org.springframework.jdbc.support.lob.OracleLobHandler">
         <property name="nativeJdbcExtractor" ref="simpleExtractor" />
@@ -59,9 +59,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <bean id="transactionManager"
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
-        <!-- Setting of avoid transaction synchronization to connect with multiple Databases -->
-        <!-- When multiple DataSource definitions are to be used, remove the comment-out from below. -->
-        <!-- <property name="transactionSynchronization" value="2"/> -->
     </bean>
 
 </beans>

@@ -59,9 +59,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <bean id="transactionManager"
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
-        <!-- 複数DB接続を行うためにトランザクション同期を行わない設定 -->
-        <!-- 複数のDataSource定義が使用される場合、下のコメントアウトを削除してください。 -->
-        <!-- <property name="transactionSynchronization" value="2"/> -->
     </bean>
 
 </beans>
