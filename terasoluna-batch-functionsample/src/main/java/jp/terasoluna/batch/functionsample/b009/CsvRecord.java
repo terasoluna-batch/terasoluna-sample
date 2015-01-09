@@ -1,6 +1,7 @@
 package jp.terasoluna.batch.functionsample.b009;
 
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -37,6 +38,7 @@ public class CsvRecord {
     // ”N—î (4”Ô–Ú‚ÌƒJƒ‰ƒ€)
     @InputFileColumn(columnIndex = 3)
     @OutputFileColumn(columnIndex = 3)
+    @Min(0)
     @Max(99)
     private int age = 0;
 
