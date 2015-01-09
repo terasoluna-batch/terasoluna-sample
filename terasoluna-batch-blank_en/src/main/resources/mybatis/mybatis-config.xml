@@ -11,7 +11,7 @@
 
     <typeAliases>
         <package name="jp.terasoluna.batch.sample.b000001" />
-        <!-- add package tag as needed.  -->
+        <!-- add type alias settings as needed.  -->
         <!-- <package name="jp.terasoluna.batch.sample.b00000x" /> -->
     </typeAliases>
 
