@@ -36,11 +36,11 @@ public class B007001BLogic extends AbstractTransactionBLogic {
     private static final String INPUT_FILE = "C:\\tmp\\input.csv";
 
     @Inject
-    private B007001BatchDao dao;
+    B007001BatchDao dao;
 
     @Inject
     @Named("csvFileQueryDAO")
-    private FileQueryDAO csvFileQueryDAO;
+    FileQueryDAO csvFileQueryDAO;
 
     @Override
     public int doMain(BLogicParam arg0) {

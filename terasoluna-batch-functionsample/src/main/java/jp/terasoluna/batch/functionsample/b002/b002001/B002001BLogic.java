@@ -33,7 +33,7 @@ public class B002001BLogic extends AbstractTransactionBLogic {
     private static final int BATCH_NORMAL_END = 0;
 
     @Inject
-    private B002001BatchDao dao;
+    B002001BatchDao dao;
 
     @Override
     public int doMain(BLogicParam arg0) {
@@ -50,8 +50,8 @@ public class B002001BLogic extends AbstractTransactionBLogic {
         }
 
         // コレクタ生成(入力データ取得機能)
-        Collector<B002001Param> collector = new DBCollector<B002001Param>(
-                dao, "collectEmployee", null);
+        Collector<B002001Param> collector = new DBCollector<B002001Param>(dao,
+                "collectEmployee", null);
 
         try {
             while (collector.hasNext()) {

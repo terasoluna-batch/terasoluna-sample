@@ -49,15 +49,15 @@ public class B009001BLogic implements BLogic {
 
     @Inject
     @Named("csvFileQueryDAO")
-    private FileQueryDAO csvFileQueryDAO;
+    FileQueryDAO csvFileQueryDAO;
 
     @Inject
     @Named("csvFileUpdateDAO")
-    private FileUpdateDAO csvFileUpdateDAO;
+    FileUpdateDAO csvFileUpdateDAO;
 
     @Inject
     @Named("beanValidator")
-    private Validator beanValidator;
+    Validator beanValidator;
 
     public int execute(BLogicParam arg0) {
 

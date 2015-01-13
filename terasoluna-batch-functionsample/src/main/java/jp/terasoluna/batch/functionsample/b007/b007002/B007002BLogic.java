@@ -43,15 +43,14 @@ public class B007002BLogic implements BLogic {
     private static final String OUTPUT_FILE = "C:\\tmp\\outputB007002.csv";
 
     @Inject
-    private B007002Dao dao;
+    B007002Dao dao;
 
     @Inject
     @Named("csvFileUpdateDAO")
-    private FileUpdateDAO csvFileUpdateDAO;
+    FileUpdateDAO csvFileUpdateDAO;
 
     @Inject
-    @Named("transactionManager")
-    private PlatformTransactionManager transactionManager;
+    PlatformTransactionManager transactionManager;
 
     public int execute(BLogicParam arg0) {
 

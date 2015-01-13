@@ -34,7 +34,7 @@ public class B001001BLogic extends AbstractTransactionBLogic {
     private static final int BATCH_NORMAL_END = 0;
 
     @Inject
-    private B001001Dao dao;
+    B001001Dao dao;
 
     public int doMain(BLogicParam arg0) {
 

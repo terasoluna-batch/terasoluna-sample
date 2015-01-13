@@ -1,7 +1,6 @@
 package jp.terasoluna.batch.functionsample.b001.b001004;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
@@ -39,11 +38,10 @@ public class B001004BLogic implements BLogic {
     private static final int BATCH_NORMAL_END = 0;
 
     @Inject
-    private B001004BatchDao dao;
+    B001004BatchDao dao;
 
     @Inject
-    @Named("transactionManager")
-    private PlatformTransactionManager transactionManager;
+    PlatformTransactionManager transactionManager;
 
     public int execute(BLogicParam arg0) {
 

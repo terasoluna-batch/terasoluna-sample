@@ -49,14 +49,13 @@ public class B008001BLogic implements BLogic {
 
     @Inject
     @Named("csvFileQueryDAO")
-    private FileQueryDAO csvFileQueryDAO;
+    FileQueryDAO csvFileQueryDAO;
 
     @Inject
-    private B008001BatchDao dao;
+    B008001BatchDao dao;
 
     @Inject
-    @Named("transactionManager")
-    private PlatformTransactionManager transactionManager;
+    PlatformTransactionManager transactionManager;
 
     public int execute(BLogicParam param) {
         TransactionStatus stat = null;
@@ -167,6 +166,10 @@ public class B008001BLogic implements BLogic {
                             log.info(sb.toString());
                         }
 
+                        // トランザクションコミットとトランザクション開始(バッチ更新実行)
+                        stat = BatchUtil.commitRestartTransaction(
+                                transactionManager, stat);
+
                         // カウンタリセット
                         municipalDistrictCnt = 0;
                         townRegionCnt = 0;
@@ -175,15 +178,7 @@ public class B008001BLogic implements BLogic {
                 }
             }
 
-            if (log.isInfoEnabled()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("バッチ更新実行 ");
-                sb.append(insertCount);
-                sb.append("件");
-                log.info(sb.toString());
-            }
-
-            // トランザクションコミット
+            // トランザクションコミット(バッチ更新実行)
             BatchUtil.commitTransaction(transactionManager, stat);
         } catch (Exception e) {
             throw new BatchException(e);
