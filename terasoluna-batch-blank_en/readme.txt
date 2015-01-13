@@ -16,7 +16,7 @@ Preconditions
   The behavior has been confirmed for the version written on the right, however this does not imply limiting behavior in      environments other than the versions stated below.
   See the manuals on web if for installation as well as configuration procedure for further details.
 
-   - Java SE Runtime Environment Standard Edition 1.6.0
+   - Java SE Runtime Environment Standard Edition 1.7.0
    - Eclipse SDK 3.7.2 
    - PostgreSQL Database Server 8.4
      or
@@ -31,11 +31,11 @@ How to import the project
 
    2. Import to Eclipse
       (1) Open Eclipse and select "Import" from the "File" menu.
-      (2) The import dialog will appear. From the list of import options, select "Existing Projects into Workspace"
+      (2) The import dialog will appear. From the list of import options, select "Existing Maven Projects"
           and then click "Next".
-      (3) In the new dialog, click on the "Select root directory" radio button 
-          and then click the "Browse" button on the right.
-      (4) Click on the "Finish" button at the bottom of the dialog 
-          after confirming "Copy projects into workspace" check box is checked
+      (3) In the new dialog, click the "Browse" button on the right of "Root directory".
+      (4) Click on the "Finish" button at the bottom of the dialog
+          after confirming "/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(version number).jar"
+          check box is checked
 -------------------------------------------------------------------------------
 Copyright 2015 NTT DATA Corporation.
