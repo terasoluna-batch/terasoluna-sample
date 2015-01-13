@@ -4,8 +4,12 @@
 
 <mapper namespace="jp.terasoluna.batch.functionsample.b009.b009002.B009002BatchDao">
 
+    <delete id="deleteEmployee2">
+        DELETE FROM EMPLOYEE2
+    </delete>
+
     <select id="collectEmployee"
-        resultType="jp.terasoluna.batch.functionsample.b009.CsvRecord">
+        resultType="jp.terasoluna.batch.functionsample.b009.b009002.CsvRecord">
         SELECT
         employee_id as id
         ,employee_family_name as familyName
@@ -16,7 +20,7 @@
     </select>
 
     <insert id="insertEmployee2"
-        parameterType="jp.terasoluna.batch.functionsample.b009.CsvRecord">
+        parameterType="jp.terasoluna.batch.functionsample.b009.b009002.CsvRecord">
         INSERT
         INTO
         employee2

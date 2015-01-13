@@ -1,4 +1,4 @@
-package jp.terasoluna.batch.functionsample.b009.b009001;
+package jp.terasoluna.batch.functionsample.b009.b009003;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 /**
- * 入力データ取得機能を使用した際の入力チェック機能のサンプル<br>
+ * 入力データ取得機能を使用した際の入力チェック機能(SpringModulesValidation)のサンプル<br>
  * <p>
  * 事前準備：C:\tmp配下にinputB009001.csvファイルを配置すること<br>
  * </p>
@@ -35,29 +35,29 @@ import org.springframework.validation.Validator;
  * </p>
  */
 @Component
-public class B009001BLogic implements BLogic {
+public class B009003BLogic implements BLogic {
 
-    private Logger log = LoggerFactory.getLogger(B009001BLogic.class);
+    private Logger log = LoggerFactory.getLogger(B009003BLogic.class);
 
     private static final int BATCH_NORMAL_END = 0;
 
     private static final int BATCH_ABNORMAL_END = 100;
 
-    private static final String INPUT_FILE = "C:\\tmp\\inputB009001.csv";
+    private static final String INPUT_FILE = "C:\\tmp\\inputB009003.csv";
 
-    private static final String OUTPUT_FILE = "C:\\tmp\\outputB009001.csv";
+    private static final String OUTPUT_FILE = "C:\\tmp\\outputB009003.csv";
 
     @Inject
     @Named("csvFileQueryDAO")
-    private FileQueryDAO csvFileQueryDAO;
+    FileQueryDAO csvFileQueryDAO;
 
     @Inject
     @Named("csvFileUpdateDAO")
-    private FileUpdateDAO csvFileUpdateDAO;
+    FileUpdateDAO csvFileUpdateDAO;
 
     @Inject
-    @Named("beanValidator")
-    private Validator beanValidator;
+    @Named("springBeanValidator")
+    Validator beanValidator;
 
     public int execute(BLogicParam arg0) {
 

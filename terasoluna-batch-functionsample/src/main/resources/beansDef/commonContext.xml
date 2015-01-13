@@ -135,15 +135,15 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         </property>
     </bean>
 
-    <!-- デフォルト入力チェッククラス クラス名をForm名として扱う -->
-    <bean id="beanValidator"
+    <!-- SpringModulesValidation -->
+    <bean id="springBeanValidator"
         class="org.springmodules.validation.commons.DefaultBeanValidator">
         <property name="useFullyQualifiedClassName" value="true" />
         <property name="validatorFactory" ref="validatorFactory" />
     </bean>
 
-    <!-- JSR-303 Bean Validator定義 -->
-    <bean id="jsr303BeanValidator"
+    <!-- BeanValidation -->
+    <bean id="beanValidator"
         class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
 </beans>

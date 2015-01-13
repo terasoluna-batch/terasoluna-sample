@@ -3,7 +3,6 @@ package jp.terasoluna.batch.functionsample.b009.b009002;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import jp.terasoluna.batch.functionsample.b009.CsvRecord;
 import jp.terasoluna.batch.functionsample.b009.CustomCollectorExceptionHandler;
 import jp.terasoluna.fw.batch.blogic.AbstractTransactionBLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
@@ -38,13 +37,23 @@ public class B009002BLogic extends AbstractTransactionBLogic {
     private static final int BATCH_NORMAL_END = 0;
 
     @Inject
-    private B009002BatchDao dao;
+    B009002BatchDao dao;
 
     @Inject
     @Named("beanValidator")
-    private Validator beanValidator;
+    Validator beanValidator;
 
     public int doMain(BLogicParam arg0) {
+
+        if (log.isInfoEnabled()) {
+            log.info("EMPLOYEE2テーブル初期化:開始");
+        }
+
+        dao.deleteEmployee2();
+
+        if (log.isInfoEnabled()) {
+            log.info("EMPLOYEE2テーブル初期化:終了");
+        }
 
         int returnCode = BATCH_NORMAL_END;
 
@@ -68,6 +77,7 @@ public class B009002BLogic extends AbstractTransactionBLogic {
                     log.info("NAME:" + csvRecord.getFamilyName());
                     // バッチ更新に追加
                     dao.insertEmployee2(csvRecord);
+                    insertCount++;
                 }
             }
 

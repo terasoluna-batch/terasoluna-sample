@@ -5,7 +5,7 @@
 
 <form-validation>
   <formset> 
-  		<form name="jp.terasoluna.batch.functionsample.b009.CsvRecord">
+  		<form name="jp.terasoluna.batch.functionsample.b009.b009003.CsvRecord">
 			<field property="id" depends="required">
 				<arg key="id要素" position="0" />
 			</field>
