@@ -73,10 +73,6 @@
                         <artifactId>commons-pool</artifactId>
                     </exclusion>
                     <exclusion>
-                        <groupId>commons-lang</groupId>
-                        <artifactId>commons-lang</artifactId>
-                    </exclusion>
-                    <exclusion>
                         <groupId>jp.terasoluna.fw</groupId>
                         <artifactId>terasoluna-validator</artifactId>
                     </exclusion>
@@ -216,6 +212,11 @@
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>javax.el-api</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>

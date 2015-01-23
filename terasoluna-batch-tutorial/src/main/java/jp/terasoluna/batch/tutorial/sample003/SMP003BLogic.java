@@ -49,7 +49,6 @@ public class SMP003BLogic extends AbstractTransactionBLogic {
     protected FileQueryDAO csvFileQueryDAO;
 
     @Inject
-    @Named("jsr303BeanValidator")
     protected Validator validator;
 
     public int doMain(BLogicParam param) {
