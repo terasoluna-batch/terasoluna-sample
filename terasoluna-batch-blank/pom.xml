@@ -35,7 +35,6 @@
 
     <properties>
         <terasoluna-fw-batch.version>3.5.0-SNAPSHOT</terasoluna-fw-batch.version>
-        <maven-assembly-plugin.version>2.5</maven-assembly-plugin.version>
         <classmate.version>1.0.0</classmate.version>
         <jboss-logging.version>3.1.3.GA</jboss-logging.version>
     </properties>
@@ -244,7 +243,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven-assembly-plugin.version}</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/main/assembly/distribution.xml</descriptor>
