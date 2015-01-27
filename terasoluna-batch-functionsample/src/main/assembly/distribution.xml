@@ -7,7 +7,6 @@
 
     <id>distribution</id>
     <formats>
-        <format>dir</format>
         <format>zip</format>
     </formats>
     <includeBaseDirectory>true</includeBaseDirectory>
@@ -19,15 +18,6 @@
             <include>mybatis/jdbc.properties</include>
             <include>mybatisAdmin/jdbc.properties</include>
           </includes>
-        </fileSet>
-        <fileSet>
-            <directory>inputFile</directory>
-        </fileSet>
-        <fileSet>
-            <directory>outputFile</directory>
-            <excludes>
-              <exclude>*</exclude>
-            </excludes>
         </fileSet>
         <fileSet>
             <directory>scripts</directory>
@@ -43,5 +33,4 @@
             <outputDirectory>lib</outputDirectory>
         </dependencySet>
     </dependencySets>
-
 </assembly>
