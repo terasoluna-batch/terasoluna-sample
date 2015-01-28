@@ -1,2 +1,2 @@
 @ECHO OFF
-SET CLASSPATH=lib\*
+SET CLASSPATH=..\lib\*
