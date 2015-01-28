@@ -20,10 +20,10 @@
   別途Web上の利用ガイド等を参照してください。 
 
   ・Java SE Runtime Environment Standard Edition 1.7.0
-  ・Eclipse SDK 3.7.2 
-  ・PostgreSQL Database Server 8.4	
+  ・Eclipse SDK 3.7.2 + Mavenプラグイン
+  ・PostgreSQL 9.3
   　または
-  ・Oracle11g
+  ・Oracle 12c
 
 ■  プロジェクトのインポート：
 
