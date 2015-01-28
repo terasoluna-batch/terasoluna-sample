@@ -21,22 +21,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <property name="maxWaitMillis" value="5000" />
     </bean>
 
-    <!-- LOBフィールドを扱うためのOracleLobHandlerの定義 -->
-    <bean id="oracleLobHandler"
-        class="org.springframework.jdbc.support.lob.OracleLobHandler">
-        <property name="nativeJdbcExtractor" ref="simpleExtractor" />
-    </bean>
-
-    <bean id="simpleExtractor"
-        class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor">
-        <property name="nativeConnectionNecessaryForNativeStatements"
-            value="true" />
-        <property name="nativeConnectionNecessaryForNativePreparedStatements"
-            value="true" />
-        <property name="nativeConnectionNecessaryForNativeCallableStatements"
-            value="true" />
-    </bean>
-
     <!-- SqlSessionFactory定義 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="mybatis/mybatis-config.xml" />
