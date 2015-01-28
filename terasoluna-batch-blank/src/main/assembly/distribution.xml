@@ -7,28 +7,10 @@
 
     <id>distribution</id>
     <formats>
-        <format>dir</format>
         <format>zip</format>
     </formats>
     <includeBaseDirectory>true</includeBaseDirectory>
     <fileSets>
-        <fileSet>
-          <directory>src/main/resources</directory>
-          <outputDirectory>conf</outputDirectory>
-          <includes>
-            <include>mybatis/jdbc.properties</include>
-            <include>mybatisAdmin/jdbc.properties</include>
-          </includes>
-        </fileSet>
-        <fileSet>
-            <directory>inputFile</directory>
-        </fileSet>
-        <fileSet>
-            <directory>outputFile</directory>
-            <excludes>
-              <exclude>*</exclude>
-            </excludes>
-        </fileSet>
         <fileSet>
             <directory>scripts</directory>
         </fileSet>
