@@ -2,7 +2,7 @@
       TERASOLUNA Batch Framework for Java
       ブランクプロジェクト 導入手順
 
-      Copyright 2011 NTT DATA Corporation.
+      Copyright 2015 NTT DATA Corporation.
 *******************************************************************************
 
 ■  概要：
@@ -19,30 +19,30 @@
   また、これらのインストール及び設定の手順については、
   別途Web上の利用ガイド等を参照してください。 
 
-  ・Java SE Runtime Environment Standard Edition 1.6.0
-  ・Eclipse SDK 3.4.2 
-  ・PostgreSQL Database Server 8.4	
+  ・Java SE Runtime Environment Standard Edition 1.7.0
+  ・Eclipse SDK 3.7.2 + Mavenプラグイン
+  ・PostgreSQL 9.3
   　または
-  ・Oracle11g
+  ・Oracle 12c
 
 ■  プロジェクトのインポート：
 
   ①ZIPファイルの展開
-    terasoluna-batch-blank-(バージョン番号).zipを任意のフォルダに展開します。 
+    terasoluna-batch-blank4j-(バージョン番号).zipを任意のフォルダに展開します。 
 
-    展開されたterasoluna-batch-blank-(バージョン番号).zipのフォルダ名が
+    展開されたterasoluna-batch4j-blank-(バージョン番号).zipのフォルダ名が
     「terasoluna-batch-blank」であることを確認します。
     展開ツールや展開のしかたによっては、フォルダ名が
-    「terasoluna-batch-blank-(バージョン番号)」となる場合がありますが、
+    「terasoluna-batch-blank4j-(バージョン番号)」となる場合がありますが、
     フォルダ名を手動で「terasoluna-batch-blank」に変更してください。 
 
   ②Eclipseへのインポート
     ・Eclipse画面にて「ファイル＞インポート」を実行し、
-      「一般＞既存プロジェクトをワークスペースへ」を選択し「次へ」をクリックします。
-    ・「ルート・ディレクトリーの選択」にチェックが入った状態で「参照」をクリックし、
-    　プロジェクト内容のブラウズから②で展開したディレクトリを指定します。
-    ・「プロジェクトをワークスペースへコピー」にチェックが入っていることを確認後、
-      「終了」をクリックします。
+      「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
+    ・「RootDirectory:」の「Browse...」をクリックし、
+    　プロジェクト内容のブラウズから①で展開したディレクトリを指定します。
+    ・「/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(バージョン番号).jar」に
+    　チェックが入っていることを確認後、「完了」をクリックします。
 
 -------------------------------------------------------------------------------
-Copyright 2011 NTT DATA Corporation.
+Copyright 2015 NTT DATA Corporation.

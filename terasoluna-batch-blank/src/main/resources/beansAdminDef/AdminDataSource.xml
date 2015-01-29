@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- DBCPのデータソースを設定する。 -->
+    <context:property-placeholder location="mybatisAdmin/jdbc.properties" />
+    <bean id="adminDataSource" destroy-method="close"
+        class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxTotal" value="5" />
+        <property name="maxIdle" value="1" />
+        <property name="maxWaitMillis" value="5000" />
+    </bean>
+
+    <!-- トランザクションマネージャの定義 -->
+    <bean id="adminTransactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="adminDataSource" />
+    </bean>
+
+    <!-- システム共通SqlSessionFactory定義 -->
+    <bean id="sysSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="mybatisAdmin/mybatis-config.xml" />
+        <property name="dataSource" ref="adminDataSource" />
+    </bean>
+
+    <!-- システム利用DAO定義(Oracle)
+        <bean id="sysDao" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+            <property name="mapperInterface" value="jp.terasoluna.fw.batch.executor.dao.SystemOracleDao" />
+            <property name="sqlSessionFactory" ref="sysSqlSessionFactory" />
+        </bean>
+    -->
+
+    <!-- システム利用DAO定義(PostgreSQL) -->
+    <bean id="sysDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="jp.terasoluna.fw.batch.executor.dao.SystemPostgreSQLDao" />
+        <property name="sqlSessionFactory" ref="sysSqlSessionFactory" />
+    </bean>
+
+</beans>
