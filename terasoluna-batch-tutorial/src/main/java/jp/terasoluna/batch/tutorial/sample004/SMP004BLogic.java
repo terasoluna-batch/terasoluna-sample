@@ -39,7 +39,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
 /**
- * ビジネスロジッククラス。(CSVファイルを読み込み、csvファイルに出力するクラス）
+ * ビジネスロジッククラス。(CSVファイルを読み込み、csvファイルに出力するクラス)
  */
 @Component
 public class SMP004BLogic extends AbstractTransactionBLogic {
@@ -56,7 +56,7 @@ public class SMP004BLogic extends AbstractTransactionBLogic {
 
     public int doMain(BLogicParam param) {
 
-        // ジョブ終了コード(0:正常終了、-1:異常終了）
+        // ジョブ終了コード(0:正常終了、-1:異常終了)
         int returnCode = 0;
 
         // コレクタ

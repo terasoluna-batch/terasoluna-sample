@@ -49,7 +49,7 @@ public class SMP005BLogic extends AbstractTransactionBLogic {
 
     public int doMain(BLogicParam param) {
 
-        // ジョブ終了コード(0:正常終了、-1:異常終了）
+        // ジョブ終了コード(0:正常終了、-1:異常終了)
         int returnCode = 0;
 
         // コレクタ

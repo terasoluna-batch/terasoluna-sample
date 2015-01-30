@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>jp.terasoluna.fw</groupId>
-	<artifactId>terasoluna-batch-tutorial</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>TERASOLUNA Batch Framework for Java Tutorial Project</name>
-	<description>TERASOLUNA Batch Framework for Java Tutorial Project</description>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>jp.terasoluna.fw</groupId>
+    <artifactId>terasoluna-batch-tutorial</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>TERASOLUNA Batch Framework for Java Tutorial Project</name>
+    <description>TERASOLUNA Batch Framework for Java Tutorial Project</description>
 
     <repositories>
         <repository>
@@ -30,17 +30,16 @@
         <groupId>io.spring.platform</groupId>
         <artifactId>platform-bom</artifactId>
         <version>1.1.1.RELEASE</version>
-        <relativePath/>
+        <relativePath />
     </parent>
 
     <properties>
         <terasoluna-fw-batch.version>3.5.0-SNAPSHOT</terasoluna-fw-batch.version>
-        <maven-assembly-plugin.version>2.5</maven-assembly-plugin.version>
         <classmate.version>1.0.0</classmate.version>
         <jboss-logging.version>3.1.3.GA</jboss-logging.version>
     </properties>
 
-    <!-- TODO move to parent project (share dependencies in  batch framework) -->
+    <!-- TODO move to parent project (share dependencies in batch framework) -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -245,7 +244,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven-assembly-plugin.version}</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/main/assembly/distribution.xml</descriptor>

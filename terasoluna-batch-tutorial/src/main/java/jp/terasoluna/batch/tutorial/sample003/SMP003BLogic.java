@@ -33,7 +33,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Validator;
 
 /**
- * ビジネスロジッククラス。(CSVファイルを読み込み、DBにデータを挿入する）
+ * ビジネスロジッククラス。(CSVファイルを読み込み、DBにデータを挿入する)
  */
 @Component
 public class SMP003BLogic extends AbstractTransactionBLogic {
@@ -53,7 +53,7 @@ public class SMP003BLogic extends AbstractTransactionBLogic {
 
     public int doMain(BLogicParam param) {
 
-        // ジョブ終了コード(0:正常終了、-1:異常終了）
+        // ジョブ終了コード(0:正常終了、-1:異常終了)
         int returnCode = 0;
 
         CustomValidationErrorHandler customValidationErrorHandler = new CustomValidationErrorHandler();
