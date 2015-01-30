@@ -16,7 +16,8 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
     <!-- メッセージプロパティファイル設定 -->
     <bean id="messageSource"
         class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basenames" value="messages" />
+        <property name="basenames"
+            value="ValidationMessages, application-messages" />
     </bean>
 
     <!-- ファイル操作ユーティリティ -->
