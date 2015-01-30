@@ -44,10 +44,28 @@
         <dependency>
             <groupId>jp.terasoluna.fw.batch</groupId>
             <artifactId>terasoluna-batch</artifactId>
+            <version>${terasoluna-fw-batch.version}</version>
+            <exclusions>
+                <!-- Use Hibernate Validator -->
+                <exclusion>
+                    <groupId>jp.terasoluna.fw</groupId>
+                    <artifactId>terasoluna-validator</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-validator</groupId>
+                    <artifactId>commons-validator</artifactId>
+                </exclusion>
+                <!-- Use SLF4J -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>jp.terasoluna.fw.lib</groupId>
             <artifactId>terasoluna-collector</artifactId>
+            <version>${terasoluna-fw-batch.version}</version>
         </dependency>
 
         <!-- Data Source -->
