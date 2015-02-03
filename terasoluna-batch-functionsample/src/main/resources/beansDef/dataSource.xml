@@ -44,7 +44,5 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <bean id="transactionManager"
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
-        <!-- 複数DB接続を行うためにトランザクション同期を行わない設定 -->
-        <property name="transactionSynchronization" value="2" />
     </bean>
 </beans>

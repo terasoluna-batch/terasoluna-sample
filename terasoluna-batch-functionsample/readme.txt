@@ -1,5 +1,5 @@
 *******************************************************************************
-      TERASOLUNA Batch Framework for Java 3.x
+      TERASOLUNA Batch Framework for Java
               機能サンプル 導入手順について
 
       Copyright 2007-2015 NTT DATA Corporation.
@@ -71,7 +71,7 @@
       「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
     2.「RootDirectory:」の「Browse...」をクリックし、
     　プロジェクト内容のブラウズから①で展開したディレクトリを指定します。
-    3.「/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(バージョン番号).jar」に
+    3.「/pom.xml jp.terasoluna.fw:terasoluna-batch-functionsample:(バージョン番号).jar」に
     　チェックが入っていることを確認後、「完了」をクリックします。
 
   ④ビルドパスにJDBCドライバを追加
@@ -80,7 +80,7 @@
       ・PostgreSQL
           http://jdbc.postgresql.org/download.html
       ・Oracle
-          http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-112010-090769.html
+          http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html
     2.ビルドパスへの追加
       Eclipse上で、③でインポートした「terasoluna-batch-functionsample」プロジェクトを
       右クリックし、「ビルドパス＞外部アーカイブの追加」をクリックします。
@@ -103,12 +103,13 @@
   ①実行環境の作成
     1.Eclipse上で、③でインポートした「terasoluna-batch-functionsample」プロジェクトを
       右クリックし、「実行＞Maven build...」をクリックします。
-    2.「構成の編集」の「Goals:」に「assembly:assembly」と入力し、「実行」をクリックします。
+    2.「構成の編集」の「Goals:」に「package」と入力し、「実行」をクリックします。
       「BUILD SUCCESS」がログに出力されていることを確認します。
   ②ジョブの起動
      ①で作成した実行環境のscriptフォルダ配下にあるbatファイルから起動します。
      実行環境は、「terasoluna-batch-functionsample」プロジェクトからの相対パスで以下にあります。
-    「target\terasoluna-batch-blank-(バージョン番号)-distribution\terasoluna-batch-blank-(バージョン番号)」
+    「target\terasoluna-batch-functionsample-(バージョン番号)-distribution.zip」
+     こちらを解凍して使用してください。
 
 
 ■動作確認用サンプルのジョブについて
@@ -118,7 +119,7 @@
     1. jp.terasoluna.batch.functionsample.b001
       ・同期型ジョブ実行機能、ビジネスロジック実行機能、トランザクション管理機能、データベースアクセス機能のサンプル
 
-        すべてのデータのfamilyNameが「鈴木」にfirstNameが「太郎」に書き換える処理を行います。
+        すべてのデータのfamilyNameを「鈴木」に、firstNameを「太郎」に書き換える処理を行います。
         トランザクション管理機能とデータベースアクセス機能のバリエーションで4つに分けられています。
        
         ・jp.terasoluna.batch.functionsample.b001.b001001
@@ -141,11 +142,11 @@
 
         ・jp.terasoluna.batch.functionsample.b001.b001003
              B001003：「scripts/B001003.bat」から起動する
-               トランザクション管理:
-                 AbstractTransactionBLogicを継承しフレームワーク側に
-                 トランザクション管理を任せるサンプルです。
-                 データは全件一括でコミットされます。
-               データベースアクセス機能:
+              トランザクション管理:
+                AbstractTransactionBLogicを継承しフレームワーク側に
+                トランザクション管理を任せるサンプルです。
+                データは全件一括でコミットされます。
+              データベースアクセス機能:
                 バッチ更新を用いるサンプルです。
                 更新系のSQLをまとめて実行する場合、バッチ更新を用いると性能の向上が見込めます。
 

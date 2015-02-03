@@ -12,6 +12,7 @@ import jp.terasoluna.fw.collector.file.FileCollector;
 import jp.terasoluna.fw.collector.util.CollectorUtility;
 import jp.terasoluna.fw.file.dao.FileQueryDAO;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -39,6 +40,10 @@ public class B007001BLogic extends AbstractTransactionBLogic {
     B007001BatchDao dao;
 
     @Inject
+    @Named("batchSqlSessionTemplate")
+    SqlSession sqlSession;
+
+    @Inject
     @Named("csvFileQueryDAO")
     FileQueryDAO csvFileQueryDAO;
 
@@ -53,6 +58,8 @@ public class B007001BLogic extends AbstractTransactionBLogic {
 
         try {
 
+            int insertCount = 0;
+
             while (collector.hasNext()) {
                 CsvRecord record = collector.next();
                 log.info("ID:" + record.getId() + " FIMILYNAME:"
@@ -60,6 +67,15 @@ public class B007001BLogic extends AbstractTransactionBLogic {
                         + record.getFirstName() + " AGE:" + record.getAge());
 
                 dao.insertEmployee(record);
+                insertCount++;
+
+                // 10件ごとにバッチ更新実行
+                if (insertCount % 10 == 0) {
+                    if (log.isInfoEnabled()) {
+                        log.info("バッチ更新実行");
+                    }
+                    sqlSession.flushStatements();
+                }
 
             }
         } catch (Exception e) {

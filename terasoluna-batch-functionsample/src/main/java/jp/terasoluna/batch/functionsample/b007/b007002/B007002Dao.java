@@ -8,5 +8,5 @@ public interface B007002Dao {
      * @param object SQLパラメータ引数オブジェクト
      * @param handler ResultHandler
      */
-    public void collectEmployee(Object object, ResultHandler handler);
+    void collectEmployee(Object object, ResultHandler handler);
 }

@@ -9,13 +9,13 @@ public interface B002001BatchDao {
      * @param object SQLパラメータ引数オブジェクト
      * @param handler ResultHandler
      */
-    public void collectEmployee(Object object, ResultHandler handler);
+    void collectEmployee(Object object, ResultHandler handler);
 
     /**
      * EMPLOYEE2テーブルにデータを挿入する。
      * @param param 挿入対象オブジェクト
      * @return 挿入件数
      */
-    public int insertEmployee2(B002001Param param);
+    int insertEmployee2(B002001Param param);
 
 }

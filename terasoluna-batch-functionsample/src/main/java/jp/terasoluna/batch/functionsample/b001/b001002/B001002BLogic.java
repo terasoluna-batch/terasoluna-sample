@@ -86,10 +86,10 @@ public class B001002BLogic implements BLogic {
                     dao.updateEmployee(data);
                     updateCount++;
 
-                    // 10件ごとにバッチ更新実行とコミット
+                    // 10件ごとにコミット
                     if (updateCount % 10 == 0) {
                         if (log.isInfoEnabled()) {
-                            log.info("バッチ更新実行とコミット");
+                            log.info("コミット");
                         }
                         // トランザクションコミットし再開始する
                         innerStat = BatchUtil.commitRestartTransaction(
