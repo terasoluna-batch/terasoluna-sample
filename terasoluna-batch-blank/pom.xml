@@ -35,7 +35,6 @@
 
     <properties>
         <terasoluna-fw-batch.version>3.5.0-SNAPSHOT</terasoluna-fw-batch.version>
-        <project.build.sourceEncoding>MS932</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
