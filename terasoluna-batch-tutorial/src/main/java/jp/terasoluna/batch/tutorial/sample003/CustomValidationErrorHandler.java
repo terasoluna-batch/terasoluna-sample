@@ -40,7 +40,7 @@ public class CustomValidationErrorHandler implements ValidationErrorHandler {
         if (log.isWarnEnabled()) {
             List<FieldError> fieldErrorList = errors.getFieldErrors();
             for (FieldError fieldError : fieldErrorList) {
-                log.warn(fieldError.getField() + "フィールドにおいて必須入力チェックエラー発生");
+                log.warn("{} フィールドにおいて必須入力チェックエラー発生", fieldError.getField());
             }
         }
 
