@@ -17,7 +17,7 @@
         <fileSet>
             <directory>outputFile</directory>
             <excludes>
-              <exclude>*/**</exclude>
+                <exclude>*/**</exclude>
             </excludes>
         </fileSet>
         <fileSet>
@@ -34,4 +34,5 @@
             <outputDirectory>lib</outputDirectory>
         </dependencySet>
     </dependencySets>
+
 </assembly>
