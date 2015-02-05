@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>jp.terasoluna.fw</groupId>
+    <artifactId>terasoluna-batch-tutorial</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>TERASOLUNA Batch Framework for Java Tutorial Project</name>
+    <description>TERASOLUNA Batch Framework for Java Tutorial Project</description>
+
+    <repositories>
+        <repository>
+            <id>terasoluna-batch-releases</id>
+            <name>TERASOLUNA Batch framework for Java releases repository</name>
+            <url>http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>terasoluna-batch-snapshots</id>
+            <name>TERASOLUNA Batch framework for Java snapshots repository</name>
+            <url>http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <parent>
+        <groupId>io.spring.platform</groupId>
+        <artifactId>platform-bom</artifactId>
+        <version>1.1.1.RELEASE</version>
+        <relativePath />
+    </parent>
+
+    <properties>
+        <terasoluna-fw-batch.version>3.5.0-SNAPSHOT</terasoluna-fw-batch.version>
+        <project.build.sourceEncoding>MS932</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- TERASOLUNA Batch Framework for Java -->
+        <dependency>
+            <groupId>jp.terasoluna.fw.batch</groupId>
+            <artifactId>terasoluna-batch</artifactId>
+            <version>${terasoluna-fw-batch.version}</version>
+            <exclusions>
+                <!-- Use Hibernate Validator -->
+                <exclusion>
+                    <groupId>jp.terasoluna.fw</groupId>
+                    <artifactId>terasoluna-validator</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-validator</groupId>
+                    <artifactId>commons-validator</artifactId>
+                </exclusion>
+                <!-- Use SLF4J -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>jp.terasoluna.fw.lib</groupId>
+            <artifactId>terasoluna-collector</artifactId>
+            <version>${terasoluna-fw-batch.version}</version>
+        </dependency>
+
+        <!-- Data Source -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <scope>runtime</scope>
+            <exclusions>
+                <!-- Use SLF4J -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Hibernate Validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Logback -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- DI -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/distribution.xml</descriptor>
+                    </descriptors>
+                    <attach>false</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
