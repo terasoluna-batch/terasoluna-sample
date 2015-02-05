@@ -27,22 +27,33 @@
 
 ■  プロジェクトのインポート：
 
-  ①ZIPファイルの展開
-    terasoluna-batch-blank4j-(バージョン番号).zipを任意のフォルダに展開します。 
-
-    展開されたterasoluna-batch4j-blank-(バージョン番号).zipのフォルダ名が
-    「terasoluna-batch-blank」であることを確認します。
-    展開ツールや展開のしかたによっては、フォルダ名が
-    「terasoluna-batch-blank4j-(バージョン番号)」となる場合がありますが、
-    フォルダ名を手動で「terasoluna-batch-blank」に変更してください。 
-
-  ②Eclipseへのインポート
     ・Eclipse画面にて「ファイル＞インポート」を実行し、
       「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
     ・「RootDirectory:」の「Browse...」をクリックし、
     　プロジェクト内容のブラウズから①で展開したディレクトリを指定します。
     ・「/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(バージョン番号).jar」に
     　チェックが入っていることを確認後、「完了」をクリックします。
+
+■  ジョブの起動(開発環境)：
+
+    ・「(ブランクプロジェクトのルートディレクトリ)/scripts/developments」ディレクトリ配下の
+    copydependencies.batを実行し、「(ブランクプロジェクトのルートディレクトリ)/lib」ディレクトリ配下に
+    現在のpom.xmlで依存関係が定義されたjarをすべてコピーします。
+    1度実行すれば、pom.xmlに変更を加えない限り、再実行する必要はありません。
+    ・開発環境で動作確認を行う場合は、「(ブランクプロジェクトのルートディレクトリ)/scripts/developments」ディレクトリ配下の
+    compile.batを実行し、「(ブランクプロジェクトのルートディレクトリ)/lib」ディレクトリ配下に
+    現在のソースコードでコンパイルされた「terasoluna-batch-blank-(バージョン番号).jar」をコピーします。
+    ・「(ブランクプロジェクトのルートディレクトリ)/scripts」ディレクトリ配下の起動スクリプト
+    (ブランクプロジェクトにあらかじめ含まれるサンプルでは、B000001.bat)を実行します。
+
+■  ジョブの起動(試験環境・実運用環境)：
+
+    ・ブランクプロジェクトのルートディレクトリで、「mvn package」コマンドを実行します。
+    ・「(ブランクプロジェクトのルートディレクトリ)/target」ディレクトリに
+    「terasoluna-batch-blank-(バージョン番号)-distribution.zip」が作成されます。
+    ・「terasoluna-batch-blank-(バージョン番号)-distribution.zip」を試験環境・実運用環境へ移送し、解凍します。
+    ・「(ブランクプロジェクトのルートディレクトリ)/scripts」ディレクトリ配下の起動スクリプト
+    (ブランクプロジェクトにあらかじめ含まれるサンプルでは、B000001.bat)を実行します。
 
 -------------------------------------------------------------------------------
 Copyright 2015 NTT DATA Corporation.
