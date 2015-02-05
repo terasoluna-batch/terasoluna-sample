@@ -1,5 +1,5 @@
 @ECHO OFF
-PUSHD %~DP0\..\..\
+PUSHD %~DP0..\..\
 
 CALL mvn clean compile jar:jar
 
