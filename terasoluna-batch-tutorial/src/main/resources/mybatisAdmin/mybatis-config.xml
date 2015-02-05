@@ -8,9 +8,9 @@
         <setting name="lazyLoadingEnabled" value="true" />
         <setting name="localCacheScope" value="STATEMENT" />
     </settings>
-    
+
     <typeAliases>
-        <package name="jp.terasoluna.fw.batch.executor.vo"/>
+        <package name="jp.terasoluna.fw.batch.executor.vo" />
     </typeAliases>
 
 </configuration>
