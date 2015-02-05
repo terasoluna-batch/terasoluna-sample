@@ -22,7 +22,7 @@ import jp.terasoluna.batch.tutorial.common.NyusyukkinData;
 import jp.terasoluna.fw.batch.blogic.AbstractTransactionBLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.collector.Collector;
-import jp.terasoluna.fw.collector.db.DBCollector;
+import jp.terasoluna.fw.collector.db.DaoCollector;
 import jp.terasoluna.fw.collector.util.CollectorUtility;
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 import jp.terasoluna.fw.file.dao.FileUpdateDAO;
@@ -54,7 +54,7 @@ public class SMP001BLogic extends AbstractTransactionBLogic {
         int returnCode = 0;
 
         // コレクタ
-        Collector<NyusyukkinData> collector = new DBCollector<NyusyukkinData>(
+        Collector<NyusyukkinData> collector = new DaoCollector<NyusyukkinData>(
                 this.dao, "collectNyusyukkinData", null);
 
         // ファイル出力用行ライタの取得(入金用)
