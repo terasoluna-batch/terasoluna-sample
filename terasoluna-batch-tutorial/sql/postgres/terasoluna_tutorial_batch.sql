@@ -1,6 +1,11 @@
--- 対象DBMS    :PostgreSQL 8.4
+-- 対象DBMS    :PostgreSQL 9.3
+
+-- 文字コード設定
+SET client_encoding = 'UTF8';
+
 -- シーケンス削除
 \i drop_all_sequence.sql
+
 -- テーブル削除
 \i drop_all_tables.sql
 
