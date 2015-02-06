@@ -12,12 +12,7 @@
     <includeBaseDirectory>true</includeBaseDirectory>
     <fileSets>
         <fileSet>
-          <directory>src/main/resources</directory>
-          <outputDirectory>conf</outputDirectory>
-          <includes>
-            <include>mybatis/jdbc.properties</include>
-            <include>mybatisAdmin/jdbc.properties</include>
-          </includes>
+          <directory>lib</directory>
         </fileSet>
         <fileSet>
             <directory>scripts</directory>

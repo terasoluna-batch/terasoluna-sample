@@ -38,15 +38,8 @@ public class B002001BLogic extends AbstractTransactionBLogic {
     @Override
     public int doMain(BLogicParam arg0) {
         if (logger.isInfoEnabled()) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Start : (");
-            sb.append("ThreadId:[");
-            sb.append(Thread.currentThread().getId());
-            sb.append("],");
-            sb.append("ThreadName:[");
-            sb.append(Thread.currentThread().getName());
-            sb.append("])");
-            logger.info(sb.toString());
+            logger.info("Start : (ThreadId:[{}],ThreadName:[{}])",
+                    Thread.currentThread().getId(), Thread.currentThread().getName());
         }
 
         // コレクタ生成(入力データ取得機能)

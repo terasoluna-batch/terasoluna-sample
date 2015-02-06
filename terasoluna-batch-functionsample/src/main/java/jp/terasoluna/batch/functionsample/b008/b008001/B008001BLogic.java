@@ -62,9 +62,7 @@ public class B008001BLogic implements BLogic {
 
         // ////////////
         // 初期化
-        if (log.isInfoEnabled()) {
-            log.info("ZipCodeテーブル初期化:開始");
-        }
+        log.info("ZipCodeテーブル初期化:開始");
 
         try {
             // トランザクション開始
@@ -82,17 +80,13 @@ public class B008001BLogic implements BLogic {
             BatchUtil.endTransaction(transactionManager, stat);
         }
 
-        if (log.isInfoEnabled()) {
-            log.info("ZipCodeテーブル初期化:終了");
-        }
+        log.info("ZipCodeテーブル初期化:終了");
 
         Collector<ZipCode> collector = null;
 
         // ////////////
         // 登録処理
-        if (log.isInfoEnabled()) {
-            log.info("KEN_ALL.CSVファイル読み込み:開始");
-        }
+        log.info("KEN_ALL.CSVファイル読み込み:開始");
 
         try {
             int municipalDistrictCnt = 0;
@@ -119,7 +113,6 @@ public class B008001BLogic implements BLogic {
 
                 // コントロールブレイク（ヘッダ側）処理
                 if (preCtrlBreak) {
-                    StringBuilder sb = new StringBuilder();
 
                     Map<String, Object> pbMap = ControlBreakChecker
                             .getPreBreakKey(collector, "adminDivisions",
@@ -133,10 +126,8 @@ public class B008001BLogic implements BLogic {
                     // 都道府県名が変わった時にログにヘッダを出力する
                     if (log.isInfoEnabled()
                             && pbMap.containsKey("adminDivisions")) {
-                        sb.setLength(0);
-                        sb.append(pbMap.get("adminDivisions"));
-                        log.info("=========================");
-                        log.info(sb.toString());
+                        log.info("{}=========================",
+                                pbMap.get("adminDivisions"));
                     }
 
                 }
@@ -152,19 +143,8 @@ public class B008001BLogic implements BLogic {
 
                     // 都道府県名が変わった時にバッチ更新を実行する
                     if (brkMap.containsKey("adminDivisions")) {
-                        if (log.isInfoEnabled()) {
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("バッチ更新実行 ");
-                            sb.append(insertCount);
-                            sb.append("件 ");
-                            sb.append("市区町村数 ");
-                            sb.append(municipalDistrictCnt);
-                            sb.append("件 ");
-                            sb.append("町域数 ");
-                            sb.append(townRegionCnt);
-                            sb.append("件 ");
-                            log.info(sb.toString());
-                        }
+                        log.info("バッチ更新実行{}件 市区町村数{}件 町域数{}件", insertCount,
+                                municipalDistrictCnt, townRegionCnt);
 
                         // トランザクションコミットとトランザクション開始(バッチ更新実行)
                         stat = BatchUtil.commitRestartTransaction(
@@ -190,9 +170,7 @@ public class B008001BLogic implements BLogic {
             BatchUtil.endTransaction(transactionManager, stat);
         }
 
-        if (log.isInfoEnabled()) {
-            log.info("KEN_ALL.CSVファイル読み込み:終了");
-        }
+        log.info("KEN_ALL.CSVファイル読み込み:終了");
 
         // 正常終了
         return BATCH_NORMAL_END;

@@ -83,9 +83,9 @@ public class B009003BLogic implements BLogic {
             while (collector.hasNext()) {
                 CsvRecord record = collector.next();
                 if (log.isInfoEnabled()) {
-                    log.info("ID:" + record.getId() + " FIMILYNAME:"
-                            + record.getFamilyName() + " FIRSTNAME:"
-                            + record.getFirstName() + " AGE:" + record.getAge());
+                    log.info("ID:{} FAMILYNAME:{} FIRSTNAME:{} AGE:{}",
+                            record.getId(), record.getFamilyName(),
+                            record.getFirstName(), record.getAge());
                 }
 
                 // データ部の出力

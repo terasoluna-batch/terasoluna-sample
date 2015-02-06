@@ -45,23 +45,17 @@ public class B009002BLogic extends AbstractTransactionBLogic {
 
     public int doMain(BLogicParam arg0) {
 
-        if (log.isInfoEnabled()) {
-            log.info("EMPLOYEE2テーブル初期化:開始");
-        }
+        log.info("EMPLOYEE2テーブル初期化:開始");
 
         dao.deleteEmployee2();
 
-        if (log.isInfoEnabled()) {
-            log.info("EMPLOYEE2テーブル初期化:終了");
-        }
+        log.info("EMPLOYEE2テーブル初期化:終了");
 
         int returnCode = BATCH_NORMAL_END;
 
         int insertCount = 0;
 
-        if (log.isInfoEnabled()) {
-            log.info("EMPLOYEE3テーブル読み込み:開始");
-        }
+        log.info("EMPLOYEE3テーブル読み込み:開始");
 
         CustomCollectorExceptionHandler cceHandler = new CustomCollectorExceptionHandler();
 
@@ -74,7 +68,7 @@ public class B009002BLogic extends AbstractTransactionBLogic {
             while (collector.hasNext()) {
                 CsvRecord csvRecord = collector.next();
                 if (csvRecord != null) {
-                    log.info("NAME:" + csvRecord.getFamilyName());
+                    log.info("NAME:{}", csvRecord.getFamilyName());
                     // バッチ更新に追加
                     dao.insertEmployee2(csvRecord);
                     insertCount++;
@@ -88,9 +82,7 @@ public class B009002BLogic extends AbstractTransactionBLogic {
             CollectorUtility.closeQuietly(collector);
         }
 
-        if (log.isInfoEnabled()) {
-            log.info("EMPLOYEE2テーブル:" + insertCount + "件挿入しました。");
-        }
+        log.info("EMPLOYEE2テーブル:{}件挿入しました。", insertCount);
 
         // １件でもエラーが発生した場合は、"100"を返却する。
         if (cceHandler.getErrorFieldCount() > 0) {

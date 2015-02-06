@@ -59,21 +59,22 @@ public class B007001BLogic extends AbstractTransactionBLogic {
         try {
 
             int insertCount = 0;
+            boolean isInfoEnabled = log.isInfoEnabled();
 
             while (collector.hasNext()) {
                 CsvRecord record = collector.next();
-                log.info("ID:" + record.getId() + " FIMILYNAME:"
-                        + record.getFamilyName() + " FIRSTNAME:"
-                        + record.getFirstName() + " AGE:" + record.getAge());
+                if (isInfoEnabled) {
+                    log.info("ID:{} FAMILYNAME:{} FIRSTNAME:{} AGE:{}",
+                            record.getId(), record.getFamilyName(),
+                            record.getFirstName(), record.getAge());
+                }
 
                 dao.insertEmployee(record);
                 insertCount++;
 
                 // 10件ごとにバッチ更新実行
                 if (insertCount % 10 == 0) {
-                    if (log.isInfoEnabled()) {
-                        log.info("バッチ更新実行");
-                    }
+                    log.info("バッチ更新実行");
                     sqlSession.flushStatements();
                 }
 

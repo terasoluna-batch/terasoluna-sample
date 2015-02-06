@@ -28,12 +28,10 @@ public class CustomCollectorExceptionHandler implements
             DataValueObject dataValueObject) {
         errorFieldCount++;
 
-        if (log.isErrorEnabled()) {
-            if (dataValueObject.getThrowable() instanceof ValidationErrorException) {
-                log.error("ValidationErrorException is Thrown...");
-            } else {
-                log.error("Exception is Thrown...");
-            }
+        if (dataValueObject.getThrowable() instanceof ValidationErrorException) {
+            log.error("ValidationErrorException is Thrown...");
+        } else {
+            log.error("Exception is Thrown...");
         }
 
         return CollectorExceptionHandlerStatus.END;

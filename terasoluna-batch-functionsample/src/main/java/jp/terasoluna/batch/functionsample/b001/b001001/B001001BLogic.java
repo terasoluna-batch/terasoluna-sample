@@ -49,9 +49,9 @@ public class B001001BLogic extends AbstractTransactionBLogic {
                 B001001Param data = collector.next();
 
                 if (log.isInfoEnabled()) {
-                    log.info("ID:" + data.getId() + " FIMILYNAME:"
-                            + data.getFamilyName() + " FIRSTNAME:"
-                            + data.getFirstName() + " AGE:" + data.getAge());
+                    log.info("ID:{} FAMILYNAME:{} FIRSTNAME:{} AGE:{}",
+                            data.getId(), data.getFamilyName(),
+                            data.getFirstName(), data.getAge());
                 }
 
                 data.setFamilyName("—é–Ø");

@@ -60,7 +60,8 @@ public class B007002BLogic implements BLogic {
         FileLineWriter<CsvRecord> fileLineWriter = null;
 
         try {
-            collector = new DBCollector<CsvRecord>(dao, "collectEmployee", null);
+            collector = new DBCollector<CsvRecord>(dao, "collectEmployee",
+                    null);
 
             fileLineWriter = csvFileUpdateDAO.execute(OUTPUT_FILE,
                     CsvRecord.class);
@@ -75,9 +76,11 @@ public class B007002BLogic implements BLogic {
 
             for (CsvRecord data : collector) {
 
-                log.info("ID:" + data.getId() + " FIMILYNAME:"
-                        + data.getFamilyName() + " FIRSTNAME:"
-                        + data.getFirstName() + " AGE:" + data.getAge());
+                if (log.isInfoEnabled()) {
+                    log.info("ID:{} FAMILYNAME:{} FIRSTNAME:{} AGE:{}",
+                            data.getId(), data.getFamilyName(),
+                            data.getFirstName(), data.getAge());
+                }
 
                 // データ部の出力
                 fileLineWriter.printDataLine(data);

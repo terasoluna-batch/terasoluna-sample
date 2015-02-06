@@ -75,9 +75,9 @@ public class B001002BLogic implements BLogic {
                     B001002Param data = collector.next();
 
                     if (log.isInfoEnabled()) {
-                        log.info("ID:" + data.getId() + " FIMILYNAME:"
-                                + data.getFamilyName() + " FIRSTNAME:"
-                                + data.getFirstName() + " AGE:" + data.getAge());
+                        log.info("ID:{} FAMILYNAME:{} FIRSTNAME:{} AGE:{}",
+                                data.getId(), data.getFamilyName(),
+                                data.getFirstName(), data.getAge());
                     }
 
                     data.setFamilyName("鈴木");
@@ -88,9 +88,7 @@ public class B001002BLogic implements BLogic {
 
                     // 10件ごとにコミット
                     if (updateCount % 10 == 0) {
-                        if (log.isInfoEnabled()) {
-                            log.info("コミット");
-                        }
+                        log.info("コミット");
                         // トランザクションコミットし再開始する
                         innerStat = BatchUtil.commitRestartTransaction(
                                 transactionManager, innerStat, def);
