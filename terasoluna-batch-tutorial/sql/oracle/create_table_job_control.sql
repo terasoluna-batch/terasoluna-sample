@@ -1,4 +1,7 @@
 -- Table: job_control
+
+DROP TABLE job_control;
+
 CREATE TABLE job_control
 (
   job_seq_id VARCHAR2(10) NOT NULL,
@@ -29,4 +32,6 @@ CREATE TABLE job_control
   upd_date_time timestamp,
   CONSTRAINT pk_job_control PRIMARY KEY (job_seq_id)
 );
-COMMIT;
+
+quit;
+
