@@ -20,8 +20,8 @@ import org.apache.ibatis.session.ResultHandler;
 public interface SMP005Dao {
 
     /**
-     * “üo‹àî•ñ‚ğæ“¾‚·‚éB
-     * @param object SQLƒpƒ‰ƒ[ƒ^ˆø”ƒIƒuƒWƒFƒNƒg
+     * å…¥å‡ºé‡‘æƒ…å ±ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param object SQLãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¼•æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param handler ResultHandler
      */
     public void collectNyusyukkinData(Object object, ResultHandler handler);

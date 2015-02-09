@@ -20,9 +20,9 @@ import jp.terasoluna.batch.tutorial.common.NyusyukkinData;
 public interface SMP002Dao {
 
     /**
-     * “üo‹àî•ñ‚ğ1Œ‘}“ü‚·‚éB
-     * @param data “üo‹àî•ñ
-     * @return ‘}“üŒ”
+     * å…¥å‡ºé‡‘æƒ…å ±ã‚’1ä»¶æŒ¿å…¥ã™ã‚‹ã€‚
+     * @param data å…¥å‡ºé‡‘æƒ…å ±
+     * @return æŒ¿å…¥ä»¶æ•°
      */
     public int insertNyusyukkinData(NyusyukkinData data);
 

@@ -31,13 +31,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * ƒrƒWƒlƒXƒƒWƒbƒNƒNƒ‰ƒXB(“üo‹àƒe[ƒuƒ‹‚Éƒ‰ƒ“ƒ_ƒ€ƒf[ƒ^‚ğo—Í‚·‚éƒNƒ‰ƒX)
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã€‚(å…¥å‡ºé‡‘ãƒ†ãƒ¼ãƒ–ãƒ«ã«ãƒ©ãƒ³ãƒ€ãƒ ãƒ‡ãƒ¼ã‚¿ã‚’å‡ºåŠ›ã™ã‚‹ã‚¯ãƒ©ã‚¹)
  */
 @Component
 public class SMP000BLogic extends AbstractTransactionBLogic {
 
     /**
-     * ƒƒOƒNƒ‰ƒXB
+     * ãƒ­ã‚°ã‚¯ãƒ©ã‚¹ã€‚
      */
     private static final Logger log = LoggerFactory.getLogger(SMP000BLogic.class);
 
@@ -49,45 +49,45 @@ public class SMP000BLogic extends AbstractTransactionBLogic {
 
         int resultNum = 0;
 
-        // DB‚Ìì¬s”BƒfƒtƒHƒ‹ƒg‚Æ‚µ‚Ä100‚ğİ’è
+        // DBã®ä½œæˆè¡Œæ•°ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¨ã—ã¦100ã‚’è¨­å®š
         int maxNumber = 100;
 
-        // ˆø”‚ª‘¶İ‚µ‚½ê‡‚Í“ü‹àƒe[ƒuƒ‹‚Ìì¬s”‚ğ•ÏX
+        // å¼•æ•°ãŒå­˜åœ¨ã—ãŸå ´åˆã¯å…¥é‡‘ãƒ†ãƒ¼ãƒ–ãƒ«ã®ä½œæˆè¡Œæ•°ã‚’å¤‰æ›´
         if (null != param.getJobArgNm1()) {
             maxNumber = Integer.parseInt(param.getJobArgNm1());
         }
 
-        // ƒf[ƒ^¶¬—pƒ‰ƒ“ƒ_ƒ€ŠÖ”
+        // ãƒ‡ãƒ¼ã‚¿ç”Ÿæˆç”¨ãƒ©ãƒ³ãƒ€ãƒ é–¢æ•°
         Random random = new Random();
 
         NyusyukkinData nyusyukkin = new NyusyukkinData();
 
         try {
-            // “üo‹àƒe[ƒuƒ‹‚Ìƒf[ƒ^‚ğƒNƒŠƒA
+            // å…¥å‡ºé‡‘ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã‚’ã‚¯ãƒªã‚¢
             dao.deleteNyusyukkinData();
 
             for (int count = 1; count <= maxNumber; count++) {
 
-                // ƒ‰ƒ“ƒ_ƒ€‚Éx“X–¼‚ğŒˆ’è
+                // ãƒ©ãƒ³ãƒ€ãƒ ã«æ”¯åº—åã‚’æ±ºå®š
                 String shitenName = "";
                 int shitenNum = random.nextInt(3) + 1;
                 if (shitenNum == 1) {
-                    shitenName = "“Œ‹";
+                    shitenName = "æ±äº¬";
                 } else if (shitenNum == 2) {
-                    shitenName = "é‹Ê";
+                    shitenName = "åŸ¼ç‰";
                 } else if (shitenNum == 3) {
-                    shitenName = "ç—t";
+                    shitenName = "åƒè‘‰";
                 }
                 String kokyakuId = String.valueOf(random.nextInt(1000) + 1);
 
-                // ƒpƒfƒBƒ“ƒO(0–„‚ß)
+                // ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°(0åŸ‹ã‚)
                 while (kokyakuId.length() < 4) {
                     kokyakuId = "0" + kokyakuId;
                 }
                 int nyusyukkinKubun = random.nextInt(2);
                 int kingaku = random.nextInt(1000000) + 1;
 
-                // “ú•t‚ğ(2010/01/01`2011/12/31‚ÌŠÔ‚Å)ƒ‰ƒ“ƒ_ƒ€‚Åì¬B
+                // æ—¥ä»˜ã‚’(2010/01/01ï½2011/12/31ã®é–“ã§)ãƒ©ãƒ³ãƒ€ãƒ ã§ä½œæˆã€‚
                 StringBuilder hiduke = new StringBuilder();
                 hiduke.append(String.valueOf(2010 + random.nextInt(2)) + "/");
                 int month = random.nextInt(12) + 1;
@@ -102,14 +102,14 @@ public class SMP000BLogic extends AbstractTransactionBLogic {
                 Date date = DateFormat.getDateInstance().parse(
                         hiduke.toString());
 
-                // ‚Ps•ª‚ÌƒIƒuƒWƒFƒNƒgì¬
+                // ï¼‘è¡Œåˆ†ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä½œæˆ
                 nyusyukkin.setShitenName(shitenName);
                 nyusyukkin.setKokyakuId(kokyakuId);
                 nyusyukkin.setNyusyukkinKubun(nyusyukkinKubun);
                 nyusyukkin.setKingaku(kingaku);
                 nyusyukkin.setTorihikibi(date);
 
-                // DB‚Ö‚Ìƒf[ƒ^“o˜^
+                // DBã¸ã®ãƒ‡ãƒ¼ã‚¿ç™»éŒ²
                 dao.insertNyusyukkinData(nyusyukkin);
             }
 
@@ -118,7 +118,7 @@ public class SMP000BLogic extends AbstractTransactionBLogic {
             }
 
         } catch (Exception e) {
-            // —áŠOˆ—(ƒGƒ‰[ƒR[ƒh‚Ìİ’è)
+            // ä¾‹å¤–å‡¦ç†(ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã®è¨­å®š)
             resultNum = -1;
         }
         return resultNum;

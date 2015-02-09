@@ -40,11 +40,11 @@ public class CustomValidationErrorHandler implements ValidationErrorHandler {
         if (log.isWarnEnabled()) {
             List<FieldError> fieldErrorList = errors.getFieldErrors();
             for (FieldError fieldError : fieldErrorList) {
-                log.warn("{} ƒtƒB[ƒ‹ƒh‚É‚¨‚¢‚Ä•K{“ü—Íƒ`ƒFƒbƒNƒGƒ‰[”­¶", fieldError.getField());
+                log.warn("{} ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãŠã„ã¦å¿…é ˆå…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿ", fieldError.getField());
             }
         }
 
-        // ƒGƒ‰[ƒf[ƒ^‚ğ‚Æ‚Î‚µ‚ÄA‚»‚Ì‚Ü‚Üˆ—‚ğ‘±s‚·‚é
+        // ã‚¨ãƒ©ãƒ¼ãƒ‡ãƒ¼ã‚¿ã‚’ã¨ã°ã—ã¦ã€ãã®ã¾ã¾å‡¦ç†ã‚’ç¶šè¡Œã™ã‚‹
         return ValidateErrorStatus.SKIP;
     }
 }

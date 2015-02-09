@@ -32,7 +32,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
 /**
- * ƒrƒWƒlƒXƒƒWƒbƒNƒNƒ‰ƒXB(CSVƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İADB‚Éƒf[ƒ^‚ğ‘}“ü‚·‚é)
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã€‚(CSVãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€DBã«ãƒ‡ãƒ¼ã‚¿ã‚’æŒ¿å…¥ã™ã‚‹)
  */
 @Component
 public class SMP002BLogic extends AbstractTransactionBLogic {
@@ -49,45 +49,45 @@ public class SMP002BLogic extends AbstractTransactionBLogic {
 
     public int doMain(BLogicParam param) {
 
-        // ƒWƒ‡ƒuI—¹ƒR[ƒh(0:³íI—¹A-1:ˆÙíI—¹)
+        // ã‚¸ãƒ§ãƒ–çµ‚äº†ã‚³ãƒ¼ãƒ‰(0:æ­£å¸¸çµ‚äº†ã€-1:ç•°å¸¸çµ‚äº†)
         int returnCode = 0;
 
-        // ƒRƒŒƒNƒ^
+        // ã‚³ãƒ¬ã‚¯ã‚¿
         Collector<NyusyukkinData> collector = new FileCollector<NyusyukkinData>(
                 this.csvFileQueryDAO, "inputFile/SMP002_input.csv",
                 NyusyukkinData.class);
 
         try {
-            // ƒtƒ@ƒCƒ‹‚©‚çæ“¾‚µ‚½ƒf[ƒ^‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒg
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
             NyusyukkinData inputData = null;
 
             while (collector.hasNext()) {
-                // ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğæ“¾
+                // ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
                 inputData = collector.next();
 
-                // DBXVˆ—
+                // DBæ›´æ–°å‡¦ç†
                 dao.insertNyusyukkinData(inputData);
             }
 
         } catch (DataAccessException e) {
             if (log.isErrorEnabled()) {
-                log.error("ƒf[ƒ^ƒAƒNƒZƒXƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½", e);
+                log.error("ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ", e);
             }
 
             returnCode = -1;
         } catch (Exception e) {
             if (log.isErrorEnabled()) {
-                log.error("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½", e);
+                log.error("ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ", e);
             }
 
             returnCode = -1;
         } finally {
-            // ƒRƒŒƒNƒ^‚ÌƒNƒ[ƒY
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(collector);
 
-            // ³íI—¹‚ÉƒƒOc‚µ
+            // æ­£å¸¸çµ‚äº†æ™‚ã«ãƒ­ã‚°æ®‹ã—
             if (returnCode == 0 && log.isInfoEnabled()) {
-                log.info("DB‚ÌXV‚ª³í‚ÉI—¹‚µ‚Ü‚µ‚½B");
+                log.info("DBã®æ›´æ–°ãŒæ­£å¸¸ã«çµ‚äº†ã—ã¾ã—ãŸã€‚");
             }
         }
 

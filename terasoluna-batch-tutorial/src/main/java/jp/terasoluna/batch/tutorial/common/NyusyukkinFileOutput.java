@@ -21,49 +21,49 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * “üo‹àî•ñ‚Ìƒtƒ@ƒCƒ‹o—Íƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒXB
+ * å…¥å‡ºé‡‘æƒ…å ±ã®ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹ã€‚
  */
 @FileFormat(overWriteFlg = true, fileEncoding = "MS932")
 public class NyusyukkinFileOutput {
 
     /**
-     * æˆø“ú
+     * å–å¼•æ—¥
      */
     @OutputFileColumn(columnIndex = 0, columnFormat = "yyyyMMdd")
     private Date torihikibi;
 
     /**
-     * x“X–¼
+     * æ”¯åº—å
      */
     @OutputFileColumn(columnIndex = 1)
     private String shitenName;
 
     /**
-     * “ü‹à‰ñ”
+     * å…¥é‡‘å›æ•°
      */
     @OutputFileColumn(columnIndex = 2)
     private int nyukinNum;
 
     /**
-     * o‹à‰ñ”
+     * å‡ºé‡‘å›æ•°
      */
     @OutputFileColumn(columnIndex = 3)
     private int syukkinNum;
 
     /**
-     * “ü‹à‡Œv
+     * å…¥é‡‘åˆè¨ˆ
      */
     @OutputFileColumn(columnIndex = 4)
     private int nyukinSum;
 
     /**
-     * o‹à‡Œv
+     * å‡ºé‡‘åˆè¨ˆ
      */
     @OutputFileColumn(columnIndex = 5)
     private int syukkinSum;
 
     /**
-     * æˆø“ú‚ğæ“¾‚·‚éB
+     * å–å¼•æ—¥ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
      * @return torihikibi
      */
@@ -72,7 +72,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * æˆø“ú‚ğİ’è‚·‚éB
+     * å–å¼•æ—¥ã‚’è¨­å®šã™ã‚‹ã€‚
      * 
      * @param torihikibi
      */
@@ -81,7 +81,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * x“X–¼‚ğæ“¾‚·‚éB
+     * æ”¯åº—åã‚’å–å¾—ã™ã‚‹ã€‚
      * 
      * @return shitenName
      */
@@ -90,7 +90,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * x“X–¼‚ğİ’è‚·‚éB
+     * æ”¯åº—åã‚’è¨­å®šã™ã‚‹ã€‚
      * 
      * @param shitenName
      */
@@ -99,7 +99,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * “ü‹à‰ñ”‚ğæ“¾‚·‚éB
+     * å…¥é‡‘å›æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
      * @return nyukinNum
      */
@@ -108,7 +108,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * “ü‹à‰ñ”‚ğİ’è‚·‚éB
+     * å…¥é‡‘å›æ•°ã‚’è¨­å®šã™ã‚‹ã€‚
      * 
      * @param nyukinNum
      */
@@ -117,7 +117,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * o‹à‰ñ”‚ğæ“¾‚·‚éB
+     * å‡ºé‡‘å›æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
      * @return syukkinNum
      */
@@ -126,7 +126,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * o‹à‰ñ”‚ğİ’è‚·‚éB
+     * å‡ºé‡‘å›æ•°ã‚’è¨­å®šã™ã‚‹ã€‚
      * 
      * @param syukkinNum
      */
@@ -135,7 +135,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * “ü‹à‡Œv‚ğæ“¾‚·‚éB
+     * å…¥é‡‘åˆè¨ˆã‚’å–å¾—ã™ã‚‹ã€‚
      * 
      * @return nyukinSum
      */
@@ -144,7 +144,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * “ü‹à‡Œv‚ğİ’è‚·‚éB
+     * å…¥é‡‘åˆè¨ˆã‚’è¨­å®šã™ã‚‹ã€‚
      * 
      * @param nyukinSum
      */
@@ -153,7 +153,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * o‹à‡Œv‚ğæ“¾‚·‚éB
+     * å‡ºé‡‘åˆè¨ˆã‚’å–å¾—ã™ã‚‹ã€‚
      * 
      * @return syukkinSum
      */
@@ -162,7 +162,7 @@ public class NyusyukkinFileOutput {
     }
 
     /**
-     * o‹à‡Œv‚ğİ’è‚·‚éB
+     * å‡ºé‡‘åˆè¨ˆã‚’è¨­å®šã™ã‚‹ã€‚
      * 
      * @param syukkinSum
      */

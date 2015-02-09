@@ -32,7 +32,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     </bean>
 
     <!-- システム利用DAO定義(Oracle)
-        <bean id="systemDao" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+        <bean id="systemDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
             <property name="mapperInterface" value="jp.terasoluna.fw.batch.executor.dao.SystemOracleDao" />
             <property name="sqlSessionFactory" ref="sysSqlSessionFactory" />
         </bean>

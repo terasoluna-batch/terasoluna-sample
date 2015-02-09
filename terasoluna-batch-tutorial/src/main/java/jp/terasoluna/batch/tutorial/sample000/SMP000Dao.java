@@ -20,15 +20,15 @@ import jp.terasoluna.batch.tutorial.common.NyusyukkinData;
 public interface SMP000Dao {
 
     /**
-     * “üo‹àî•ñ‚ğíœ‚·‚éB
-     * @return íœŒ”
+     * å…¥å‡ºé‡‘æƒ…å ±ã‚’å‰Šé™¤ã™ã‚‹ã€‚
+     * @return å‰Šé™¤ä»¶æ•°
      */
     public int deleteNyusyukkinData();
 
     /**
-     * “üo‹àî•ñ‚ğ1Œ‘}“ü‚·‚éB
-     * @param data “üo‹àî•ñ
-     * @return ‘}“üŒ”
+     * å…¥å‡ºé‡‘æƒ…å ±ã‚’1ä»¶æŒ¿å…¥ã™ã‚‹ã€‚
+     * @param data å…¥å‡ºé‡‘æƒ…å ±
+     * @return æŒ¿å…¥ä»¶æ•°
      */
     public int insertNyusyukkinData(NyusyukkinData data);
 }
