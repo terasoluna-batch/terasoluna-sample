@@ -98,8 +98,8 @@
        以下のURLからJDBCドライバを取得し、「/scripts/install」フォルダに配置してください。
           http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html
 
-    2.「/scripts/install/installojdbc.bat」の編集
-       「/scripts/install/installojdbc.bat」のFILE_NAME、GROUP_ID、ARTIFACT_ID、VERSIONの値を
+    2.「/scripts/developments/installojdbc.bat」の編集
+       「/scripts/developments/installojdbc.bat」のFILE_NAME、GROUP_ID、ARTIFACT_ID、VERSIONの値を
         自環境で使用するJDBCドライバの値に書き換えてください。
 
         REM インストールするjarファイルの名前
@@ -114,8 +114,8 @@
         ※batファイルにはOracle Database 12c Release 1のojdbc7.jarを使用する場合の
           設定があらかじめ記載されています。
 
-    3.「/scripts/install/installojdbc.bat」の実行
-       2.で編集した「/scripts/install/installojdbc.bat」を実行します。
+    3.「/scripts/developments/installojdbc.bat」の実行
+       2.で編集した「/scripts/developments/installojdbc.bat」を実行します。
        コマンドプロンプトが立ち上がり、「BUILD SUCCESS」がログに出力されていることを確認します。
 
     4.「/pom.xml」の編集

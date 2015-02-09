@@ -13,8 +13,9 @@
     <fileSets>
         <fileSet>
             <directory>scripts</directory>
+            <!-- 開発環境専用のスクリプトファイルを除外する -->
             <excludes>
-                <exclude>install/**</exclude>
+                <exclude>developments/**</exclude>
             </excludes>
         </fileSet>
         <fileSet>
@@ -28,4 +29,5 @@
             <outputDirectory>lib</outputDirectory>
         </dependencySet>
     </dependencySets>
+
 </assembly>
