@@ -39,7 +39,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
 /**
- * ƒrƒWƒlƒXƒƒWƒbƒNƒNƒ‰ƒXB(CSVƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İAcsvƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éƒNƒ‰ƒX)
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã€‚(CSVãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€csvãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ã‚¯ãƒ©ã‚¹)
  */
 @Component
 public class SMP004BLogic extends AbstractTransactionBLogic {
@@ -56,42 +56,42 @@ public class SMP004BLogic extends AbstractTransactionBLogic {
 
     public int doMain(BLogicParam param) {
 
-        // ƒWƒ‡ƒuI—¹ƒR[ƒh(0:³íI—¹A-1:ˆÙíI—¹)
+        // ã‚¸ãƒ§ãƒ–çµ‚äº†ã‚³ãƒ¼ãƒ‰(0:æ­£å¸¸çµ‚äº†ã€-1:ç•°å¸¸çµ‚äº†)
         int returnCode = 0;
 
-        // ƒRƒŒƒNƒ^
+        // ã‚³ãƒ¬ã‚¯ã‚¿
         Collector<NyusyukkinData> collector = new FileCollector<NyusyukkinData>(
                 this.csvFileQueryDAO, "inputFile/SMP004_input.csv",
                 NyusyukkinData.class);
 
-        // ƒtƒ@ƒCƒ‹o—Í—psƒ‰ƒCƒ^‚Ìæ“¾
+        // ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›ç”¨è¡Œãƒ©ã‚¤ã‚¿ã®å–å¾—
         FileLineWriter<NyusyukkinFileOutput> fileLineWriter = csvFileUpdateDAO
                 .execute("outputFile/SMP004_output.csv",
                         NyusyukkinFileOutput.class);
 
         try {
-            // ƒtƒ@ƒCƒ‹‚©‚çæ“¾‚µ‚½ƒf[ƒ^‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒg
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
             NyusyukkinData inputData = null;
 
-            // “ü‹à‚ÌƒJƒEƒ“ƒg—p
+            // å…¥é‡‘ã®ã‚«ã‚¦ãƒ³ãƒˆç”¨
             int nyukinNum = 0;
-            // o‹à‚ÌƒJƒEƒ“ƒg—p
+            // å‡ºé‡‘ã®ã‚«ã‚¦ãƒ³ãƒˆç”¨
             int syukkinNum = 0;
-            // “ü‹à‡Œv—p
+            // å…¥é‡‘åˆè¨ˆç”¨
             int nyukinSum = 0;
-            // o‹à‡Œv—p
+            // å‡ºé‡‘åˆè¨ˆç”¨
             int syukkinSum = 0;
 
             while (collector.hasNext()) {
-                // ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğæ“¾
+                // ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
                 inputData = collector.next();
 
-                // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”»’è
-                // x“X–¼Aæˆø“ú‚É•ÏX‚ª‚ ‚éê‡
+                // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®š
+                // æ”¯åº—åã€å–å¼•æ—¥ã«å¤‰æ›´ãŒã‚ã‚‹å ´åˆ
                 boolean ctrlBreak = ControlBreakChecker.isBreak(collector,
                         "torihikibi", "shitenName");
 
-                // “üo‹à‹æ•ª‚ÌƒJƒEƒ“ƒgA‡ŒvŒvZ
+                // å…¥å‡ºé‡‘åŒºåˆ†ã®ã‚«ã‚¦ãƒ³ãƒˆã€åˆè¨ˆè¨ˆç®—
                 if (inputData != null && inputData.getNyusyukkinKubun() == 0) {
                     syukkinNum++;
                     syukkinSum += inputData.getKingaku();
@@ -101,9 +101,9 @@ public class SMP004BLogic extends AbstractTransactionBLogic {
                     nyukinSum += inputData.getKingaku();
                 }
 
-                // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNˆ—
+                // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯å‡¦ç†
                 if (ctrlBreak) {
-                    // ƒL[ƒf[ƒ^‚ğƒ}ƒbƒv‚Åæ“¾
+                    // ã‚­ãƒ¼ãƒ‡ãƒ¼ã‚¿ã‚’ãƒãƒƒãƒ—ã§å–å¾—
                     Map<String, Object> brkMap = ControlBreakChecker
                             .getBreakKey(collector, "torihikibi", "shitenName");
                     Date torihikibi = null;
@@ -119,7 +119,7 @@ public class SMP004BLogic extends AbstractTransactionBLogic {
                         shitenName = inputData.getShitenName();
                     }
 
-                    // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚Ìƒf[ƒ^‚Ìì¬
+                    // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯æ™‚ã®ãƒ‡ãƒ¼ã‚¿ã®ä½œæˆ
                     NyusyukkinFileOutput outputData = new NyusyukkinFileOutput();
                     outputData.setTorihikibi(torihikibi);
                     outputData.setShitenName(shitenName);
@@ -128,10 +128,10 @@ public class SMP004BLogic extends AbstractTransactionBLogic {
                     outputData.setSyukkinNum(syukkinNum);
                     outputData.setSyukkinSum(syukkinSum);
 
-                    // ƒf[ƒ^‚ğƒtƒ@ƒCƒ‹‚Öo—Íi1sj
+                    // ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã¸å‡ºåŠ›ï¼ˆ1è¡Œï¼‰
                     fileLineWriter.printDataLine(outputData);
 
-                    // “üo‹à‹æ•ªƒJƒEƒ“ƒg‚Ì‰Šú‰»
+                    // å…¥å‡ºé‡‘åŒºåˆ†ã‚«ã‚¦ãƒ³ãƒˆã®åˆæœŸåŒ–
                     nyukinNum = 0;
                     syukkinNum = 0;
                     nyukinSum = 0;
@@ -140,26 +140,26 @@ public class SMP004BLogic extends AbstractTransactionBLogic {
             }
         } catch (DataAccessException e) {
             if (log.isErrorEnabled()) {
-                log.error("ƒf[ƒ^ƒAƒNƒZƒXƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½", e);
+                log.error("ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ", e);
             }
 
             returnCode = -1;
         } catch (Exception e) {
             if (log.isErrorEnabled()) {
-                log.error("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½", e);
+                log.error("ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ", e);
             }
 
             returnCode = -1;
         } finally {
-            // ƒRƒŒƒNƒ^‚ÌƒNƒ[ƒY
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(collector);
 
-            // ƒtƒ@ƒCƒ‹‚ÌƒNƒ[ƒY
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(fileLineWriter);
 
-            // ³íI—¹‚ÌƒƒO
+            // æ­£å¸¸çµ‚äº†æ™‚ã®ãƒ­ã‚°
             if (returnCode == 0 && log.isInfoEnabled()) {
-                log.info("ƒtƒ@ƒCƒ‹‘‚«‚İ‚ª³í‚ÉI—¹‚µ‚Ü‚µ‚½B");
+                log.info("ãƒ•ã‚¡ã‚¤ãƒ«æ›¸ãè¾¼ã¿ãŒæ­£å¸¸ã«çµ‚äº†ã—ã¾ã—ãŸã€‚");
             }
         }
 

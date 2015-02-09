@@ -24,20 +24,20 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * “üo‹àî•ñ‚Ìƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒXB
+ * å…¥å‡ºé‡‘æƒ…å ±ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹ã€‚
  */
 @FileFormat(overWriteFlg = true, fileEncoding = "MS932")
 public class NyusyukkinData {
 
     /**
-     * x“X–¼
+     * æ”¯åº—å
      */
     @InputFileColumn(columnIndex = 0)
     @OutputFileColumn(columnIndex = 0)
     private String shitenName;
 
     /**
-     * ŒÚ‹qID
+     * é¡§å®¢ID
      */
     @InputFileColumn(columnIndex = 1)
     @OutputFileColumn(columnIndex = 1)
@@ -45,28 +45,28 @@ public class NyusyukkinData {
     private String kokyakuId;
 
     /**
-     * “üo‹à‹æ•ª 0:o‹à 1:“ü‹à
+     * å…¥å‡ºé‡‘åŒºåˆ† 0:å‡ºé‡‘ 1:å…¥é‡‘
      */
     @InputFileColumn(columnIndex = 2)
     @OutputFileColumn(columnIndex = 2)
     private int nyusyukkinKubun;
 
     /**
-     * æˆø‹àŠz
+     * å–å¼•é‡‘é¡
      */
     @InputFileColumn(columnIndex = 3)
     @OutputFileColumn(columnIndex = 3)
     private int kingaku;
 
     /**
-     * æˆø“ú
+     * å–å¼•æ—¥
      */
     @InputFileColumn(columnIndex = 4, columnFormat = "yyyyMMdd")
     @OutputFileColumn(columnIndex = 4, columnFormat = "yyyyMMdd")
     private Date torihikibi;
 
     /**
-     * x“X–¼‚ğæ“¾‚·‚éB
+     * æ”¯åº—åã‚’å–å¾—ã™ã‚‹ã€‚
      * @return shitenName
      */
     public String getShitenName() {
@@ -74,7 +74,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * x“X–¼‚ğİ’è‚·‚éB
+     * æ”¯åº—åã‚’è¨­å®šã™ã‚‹ã€‚
      * @param shitenName
      */
     public void setShitenName(String shitenName) {
@@ -82,7 +82,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * ŒÚ‹qID‚ğæ“¾‚·‚éB
+     * é¡§å®¢IDã‚’å–å¾—ã™ã‚‹ã€‚
      * @return kokyakuId
      */
     public String getKokyakuId() {
@@ -90,7 +90,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * ŒÚ‹qID‚ğİ’è‚·‚éB
+     * é¡§å®¢IDã‚’è¨­å®šã™ã‚‹ã€‚
      * @param kokyakuId
      */
     public void setKokyakuId(String kokyakuId) {
@@ -98,7 +98,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * “üo‹à‹æ•ª‚ğæ“¾‚·‚éB
+     * å…¥å‡ºé‡‘åŒºåˆ†ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return nyusyukkinKubun
      */
     public int getNyusyukkinKubun() {
@@ -106,7 +106,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * “üo‹à‹æ•ª‚ğİ’è‚·‚éB
+     * å…¥å‡ºé‡‘åŒºåˆ†ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param nyusyukkinKubun
      */
     public void setNyusyukkinKubun(int nyusyukkinKubun) {
@@ -114,7 +114,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * æˆø‹àŠz‚ğæ“¾‚·‚éB
+     * å–å¼•é‡‘é¡ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return kingaku
      */
     public int getKingaku() {
@@ -122,7 +122,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * æˆø‹àŠz‚ğİ’è‚·‚éB
+     * å–å¼•é‡‘é¡ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param kingaku
      */
     public void setKingaku(int kingaku) {
@@ -130,7 +130,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * æˆø“ú‚ğæ“¾‚·‚éB
+     * å–å¼•æ—¥ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return torihikibi
      */
     public Date getTorihikibi() {
@@ -138,7 +138,7 @@ public class NyusyukkinData {
     }
 
     /**
-     * æˆø“ú‚ğİ’è‚·‚éB
+     * å–å¼•æ—¥ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param torihikibi
      */
     public void setTorihikibi(Date torihikibi) {
