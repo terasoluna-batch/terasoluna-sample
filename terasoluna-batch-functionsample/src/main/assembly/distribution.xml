@@ -12,10 +12,10 @@
     <includeBaseDirectory>true</includeBaseDirectory>
     <fileSets>
         <fileSet>
-          <directory>lib</directory>
-        </fileSet>
-        <fileSet>
             <directory>scripts</directory>
+            <excludes>
+                <exclude>install/**</exclude>
+            </excludes>
         </fileSet>
         <fileSet>
             <directory>sql</directory>

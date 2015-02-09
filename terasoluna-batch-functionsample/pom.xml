@@ -44,16 +44,9 @@
             <artifactId>terasoluna-batch</artifactId>
             <version>${terasoluna-fw-batch.version}</version>
             <exclusions>
-                <!-- Include Spring Validator
-                <exclusion>
-                    <groupId>jp.terasoluna.fw</groupId>
-                    <artifactId>terasoluna-validator</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>commons-validator</groupId>
-                    <artifactId>commons-validator</artifactId>
-                </exclusion>
-                -->
+                <!-- Include Spring Validator <exclusion> <groupId>jp.terasoluna.fw</groupId> 
+                    <artifactId>terasoluna-validator</artifactId> </exclusion> <exclusion> <groupId>commons-validator</groupId> 
+                    <artifactId>commons-validator</artifactId> </exclusion> -->
                 <!-- Use SLF4J -->
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -108,6 +101,23 @@
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
+        </dependency>
+
+        <!-- JDBC Driver -->
+        <!-- Oracle
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0.1</version>
+            <scope>runtime</scope>
+        </dependency>
+        -->
+        <!-- PostgreSQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1102-jdbc41</version>
+            <scope>runtime</scope>
         </dependency>
 
     </dependencies>

@@ -74,18 +74,61 @@
     3.「/pom.xml jp.terasoluna.fw:terasoluna-batch-functionsample:(バージョン番号).jar」に
     　チェックが入っていることを確認後、「完了」をクリックします。
 
-  ④ビルドパスにJDBCドライバを追加
-    PostgreSQL,OracleのJDBCドライバは付属していないので、利用者各自で別途入手する必要があります。
-    1.JDBCドライバの入手
-      ・PostgreSQL
-          http://jdbc.postgresql.org/download.html
-      ・Oracle
+  ④JDBCドライバの設定
+  利用するDBMSにより設定手順が異なります。
+   ◇PostgreSQLの場合
+    1.「/pom.xml」の編集
+       MavenのセントラルリポジトリからJDBCドライバを取得します。
+       pom.xmlに以下の記述を加えてください。
+
+       <!-- JDBC Driver(PostgreSQL) -->
+       <dependency>
+           <groupId>org.postgresql</groupId>
+           <artifactId>postgresql</artifactId>
+           <version>9.3-1102-jdbc41</version>
+           <scope>runtime</scope>
+       </dependency>
+
+       ※<version>タグに記載するバージョンは、利用するPostgreSQLのバージョンに合わせて選択してください。
+         Mavenのセントラルリポジトリに公開されているバージョンは、以下のURLから検索することができます。
+         http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.postgresql%22%20AND%20a%3A%22postgresql%22
+
+   ◇Oracleの場合
+    1.JDBCドライバの取得
+       以下のURLからJDBCドライバを取得し、「/scripts/install」フォルダに配置してください。
           http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html
-    2.ビルドパスへの追加
-      Eclipse上で、③でインポートした「terasoluna-batch-functionsample」プロジェクトを
-      右クリックし、「ビルドパス＞外部アーカイブの追加」をクリックします。
-      1.でダウンロードしたJDBCドライバのjarファイルを選択し、「開く」をクリックします。
-      「参照ライブラリー」にjarファイルが追加されていることを確認します。
+
+    2.「/scripts/install/installojdbc.bat」の編集
+       「/scripts/install/installojdbc.bat」のFILE_NAME、GROUP_ID、ARTIFACT_ID、VERSIONの値を
+        自環境で使用するJDBCドライバの値に書き換えてください。
+
+        REM インストールするjarファイルの名前
+        SET FILE_NAME=ojdbc7.jar
+        REM インストールするjarのgroupId (変更不要)
+        SET GROUP_ID=com.oracle
+        REM インストールするjarのartifactId (ファイル名と揃える)
+        SET ARTIFACT_ID=ojdbc7
+        REM インストールするjarのバージョン
+        SET VERSION=12.1.0.1
+
+        ※batファイルにはOracle Database 12c Release 1のojdbc7.jarを使用する場合の
+          設定があらかじめ記載されています。
+
+    3.「/scripts/install/installojdbc.bat」の実行
+       2.で編集した「/scripts/install/installojdbc.bat」を実行します。
+       コマンドプロンプトが立ち上がり、「BUILD SUCCESS」がログに出力されていることを確認します。
+
+    4.「/pom.xml」の編集
+       2.でインストールしたJDBCドライバを取得するよう、pom.xmlに記述を加えてください。
+       2.で指定したGROUP_ID、ARTIFACT_ID、VERSIONの各値を使用します。
+
+       <!-- JDBC Driver(Oracle) -->
+       <dependency>
+           <groupId>com.oracle</groupId> <!-- 2.で指定したGROUP_IDの値 -->
+           <artifactId>ojdbc7</artifactId> <!-- 2.で指定したARTIFACT_IDの値 -->
+           <version>12.1.0.1</version> <!-- 2.で指定したVERSIONの値 -->
+           <scope>runtime</scope>
+       </dependency>
 
   ⑤入力用ファイルの配置
     インポートしたプロジェクトに存在する「/input」フォルダの中身をC:\tmp\に配置します。
@@ -149,6 +192,9 @@
               データベースアクセス機能:
                 バッチ更新を用いるサンプルです。
                 更新系のSQLをまとめて実行する場合、バッチ更新を用いると性能の向上が見込めます。
+                メモリの枯渇を避けるため、コミット時以外に、
+                SqlSessionインタフェースのflushStatementsメソッドを使用し、
+                10件ごとにバッチ更新(コミットは行わない)を実行しています。
 
         ・jp.terasoluna.batch.functionsample.b001.b001004
             B001004：「scripts/B001004.bat」から起動する
@@ -159,7 +205,8 @@
               データベースアクセス機能:
                 バッチ更新を用いるサンプルです。
                 更新系のSQLをまとめて実行する場合、バッチ更新を用いると性能の向上が見込めます。
-
+                10件ごとにコミットしているため、SqlSessionインタフェースの
+                flushStatementsメソッドを使用したバッチ更新は実行していません。
 
     2. jp.terasoluna.batch.functionsample.b002
       ・非同期型ジョブのサンプル
