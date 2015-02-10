@@ -6,7 +6,7 @@ rem 下記記述書式を参考にしてください。
 rem 【記述書式】
 rem psql -h <DBサーバIP> -U <使用するDBユーザ> -d <使用するDB> -f terasoluna_functionsample.sql
 
-set path=C:\Program Files\PostgreSQL\8.4\bin\;%path%
+set path=C:\Program Files\PostgreSQL\9.3\bin\;%path%
 psql -h 127.0.0.1 -U postgres -d functionsampledb -f terasoluna_functionsample.sql
 
 pause

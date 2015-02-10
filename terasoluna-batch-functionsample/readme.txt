@@ -1,8 +1,8 @@
 *******************************************************************************
-      TERASOLUNA Batch Framework for Java 3.x
-      機能サンプル 導入手順について
+      TERASOLUNA Batch Framework for Java
+              機能サンプル 導入手順について
 
-      Copyright 2007-2011 NTT DATA Corporation.
+      Copyright 2007-2015 NTT DATA Corporation.
 *******************************************************************************
 
 ■  概要：
@@ -20,31 +20,21 @@
   また、これらのインストール及び設定の手順については、
   別途Web上の利用ガイド等を参照してください。 
 
-  ・Java 2 Runtime Environment Standard Edition 1.6
-  ・Eclipse SDK 3.4.2 
-  ・PostgreSQL Database Server 8.4
+  ・Java 2 Runtime Environment Standard Edition 1.7.0
+  ・Eclipse SDK 3.7.2 + Mavenプラグイン
+  ・PostgreSQL 9.3
     または
-  ・Oracle11g
+  ・Oracle 12c
         
 ■  プロジェクトの実行：
-
-  ①JDBCドライバの配置
-    PostgreSQL,OracleのJDBCドライバは付属していないので、利用者各自で別途入手する必要があります。
-      ・PostgreSQL
-          http://jdbc.postgresql.org/download.html
-      ・Oracle
-          http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-112010-090769.html
-      ※付属のbatファイルからジョブを起動する場合は、
-        取得したドライバを以下のフォルダに配置してください。
-      ・「terasoluna-batch-functionSample\lib」
-      
-  ②ZIPファイルの展開
+     
+  ①ZIPファイルの展開
     terasoluna-batch4j-funcsample_(バージョン番号).zipを「C:\」直下に展開します。
       ・例「C:\terasoluna-batch4j-funcsample_(バージョン番号)\」
        ※指定されたディレクトリは固定ではないため、適宜読み替えて実行してください。
-       ここでは、（Windows XPの）C:\に展開すると仮定し、手順を進めます。
+       ここでは、（Windows 7の）C:\に展開すると仮定し、手順を進めます。
 
-  ③データベース環境の設定、初期化(ジョブ実行前に必ず実行する)
+  ②データベース環境の設定、初期化(ジョブ実行前に必ず実行する)
    ◇PostgreSQLの場合
     1.前提条件(環境により変更可能)
       pgAdminを起動し、新しいデータベースを作成する。
@@ -76,137 +66,242 @@
       「/sql/oracle/setup_for_Oracle.bat」を実行します。(eclipseから実行不可)
       「SQL> 」が表示されたら exitと入力して終了します。
 
-  ④Eclipseへのインポート
-    ・Eclipse画面にて「ファイル＞インポート」を実行し、
-      「一般＞既存プロジェクトをワークスペースへ」を選択し「次へ」をクリックします。
-    ・「ルート・ディレクトリーの選択」にチェックが入った状態で「参照」をクリックし、
-      プロジェクト内容のブラウズから②で展開したディレクトリを指定します。
-    ・「プロジェクトをワークスペースへコピー」にチェックが入っていることを確認後、
-      「終了」をクリックします。
- 
-  ⑤入力用ファイルの配置。
-    インポートしたプロジェクトに存在する「/input」フォルダの中身を
-    C:\temp\に配置します。
-    
-  ⑥Oracleを使用する場合は、設定ファイルの書き換えを行う(Postgresを使用する場合は不要)
-    1.jdbc.propertiesの内容を書き換える。
-    「conf\SqlMapAdminConfig\jdbc.properties」および
-    「conf\SqlMapConfig\jdbc.properties」の内容を、自環境に合わせ書き換える。
-    
-    2.SqlMapConfigMain.xmlの内容を書き換える。
-      <sqlMap resource="SqlMapAdminConfig/BatchExecutor_Oracle.xml" />の部分の
-      コメントアウトを外して、
-      <sqlMap resource="SqlMapAdminConfig/BatchExecutor_PostgreSQL.xml" />の部分を
-      コメントアウトしておく
-    
-■ジョブの起動方法
+  ③Eclipseへのインポート
+    1.Eclipse画面にて「ファイル＞インポート」を実行し、
+      「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
+    2.「RootDirectory:」の「Browse...」をクリックし、
+    　プロジェクト内容のブラウズから①で展開したディレクトリを指定します。
+    3.「/pom.xml jp.terasoluna.fw:terasoluna-batch-functionsample:(バージョン番号).jar」に
+    　チェックが入っていることを確認後、「完了」をクリックします。
 
-  scriptフォルダ配下のbatファイルから起動します。
+  ④JDBCドライバの設定
+  利用するDBMSにより設定手順が異なります。
+   ◇PostgreSQLの場合
+    1.「/pom.xml」の編集
+       MavenのセントラルリポジトリからJDBCドライバを取得します。
+       pom.xmlに以下のような記述が必要になります(あらかじめ設定されています)。
+
+       <!-- JDBC Driver(PostgreSQL) -->
+       <dependency>
+           <groupId>org.postgresql</groupId>
+           <artifactId>postgresql</artifactId>
+           <version>9.3-1102-jdbc41</version>
+           <scope>runtime</scope>
+       </dependency>
+
+       ※<version>タグに記載するバージョンは、利用するPostgreSQLのバージョンに合わせて選択してください。
+         Mavenのセントラルリポジトリに公開されているバージョンは、以下のURLから検索することができます。
+         http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.postgresql%22%20AND%20a%3A%22postgresql%22
+
+   ◇Oracleの場合
+    1.JDBCドライバの取得
+       以下のURLからJDBCドライバを取得し、「/scripts/developments」フォルダに配置してください。
+          http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html
+
+    2.「/scripts/developments/installojdbc.bat」の編集
+       「/scripts/developments/installojdbc.bat」のFILE_NAME、GROUP_ID、ARTIFACT_ID、VERSIONの値を、
+        以下のように自環境で使用するJDBCドライバの値に書き換えてください。
+
+        REM インストールするjarファイルの名前
+        SET FILE_NAME=ojdbc7.jar
+        REM インストールするjarのgroupId (変更不要)
+        SET GROUP_ID=com.oracle
+        REM インストールするjarのartifactId (ファイル名と揃える)
+        SET ARTIFACT_ID=ojdbc7
+        REM インストールするjarのバージョン
+        SET VERSION=12.1.0.1
+
+        ※batファイルにはOracle Database 12c Release 1のojdbc7.jarを使用する場合の
+          設定があらかじめ記載されています。
+
+    3.「/scripts/developments/installojdbc.bat」の実行
+       2.で編集した「/scripts/developments/installojdbc.bat」を実行します。
+       コマンドプロンプトが立ち上がり、「BUILD SUCCESS」がログに出力されていることを確認します。
+
+    4.「/pom.xml」の編集
+       2.でインストールしたJDBCドライバを取得するために、
+       pom.xmlに以下のような記述が必要になります(あらかじめ設定がコメントアウトされています)。
+       2.で指定したGROUP_ID、ARTIFACT_ID、VERSIONの各値を使用します。
+
+       <!-- JDBC Driver(Oracle) -->
+       <dependency>
+           <groupId>com.oracle</groupId> <!-- 2.で指定したGROUP_IDの値 -->
+           <artifactId>ojdbc7</artifactId> <!-- 2.で指定したARTIFACT_IDの値 -->
+           <version>12.1.0.1</version> <!-- 2.で指定したVERSIONの値 -->
+           <scope>runtime</scope>
+       </dependency>
+
+  ⑤入力用ファイルの配置
+    インポートしたプロジェクトに存在する「/input」フォルダの中身をC:\tmp\に配置します。
+    
+  ⑥Oracleを使用する場合は、設定ファイルの書き換えを行います。(Postgresを使用する場合は不要)
+    1.データベース接続設定の書き換え
+    「/src/main/resources/mybatisAdmin/jdbc.properties」および
+    「/src/main/resources/mybatis/jdbc.properties」の内容を、自環境に合わせ書き換えます。
+    
+    2.システムが利用するDAOの書き換え
+     「/src/main/resources/beansAdminDef/AdminDataSource.xml」の
+      システム利用DAO定義(PostgreSQL)をコメントアウトし、システム利用DAO定義(Oracle)のコメントアウトを外します。
+
+■ジョブの起動方法
+  ①実行環境の作成
+    1.Eclipse上で、③でインポートした「terasoluna-batch-functionsample」プロジェクトを
+      右クリックし、「実行＞Maven build...」をクリックします。
+    2.「構成の編集」の「Goals:」に「package」と入力し、「実行」をクリックします。
+      「BUILD SUCCESS」がログに出力されていることを確認します。
+  ②ジョブの起動
+     ①で作成した実行環境のscriptフォルダ配下にあるbatファイルから起動します。
+     実行環境は、「terasoluna-batch-functionsample」プロジェクトからの相対パスで以下にあります。
+    「target\terasoluna-batch-functionsample-(バージョン番号)-distribution.zip」
+     こちらを解凍して使用してください。
+
 
 ■動作確認用サンプルのジョブについて
 
     本サンプルのジョブ一覧を下記に示します。
 
     1. jp.terasoluna.batch.functionsample.b001
-      ・同期型ジョブ実行機能、ビジネスロジック実行機能、トランザクション管理機能のサンプル
-        ・B001001：「scripts/B001001.bat」から起動する
-          AbstractTransactionBLogicを継承しフレームワーク側に
-          トランザクション管理を任せる(データは全件一括でコミットする)
-          処理終了後は、すべてのデータのfamilyNameが「鈴木」に
-          firstNameが「太郎」に書き換えられる。
+      ・同期型ジョブ実行機能、ビジネスロジック実行機能、トランザクション管理機能、データベースアクセス機能のサンプル
 
-        ・B001002：「scripts/B001002.bat」から起動する
-          BLogicインタフェースを継承しビジネスロジック内で
-          トランザクションの管理を行うサンプル(データは10件ごとにコミットする)
-          処理終了後は、すべてのデータのfamilyNameが「鈴木」に
-          firstNameが「太郎」に書き換えられる。
+        すべてのデータのfamilyNameを「鈴木」に、firstNameを「太郎」に書き換える処理を行います。
+        トランザクション管理機能とデータベースアクセス機能のバリエーションで4つに分けられています。
+       
+        ・jp.terasoluna.batch.functionsample.b001.b001001
+            B001001：「scripts/B001001.bat」から起動する
+              トランザクション管理:
+                AbstractTransactionBLogicを継承しフレームワーク側に
+                トランザクション管理を任せるサンプルです。
+                データは全件一括でコミットされます。
+              データベースアクセス機能:
+                バッチ更新を用いないサンプルです。
+
+        ・jp.terasoluna.batch.functionsample.b001.b001002
+            B001002：「scripts/B001002.bat」から起動する
+              トランザクション管理:
+                BLogicインタフェースを継承しビジネスロジック内で
+                トランザクションの管理を行うサンプルです。
+                データは10件ごとにコミットされます。
+              データベースアクセス機能:
+                バッチ更新を用いないサンプルです。
+
+        ・jp.terasoluna.batch.functionsample.b001.b001003
+             B001003：「scripts/B001003.bat」から起動する
+              トランザクション管理:
+                AbstractTransactionBLogicを継承しフレームワーク側に
+                トランザクション管理を任せるサンプルです。
+                データは全件一括でコミットされます。
+              データベースアクセス機能:
+                バッチ更新を用いるサンプルです。
+                更新系のSQLをまとめて実行する場合、バッチ更新を用いると性能の向上が見込めます。
+                メモリの枯渇を避けるため、コミット時以外に、
+                SqlSessionインタフェースのflushStatementsメソッドを使用し、
+                10件ごとにバッチ更新(コミットは行わない)を実行しています。
+
+        ・jp.terasoluna.batch.functionsample.b001.b001004
+            B001004：「scripts/B001004.bat」から起動する
+              トランザクション管理:
+                BLogicインタフェースを継承しビジネスロジック内で
+                トランザクションの管理を行うサンプルです。
+                データは10件ごとにコミットされます。
+              データベースアクセス機能:
+                バッチ更新を用いるサンプルです。
+                更新系のSQLをまとめて実行する場合、バッチ更新を用いると性能の向上が見込めます。
+                10件ごとにコミットしており、コミットのタイミング(コミット直前)でバッチ更新が実行されるため、
+                SqlSessionインタフェースのflushStatementsメソッドを使用したバッチ更新は実行していません。
 
     2. jp.terasoluna.batch.functionsample.b002
       ・非同期型ジョブのサンプル
-        ・B002001BLogic：「scripts/B002001_forPostgreSQL.bat」から起動する
-          (DBにOracleを使用している場合は「B002001_forOracle.bat」から起動)
-          非同期型ジョブの実行サンプル。
-          ビジネスロジックではEmployeeテーブルの内容を
-          Employee2テーブルにコピーする。
 
-          非同期型ジョブエグゼキューターを終了するには
-          「scripts/B002001_TERMINATE.bat」を実行する
+          Employeeテーブルの内容をEmployee2テーブルにコピーする処理を行います。
+
+        ・jp.terasoluna.batch.functionsample.b002.b002001
+            B002001BLogic：「scripts/B002001_forPostgreSQL.bat」から起動する
+              非同期型ジョブエグゼキュータ―を起動してジョブを非同期に実行するサンプルです。
+
+              ※DBにOracleを使用している場合は「B002001_forOracle.bat」から起動してください。
+
+              ※非同期型ジョブエグゼキューターを終了するには
+              「scripts/B002001_TERMINATE.bat」を実行してください。
 
     3. jp.terasoluna.batch.functionsample.b003
       ・例外ハンドリング機能のサンプル
-        ・B003001BLogic：「scripts/B003001.bat」から起動する
-          ジョブ実行時にビジネスロジックで例外が発生した場合に、
-          B003001ExceptionHandlerクラスでハンドリングを行うサンプル
+
+        ・jp.terasoluna.batch.functionsample.b003.b003001
+            B003001BLogic：「scripts/B003001.bat」から起動する
+              ジョブ実行時にビジネスロジックで例外が発生した場合に、
+              B003001ExceptionHandlerクラスでハンドリングを行うサンプルです。
 
     4. jp.terasoluna.batch.functionsample.b004
       ・ファイル操作機能のサンプル
-        ・B004001BLogic：「scripts/B004001.bat」から起動する
-          「C:\\tmp\\input.csv」ファイルを「C:\\tmp\\outputB004001.csv」に
-          コピーするサンプル
+
+        ・jp.terasoluna.batch.functionsample.b004.b004001
+            B004001BLogic：「scripts/B004001.bat」から起動する
+             「C:/tmp/input.csv」ファイルを「C:/tmp/outputB004001.csv」に
+              コピーするサンプルです。
     
     5. jp.terasoluna.batch.functionsample.b005
       ・メッセージ管理機能のサンプル
-        ・B005001BLogic：「scripts/B005001.bat」から起動する
-          「messages.properties」に定義したメッセージを利用した
-          ログ出力を行うサンプル
+
+        ・jp.terasoluna.batch.functionsample.b005.b005001
+            B005001BLogic：「scripts/B005001.bat」から起動する
+             「messages.properties」に定義したメッセージを利用したログ出力を行うサンプルです。
 
     6. jp.terasoluna.batch.functionsample.b006
-      ・バッチ更新最適化機能のサンプル
-        ・B006001BLogic：「scripts/B006001.bat」から起動する
-          バッチ更新最適化機能を利用して、複数のSQLを一括で発行するサンプル。
-          内部ではSQLの発行順をinsertData01:100件,deleteData01:100件,
-          updateData01:100件の順に最適化した後、SQLの発行を行っている。
-          (実際に発行順を見るためには、デバッグ・ステップインの必要がある)
-          
-        ・B006002BLogic：「scripts/B006002.bat」から起動する
-          バッチ更新最適化機能を利用して、複数のSQLを一括で発行するサンプル。
-          こちらでは、Comparatorインタフェース実装クラスを用意し、
-          sortメソッドを呼び出すことで、最適化後のSQLの順を変更している。
-          内部ではSQLの発行順をupdateData01:100件,deleteData09:100件,
-          insertData99:100件の順に最適化した後、SQLの発行を行われる。
+      ・本バージョンでは、「バッチ更新最適化機能」は提供していないため、サンプルはありません。
+        データベースアクセス機能のバッチ更新を用いるサンプル(B001003、B001004)を利用してください。
 
     7. jp.terasoluna.batch.functionsample.b007
-      ・入力データ取得機能のサンプル
-        ・B007001BLogic：「scripts/B007001.bat」から起動する
-          ファイル-DB関連ジョブ
-          「C:\\tmp\\input.csv」の内容を読み込んで、
-          Employeeテーブルにデータを挿入するサンプル。
-          
-        ・B007002BLogic：「scripts/B007002.bat」から起動する
-          DB-ファイル関連ジョブ
-          「Employeeテーブル」の内容を読み込んで、
-          「C:\\tmp\\outputB007002.csv」に出力するサンプル
+      ・入力データ取得機能、データベースアクセス機能、ファイルアクセス機能のサンプル
+
+        ・jp.terasoluna.batch.functionsample.b007.b007001
+            B007001BLogic：「scripts/B007001.bat」から起動する
+              入力データ取得機能を利用してファイル「C:/tmp/input.csv」の内容を読み込み、
+              データベースアクセス機能を利用して「Employeeテーブル」にデータを挿入するサンプルです。
+
+        ・jp.terasoluna.batch.functionsample.b007.b007002
+            B007002BLogic：「scripts/B007002.bat」から起動する
+              入力データ取得機能を利用してデータベース「Employeeテーブル」の内容を読み込み、
+              ファイルアクセス機能を利用して「C:/tmp/outputB007002.csv」にデータを挿入するサンプルです。
 
     8. jp.terasoluna.batch.functionsample.b008
       ・コントロールブレイク機能のサンプル
-        ・B008001BLogic：「scripts/B008001.bat」から起動する
-          コントロールブレイク機能を使用したサンプル。
-          前データとの比較処理では複数のブレイクキーを使用し、
-          コントロールブレイク発生時にログへのヘッダ出力、市町村数のカウントを行い、
-          後データとの比較処理では単一のブレイクキーを用いて、
-          コントロールブレイクの発生の際にバッチ更新を行う。
-          ---「C:\\tmp\\KEN_ALL.CSV」のデータを読み込み、
-          ---「ZIP_CODE」テーブルに更新する。
+
+        ・jp.terasoluna.batch.functionsample.b008.b008001
+            B008001BLogic：「scripts/B008001.bat」から起動する
+              都道府県ごとの市区町村、町域が記載されている「C:/tmp/KEN_ALL.csv」を読み込み、
+              都道府県単位で「ZIP_CODE」テーブルにデータを挿入するサンプルです。
+              その際に、都道府県ごとの市区町村数、町域数をログに出力します。
 
     9. jp.terasoluna.batch.functionsample.b009
       ・入力データ取得機能使用時の入力チェック機能、例外ハンドリングのサンプル
-        ・B009001BLogic：「scripts/B009001.bat」から起動する
-          入力チェック機能のサンプル。
-          拡張入力チェックエラーハンドリングクラスを用意し、Status「SKIP」を返却している。
-          ビジネスロジックでは「C:\\tmp\\inputB009001.csv」ファイルを読み込み
-          「C:\\tmp\\outputB009001.csv」に出力する。
-          この時、2,11,16件目のデータで入力チェックエラーが発生し、
-          出力ファイルに出力されない。
+
+        ・jp.terasoluna.batch.functionsample.b009.b009001
+            B009001BLogic：「scripts/B009001.bat」から起動する
+              「C:/tmp/inputB009001.csv」を読み込み、「C:/tmp/outputB009001.csv」に出力します。
+              この時、BeanValidationを利用した入力チェックが実行され、
+              2,11,16件目のデータで入力チェックエラーが発生します。
+              このサンプルでは、拡張入力チェックエラーハンドリングクラスを用意し、
+              Status「SKIP」を返却しているため、2,11,16件目のデータはファイルに出力されません。
           
-        ・B009002BLogic：「scripts/B009002.bat」から起動する
-          入力データ取得機能使用時の例外ハンドリングサンプル
-          拡張例外ハンドリングクラスを用意し、Status「END」を返却している。
-          ビジネスロジックではEmployee3テーブルを読み込み、
-          Employee2テーブルへの出力を試みるが、
-          2,7,12件目のデータで入力チェック例外が投げられ、処理が停止する。
-                         
+        ・jp.terasoluna.batch.functionsample.b009.b009002
+            B009002BLogic：「scripts/B009002.bat」から起動する
+              Employee3テーブルを読み込み、Employee2テーブルにコピーします。
+              この時、BeanValidationを利用した入力チェックが実行され、
+              2,7,12件目のデータで入力チェックエラーが発生します。
+              このサンプルでは、入力データ取得機能使用時の拡張例外ハンドリングクラスを用意し、
+              Status「END」を返却しているため、2件目のデータで入力データの取得が停止します。
+              そのため、Employeeテーブルには1件のみデータがコピーされます。
+
+        ・jp.terasoluna.batch.functionsample.b009.b009003
+            B009003BLogic：「scripts/B009003.bat」から起動する
+              「C:/tmp/inputB009003.csv」を読み込み、「C:/tmp/outputB009003.csv」に出力します。
+              この時、SpringModulesValidationを利用した入力チェックが実行され、
+              2,11,16件目のデータで入力チェックエラーが発生します。
+              このサンプルでは、拡張入力チェックエラーハンドリングクラスを用意し、
+              Status「SKIP」を返却しているため、2,11,16件目のデータはファイルに出力されません。
+
 ※ファイルを出力するジョブに関して、ファイルの削除処理は特に記述しておらず、
   ファイル出力時には上書きとなるよう設定しています。
 
 -------------------------------------------------------------------------------
-Copyright 2007-2011 NTT DATA Corporation.
+Copyright 2007-2015 NTT DATA Corporation.

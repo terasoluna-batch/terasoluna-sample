@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.terasoluna.batch.functionsample.b001.b001003.B001003BatchDao">
+
+    <select id="collectEmployee"
+        resultType="jp.terasoluna.batch.functionsample.b001.b001003.B001003Param">
+        SELECT
+                EMPLOYEE_ID AS id
+                ,EMPLOYEE_FAMILY_NAME AS familyName
+                ,EMPLOYEE_FIRST_NAME AS firstName
+                ,EMPLOYEE_AGE AS age
+            FROM
+                EMPLOYEE
+    </select>
+
+    <update id="updateEmployee"
+        parameterType="jp.terasoluna.batch.functionsample.b001.b001003.B001003Param">
+        UPDATE
+                EMPLOYEE
+            SET
+                EMPLOYEE_FAMILY_NAME = #{familyName}
+                ,EMPLOYEE_FIRST_NAME = #{firstName}
+            WHERE
+                EMPLOYEE_ID = #{id}
+    </update>
+
+</mapper>

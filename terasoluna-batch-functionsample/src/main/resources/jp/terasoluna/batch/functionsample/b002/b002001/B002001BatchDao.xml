@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.terasoluna.batch.functionsample.b002.b002001.B002001BatchDao">
+
+    <select id="collectEmployee"
+        resultType="jp.terasoluna.batch.functionsample.b002.b002001.B002001Param">
+        SELECT
+        EMPLOYEE_ID AS "id",
+        EMPLOYEE_FAMILY_NAME AS "familyName",
+        EMPLOYEE_FIRST_NAME AS "firstName",
+        EMPLOYEE_AGE AS "age"
+        FROM
+        EMPLOYEE
+        ORDER BY
+        CAST(EMPLOYEE_ID AS INTEGER)
+    </select>
+
+    <insert id="insertEmployee2"
+        parameterType="jp.terasoluna.batch.functionsample.b002.b002001.B002001Param">
+        INSERT INTO
+        EMPLOYEE2
+        (EMPLOYEE_ID,
+        EMPLOYEE_FAMILY_NAME,
+        EMPLOYEE_FIRST_NAME,
+        EMPLOYEE_AGE
+        )
+        VALUES(
+        #{id},
+        #{familyName},
+        #{firstName},
+        #{age}
+        )
+    </insert>
+
+</mapper>

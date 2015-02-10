@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.terasoluna.batch.functionsample.b008.b008001.B008001BatchDao">
+
+    <delete id="deleteZipCode">
+        DELETE
+        FROM
+        ZIP_CODE
+    </delete>
+
+    <insert id="insertZipCode"
+        parameterType="jp.terasoluna.batch.functionsample.b008.ZipCode">
+        INSERT
+        INTO
+        ZIP_CODE (
+        GROUP_CODE
+        ,OLD_ZIP_CODE
+        ,ZIP_CODE
+        ,ADMIN_DIVISIONS_KANA
+        ,MUNICIPAL_DISTRICT_KANA
+        ,TOWN_REGION_KANA
+        ,ADMIN_DIVISIONS
+        ,MUNICIPAL_DISTRICT
+        ,TOWN_REGION
+        ,TOWN_REGION_FLAG1
+        ,TOWN_REGION_FLAG2
+        ,TOWN_REGION_FLAG3
+        ,TOWN_REGION_FLAG4
+        ,UPDATE_FLAG
+        ,CHANGE_FLAG
+        )
+        VALUES (
+        #{groupCode}
+        ,SUBSTR(#{oldZipCode},1,5)
+        ,#{zipCode}
+        ,#{adminDivisionsKana}
+        ,#{municipalDistrictKana}
+        ,#{townRegionKana}
+        ,#{adminDivisions}
+        ,#{municipalDistrict}
+        ,#{townRegion}
+        ,#{townRegionFlag1}
+        ,#{townRegionFlag2}
+        ,#{townRegionFlag3}
+        ,#{townRegionFlag4}
+        ,#{updateFlag}
+        ,#{changeFlag}
+        )
+    </insert>
+
+</mapper>
