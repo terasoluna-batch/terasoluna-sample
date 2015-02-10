@@ -127,7 +127,7 @@ public class B008001BLogic implements BLogic {
                     if (log.isInfoEnabled()
                             && pbMap.containsKey("adminDivisions")) {
                         log.info("=========================");
-                        log.info("{}", pbMap.get("adminDivisions"));
+                        log.info(String.valueOf(pbMap.get("adminDivisions")));
                     }
 
                 }
