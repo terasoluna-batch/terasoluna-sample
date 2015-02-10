@@ -126,8 +126,8 @@ public class B008001BLogic implements BLogic {
                     // 都道府県名が変わった時にログにヘッダを出力する
                     if (log.isInfoEnabled()
                             && pbMap.containsKey("adminDivisions")) {
-                        log.info("{}=========================",
-                                pbMap.get("adminDivisions"));
+                        log.info("=========================");
+                        log.info("{}", pbMap.get("adminDivisions"));
                     }
 
                 }
@@ -143,7 +143,7 @@ public class B008001BLogic implements BLogic {
 
                     // 都道府県名が変わった時にバッチ更新を実行する
                     if (brkMap.containsKey("adminDivisions")) {
-                        log.info("バッチ更新実行{}件 市区町村数{}件 町域数{}件", insertCount,
+                        log.info("バッチ更新実行 {}件 市区町村数 {}件 町域数 {}件", insertCount,
                                 municipalDistrictCnt, townRegionCnt);
 
                         // トランザクションコミットとトランザクション開始(バッチ更新実行)
@@ -175,5 +175,4 @@ public class B008001BLogic implements BLogic {
         // 正常終了
         return BATCH_NORMAL_END;
     }
-
 }

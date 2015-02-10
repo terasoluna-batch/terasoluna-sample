@@ -79,7 +79,7 @@
    ◇PostgreSQLの場合
     1.「/pom.xml」の編集
        MavenのセントラルリポジトリからJDBCドライバを取得します。
-       pom.xmlに以下の記述を加えてください。
+       pom.xmlに以下のような記述が必要になります(あらかじめ設定されています)。
 
        <!-- JDBC Driver(PostgreSQL) -->
        <dependency>
@@ -95,12 +95,12 @@
 
    ◇Oracleの場合
     1.JDBCドライバの取得
-       以下のURLからJDBCドライバを取得し、「/scripts/install」フォルダに配置してください。
+       以下のURLからJDBCドライバを取得し、「/scripts/developments」フォルダに配置してください。
           http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html
 
     2.「/scripts/developments/installojdbc.bat」の編集
-       「/scripts/developments/installojdbc.bat」のFILE_NAME、GROUP_ID、ARTIFACT_ID、VERSIONの値を
-        自環境で使用するJDBCドライバの値に書き換えてください。
+       「/scripts/developments/installojdbc.bat」のFILE_NAME、GROUP_ID、ARTIFACT_ID、VERSIONの値を、
+        以下のように自環境で使用するJDBCドライバの値に書き換えてください。
 
         REM インストールするjarファイルの名前
         SET FILE_NAME=ojdbc7.jar
@@ -119,7 +119,8 @@
        コマンドプロンプトが立ち上がり、「BUILD SUCCESS」がログに出力されていることを確認します。
 
     4.「/pom.xml」の編集
-       2.でインストールしたJDBCドライバを取得するよう、pom.xmlに記述を加えてください。
+       2.でインストールしたJDBCドライバを取得するために、
+       pom.xmlに以下のような記述が必要になります(あらかじめ設定がコメントアウトされています)。
        2.で指定したGROUP_ID、ARTIFACT_ID、VERSIONの各値を使用します。
 
        <!-- JDBC Driver(Oracle) -->
@@ -205,8 +206,8 @@
               データベースアクセス機能:
                 バッチ更新を用いるサンプルです。
                 更新系のSQLをまとめて実行する場合、バッチ更新を用いると性能の向上が見込めます。
-                10件ごとにコミットしているため、SqlSessionインタフェースの
-                flushStatementsメソッドを使用したバッチ更新は実行していません。
+                10件ごとにコミットしており、コミットのタイミング(コミット直前)でバッチ更新が実行されるため、
+                SqlSessionインタフェースのflushStatementsメソッドを使用したバッチ更新は実行していません。
 
     2. jp.terasoluna.batch.functionsample.b002
       ・非同期型ジョブのサンプル
