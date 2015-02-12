@@ -18,16 +18,16 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 
 /**
- * “¯ŠúŒ^ƒWƒ‡ƒuEƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠÇ—‹@”\‚ÌƒTƒ“ƒvƒ‹‚Q<br>
+ * åŒæœŸå‹ã‚¸ãƒ§ãƒ–ãƒ»ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ç®¡ç†æ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«ï¼’<br>
  * <p>
- * –‘O€”õFEMPLOYEEƒe[ƒuƒ‹‚ğì¬‚µ‚Ä‚¨‚èA<br>
- * ‚PŒˆÈã‚Ìƒf[ƒ^‚ª‘¶İ‚·‚é‚±‚Æ<br>
+ * äº‹å‰æº–å‚™ï¼šEMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆã—ã¦ãŠã‚Šã€<br>
+ * ï¼‘ä»¶ä»¥ä¸Šã®ãƒ‡ãƒ¼ã‚¿ãŒå­˜åœ¨ã™ã‚‹ã“ã¨<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eF“ü—Íƒf[ƒ^æ“¾‹@”\‚ğg—p‚µADB‚ğQÆ‚µADB‚ğXV‚·‚éƒTƒ“ƒvƒ‹<br>
- * BLogic‚ğŒp³‚µAƒrƒWƒlƒXƒƒWƒbƒN“à‚Åƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ÌŠÇ—‚ğs‚¤<br>
- * (ƒf[ƒ^‚Í10Œ–ˆ‚ÉXV‚·‚é)<br>
- * ˆ—I—¹Œã‚ÍA‚·‚×‚Ä‚Ìƒf[ƒ^‚ª—é–Ø‘¾˜Y‚É‘‚«Š·‚¦‚ç‚ê‚é<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ã€DBã‚’å‚ç…§ã—ã€DBã‚’æ›´æ–°ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«<br>
+ * BLogicã‚’ç¶™æ‰¿ã—ã€ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯å†…ã§ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã®ç®¡ç†ã‚’è¡Œã†<br>
+ * (ãƒ‡ãƒ¼ã‚¿ã¯10ä»¶æ¯ã«æ›´æ–°ã™ã‚‹)<br>
+ * å‡¦ç†çµ‚äº†å¾Œã¯ã€ã™ã¹ã¦ã®ãƒ‡ãƒ¼ã‚¿ãŒéˆ´æœ¨å¤ªéƒã«æ›¸ãæ›ãˆã‚‰ã‚Œã‚‹<br>
  * </p>
  */
 @Component
@@ -56,7 +56,7 @@ public class B001002BLogic implements BLogic {
             collector = new DaoCollector<B001002Param>(dao, "collectEmployee",
                     param);
 
-            // REQUIRES_NEW‚Ìƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“’è‹`‚ğ¶¬
+            // REQUIRES_NEWã®ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³å®šç¾©ã‚’ç”Ÿæˆ
             TransactionDefinition def = BatchUtil.getTransactionDefinition(
                     TransactionDefinition.PROPAGATION_REQUIRES_NEW,
                     TransactionDefinition.ISOLATION_DEFAULT,
@@ -65,7 +65,7 @@ public class B001002BLogic implements BLogic {
             TransactionStatus innerStat = null;
 
             try {
-                // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn
+                // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹
                 innerStat = BatchUtil.startTransaction(transactionManager, def);
 
                 int updateCount = 0;
@@ -80,16 +80,16 @@ public class B001002BLogic implements BLogic {
                                 data.getFirstName(), data.getAge());
                     }
 
-                    data.setFamilyName("—é–Ø");
-                    data.setFirstName("‘¾˜Y");
+                    data.setFamilyName("éˆ´æœ¨");
+                    data.setFirstName("å¤ªéƒ");
 
                     dao.updateEmployee(data);
                     updateCount++;
 
-                    // 10Œ‚²‚Æ‚ÉƒRƒ~ƒbƒg
+                    // 10ä»¶ã”ã¨ã«ã‚³ãƒŸãƒƒãƒˆ
                     if (updateCount % 10 == 0) {
-                        log.info("ƒRƒ~ƒbƒg");
-                        // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒRƒ~ƒbƒg‚µÄŠJn‚·‚é
+                        log.info("ã‚³ãƒŸãƒƒãƒˆ");
+                        // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚³ãƒŸãƒƒãƒˆã—å†é–‹å§‹ã™ã‚‹
                         innerStat = BatchUtil.commitRestartTransaction(
                                 transactionManager, innerStat, def);
                         commitCount++;

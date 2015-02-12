@@ -12,30 +12,30 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 
 /**
- * CSVƒtƒ@ƒCƒ‹1ƒŒƒR[ƒh‚ğƒ}ƒbƒsƒ“ƒO‚·‚éBean
+ * CSVãƒ•ã‚¡ã‚¤ãƒ«1ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ãƒãƒƒãƒ”ãƒ³ã‚°ã™ã‚‹Bean
  */
 @FileFormat(lineFeedChar = "\r\n", fileEncoding = "UTF-8", overWriteFlg = true)
 public class CsvRecord {
 
-    // ID (1”Ô–Ú‚ÌƒJƒ‰ƒ€)
+    // ID (1ç•ªç›®ã®ã‚«ãƒ©ãƒ )
     @InputFileColumn(columnIndex = 0)
     @OutputFileColumn(columnIndex = 0, paddingType = PaddingType.LEFT, paddingChar = '0', bytes = 6)
     @NotNull
     private int id = 0;
 
-    // –¼š (2”Ô–Ú‚ÌƒJƒ‰ƒ€)
+    // åå­— (2ç•ªç›®ã®ã‚«ãƒ©ãƒ )
     @InputFileColumn(columnIndex = 1)
     @OutputFileColumn(columnIndex = 1)
     @NotEmpty
     private String familyName = null;
 
-    // –¼‘O (3”Ô–Ú‚ÌƒJƒ‰ƒ€)
+    // åå‰ (3ç•ªç›®ã®ã‚«ãƒ©ãƒ )
     @InputFileColumn(columnIndex = 2)
     @OutputFileColumn(columnIndex = 2)
     @NotEmpty
     private String firstName = null;
 
-    // ”N—î (4”Ô–Ú‚ÌƒJƒ‰ƒ€)
+    // å¹´é½¢ (4ç•ªç›®ã®ã‚«ãƒ©ãƒ )
     @InputFileColumn(columnIndex = 3)
     @OutputFileColumn(columnIndex = 3)
     @Min(0)

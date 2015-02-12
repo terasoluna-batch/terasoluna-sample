@@ -16,16 +16,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * “¯ŠúŒ^ƒWƒ‡ƒuEƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠÇ—‹@”\‚ÌƒTƒ“ƒvƒ‹‚R<br>
+ * åŒæœŸåž‹ã‚¸ãƒ§ãƒ–ãƒ»ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ç®¡ç†æ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«ï¼“<br>
  * <p>
- * Ž–‘O€”õFEMPLOYEEƒe[ƒuƒ‹‚ðì¬‚µ‚Ä‚¨‚èA<br>
- * ‚PŒˆÈã‚Ìƒf[ƒ^‚ª‘¶Ý‚·‚é‚±‚Æ<br>
+ * äº‹å‰æº–å‚™ï¼šEMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆã—ã¦ãŠã‚Šã€<br>
+ * ï¼‘ä»¶ä»¥ä¸Šã®ãƒ‡ãƒ¼ã‚¿ãŒå­˜åœ¨ã™ã‚‹ã“ã¨<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eF“ü—Íƒf[ƒ^Žæ“¾‹@”\‚ðŽg—p‚µADB‚ðŽQÆ‚µADB‚ðƒoƒbƒ`XV‚·‚éƒTƒ“ƒvƒ‹<br>
- * AbstractTransactionBLogic‚ðŒp³‚µƒtƒŒ[ƒ€ƒ[ƒN‘¤‚Éƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠÇ—‚ð”C‚¹‚é<br>
- * (ƒf[ƒ^‚Í‘SŒˆêŠ‡‚ÉXV‚·‚é)<br>
- * ˆ—I—¹Œã‚ÍA‚·‚×‚Ä‚Ìƒf[ƒ^‚ª—é–Ø‘¾˜Y‚É‘‚«Š·‚¦‚ç‚ê‚é<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ã€DBã‚’å‚ç…§ã—ã€DBã‚’ãƒãƒƒãƒæ›´æ–°ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«<br>
+ * AbstractTransactionBLogicã‚’ç¶™æ‰¿ã—ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯å´ã«ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ç®¡ç†ã‚’ä»»ã›ã‚‹<br>
+ * (ãƒ‡ãƒ¼ã‚¿ã¯å…¨ä»¶ä¸€æ‹¬ã«æ›´æ–°ã™ã‚‹)<br>
+ * å‡¦ç†çµ‚äº†å¾Œã¯ã€ã™ã¹ã¦ã®ãƒ‡ãƒ¼ã‚¿ãŒéˆ´æœ¨å¤ªéƒŽã«æ›¸ãæ›ãˆã‚‰ã‚Œã‚‹<br>
  * </p>
  */
 @Component
@@ -62,15 +62,15 @@ public class B001003BLogic extends AbstractTransactionBLogic {
                             data.getFirstName(), data.getAge());
                 }
 
-                data.setFamilyName("—é–Ø");
-                data.setFirstName("‘¾˜Y");
+                data.setFamilyName("éˆ´æœ¨");
+                data.setFirstName("å¤ªéƒŽ");
 
                 dao.updateEmployee(data);
                 updateCount++;
 
-                // 10Œ‚²‚Æ‚Éƒoƒbƒ`XVŽÀs
+                // 10ä»¶ã”ã¨ã«ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œ
                 if (updateCount % 10 == 0) {
-                    log.info("ƒoƒbƒ`XVŽÀs");
+                    log.info("ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œ");
                     sqlSession.flushStatements();
                 }
 

@@ -15,10 +15,10 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 /**
- * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰‚ÌÀ‘•ƒNƒ‰ƒX.<br>
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹.<br>
  * <p>
- * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª‚ ‚Á‚½ê‡‚ÍAINFOƒƒO‚ÉƒGƒ‰[ƒR[ƒh‚ğo—Í‚·‚éB<br>
- * –ß‚è’l‚Í•K‚¸ValidateStatus.SKIP‚ğ•Ô‚·B
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸå ´åˆã¯ã€INFOãƒ­ã‚°ã«ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚’å‡ºåŠ›ã™ã‚‹ã€‚<br>
+ * æˆ»ã‚Šå€¤ã¯å¿…ãšValidateStatus.SKIPã‚’è¿”ã™ã€‚
  * </p>
  */
 public class SkipValidationErrorHandler implements ValidationErrorHandler {
@@ -28,57 +28,57 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
     private static Logger logger = LoggerFactory
             .getLogger(SkipValidationErrorHandler.class);
 
-    /** ƒƒOƒŒƒxƒ‹(TRACE) */
+    /** ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«(TRACE) */
     public static final String LOG_LEVEL_TRACE = "trace";
 
-    /** ƒƒOƒŒƒxƒ‹(DEBUG) */
+    /** ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«(DEBUG) */
     public static final String LOG_LEVEL_DEBUG = "debug";
 
-    /** ƒƒOƒŒƒxƒ‹(INFO) */
+    /** ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«(INFO) */
     public static final String LOG_LEVEL_INFO = "info";
 
-    /** ƒƒOƒŒƒxƒ‹(WARN) */
+    /** ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«(WARN) */
     public static final String LOG_LEVEL_WARN = "warn";
 
-    /** ƒƒOƒŒƒxƒ‹(ERROR) */
+    /** ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«(ERROR) */
     public static final String LOG_LEVEL_ERROR = "error";
 
-    /** ƒƒOƒŒƒxƒ‹(FATAL) */
+    /** ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«(FATAL) */
     public static final String LOG_LEVEL_FATAL = "fatal";
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚É•Ô‚·ƒXƒe[ƒ^ƒX.<br>
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¿”ã™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹.<br>
      * <p>
-     * ƒfƒtƒHƒ‹ƒg‚Å‚ÍERROR_SKIP
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ERROR_SKIP
      * </p>
      */
     protected ValidateErrorStatus validateStatus = ValidateErrorStatus.SKIP;
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[Œ”.<br>
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»¶æ•°.<br>
      */
     protected int errorFieldCount = 0;
 
     /**
-     * ƒGƒ‰[ƒLƒ…[.<br>
+     * ã‚¨ãƒ©ãƒ¼ã‚­ãƒ¥ãƒ¼.<br>
      */
     protected BlockingQueue<Errors> errorsQueue = new LinkedBlockingQueue<Errors>();
 
     /**
-     * ƒƒOƒŒƒxƒ‹.<br>
+     * ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«.<br>
      */
     protected String logLevel = LOG_LEVEL_INFO;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
      */
     public SkipValidationErrorHandler() {
         super();
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param logLevel String ƒƒOƒŒƒxƒ‹
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param logLevel String ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«
      */
     public SkipValidationErrorHandler(String logLevel) {
         this();
@@ -86,8 +86,8 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param validateStatus ValidateStatus “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚É•Ô‚·ƒXƒe[ƒ^ƒX
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param validateStatus ValidateStatus å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¿”ã™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     public SkipValidationErrorHandler(ValidateErrorStatus validateStatus) {
         this();
@@ -95,9 +95,9 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param validateStatus ValidateStatus “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚É•Ô‚·ƒXƒe[ƒ^ƒX
-     * @param logLevel String ƒƒOƒŒƒxƒ‹
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param validateStatus ValidateStatus å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¿”ã™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+     * @param logLevel String ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«
      */
     public SkipValidationErrorHandler(ValidateErrorStatus validateStatus,
             String logLevel) {
@@ -120,18 +120,18 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
                 errorsQueue.put(errors);
             }
         } catch (InterruptedException e) {
-            // –³‹‚·‚é
+            // ç„¡è¦–ã™ã‚‹
         }
 
-        // ƒƒOo—Í
+        // ãƒ­ã‚°å‡ºåŠ›
         outputLog(dataValueObject, errors);
 
-        // ValidateStatus‚ğ•Ô‚·
+        // ValidateStatusã‚’è¿”ã™
         return getValidateStatus(dataValueObject, errors);
     }
 
     /**
-     * ƒƒOo—Í
+     * ãƒ­ã‚°å‡ºåŠ›
      * @param dataValueObject DataValueObject
      * @param errors Errors
      */
@@ -157,10 +157,10 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
     }
 
     /**
-     * ƒƒO•ÒW.<br>
+     * ãƒ­ã‚°ç·¨é›†.<br>
      * @param dataValueObject DataValueObject
      * @param errors Errors
-     * @return ƒƒO
+     * @return ãƒ­ã‚°
      */
     protected String logEdit(DataValueObject dataValueObject, Errors errors) {
         StringBuilder sb = new StringBuilder();
@@ -191,7 +191,7 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
     }
 
     /**
-     * ValidateStatus‚ğ•Ô‚·B
+     * ValidateStatusã‚’è¿”ã™ã€‚
      * @param dataValueObject DataValueObject
      * @param errors Errors
      * @return ValidateStatus
@@ -202,7 +202,7 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
     }
 
     /**
-     * Errors‚©‚çFieldError‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é
+     * Errorsã‹ã‚‰FieldErrorã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
      * @param errors Errors
      * @return List<FieldError>
      */
@@ -223,23 +223,23 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[Œ”‚ğæ“¾‚·‚é
-     * @return int “ü—Íƒ`ƒFƒbƒNƒGƒ‰[Œ”
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»¶æ•°ã‚’å–å¾—ã™ã‚‹
+     * @return int å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»¶æ•°
      */
     public int getErrorFieldCount() {
         return errorFieldCount;
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚Ì”z—ñ‚ğæ“¾‚·‚é
-     * @return Errors[] “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚Ì”z—ñ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ã®é…åˆ—ã‚’å–å¾—ã™ã‚‹
+     * @return Errors[] å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ã®é…åˆ—
      */
     public Errors[] getErrors() {
         return errorsQueue.toArray(new Errors[0]);
     }
 
     /**
-     * ƒƒOƒŒƒxƒ‹‚ğİ’è‚·‚é.<br>
+     * ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ã‚’è¨­å®šã™ã‚‹.<br>
      * <p>
      * <li>trace</li>
      * <li>debug</li>
@@ -248,7 +248,7 @@ public class SkipValidationErrorHandler implements ValidationErrorHandler {
      * <li>error</li>
      * <li>fatal</li>
      * </p>
-     * @param logLevel ƒƒOƒŒƒxƒ‹
+     * @param logLevel ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«
      */
     public void setLogLevel(String logLevel) {
         this.logLevel = logLevel;

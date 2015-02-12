@@ -24,14 +24,14 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 /**
- * “ü—Íƒf[ƒ^Žæ“¾‹@”\‚ðŽg—p‚µ‚½Û‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\(SpringModulesValidation)‚ÌƒTƒ“ƒvƒ‹<br>
+ * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ãŸéš›ã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½(SpringModulesValidation)ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * Ž–‘O€”õFC:\tmp”z‰º‚ÉinputB009001.csvƒtƒ@ƒCƒ‹‚ð”z’u‚·‚é‚±‚Æ<br>
+ * äº‹å‰æº–å‚™ï¼šC:\tmpé…ä¸‹ã«inputB009001.csvãƒ•ã‚¡ã‚¤ãƒ«ã‚’é…ç½®ã™ã‚‹ã“ã¨<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eFinputB009001.csvƒtƒ@ƒCƒ‹‚ð“Ç‚ÝŽæ‚èAoutputB009001.csv‚ðo—Í‚·‚éB<br>
- * Šg’£“ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰‚ðŽg—p‚µAƒXƒe[ƒ^ƒX‚É‚ÍSKIP‚ð•Ô‹p‚·‚éB<br>
- * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^ˆÈŠO‚ðo—Í‚·‚é‚ªAI—¹ƒXƒe[ƒ^ƒX‚Í100‚ðƒZƒbƒg‚·‚éB <br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šinputB009001.csvãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿å–ã‚Šã€outputB009001.csvã‚’å‡ºåŠ›ã™ã‚‹ã€‚<br>
+ * æ‹¡å¼µå…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ã‚’ä½¿ç”¨ã—ã€ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã«ã¯SKIPã‚’è¿”å´ã™ã‚‹ã€‚<br>
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ä»¥å¤–ã‚’å‡ºåŠ›ã™ã‚‹ãŒã€çµ‚äº†ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã¯100ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ã€‚ <br>
  * </p>
  */
 @Component
@@ -77,7 +77,7 @@ public class B009003BLogic implements BLogic {
         footer.add("footer");
 
         try {
-            // ƒwƒbƒ_•”‚Ìo—Í
+            // ãƒ˜ãƒƒãƒ€éƒ¨ã®å‡ºåŠ›
             fileLineWriter.printHeaderLine(header);
 
             while (collector.hasNext()) {
@@ -88,20 +88,20 @@ public class B009003BLogic implements BLogic {
                             record.getFirstName(), record.getAge());
                 }
 
-                // ƒf[ƒ^•”‚Ìo—Í
+                // ãƒ‡ãƒ¼ã‚¿éƒ¨ã®å‡ºåŠ›
                 fileLineWriter.printDataLine(record);
             }
-            // ƒtƒbƒ_•”‚Ìo—Í
+            // ãƒ•ãƒƒãƒ€éƒ¨ã®å‡ºåŠ›
             fileLineWriter.printTrailerLine(footer);
         } catch (Exception e) {
             throw new BatchException(e);
         } finally {
-            // ƒRƒŒƒNƒ^Eƒtƒ@ƒCƒ‹‚ÌƒNƒ[ƒY
+            // ã‚³ãƒ¬ã‚¯ã‚¿ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(collector);
             CollectorUtility.closeQuietly(fileLineWriter);
         }
 
-        // ƒRƒŒƒNƒ^ˆ—’†‚É”­¶‚µ‚½“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ðŽæ“¾
+        // ã‚³ãƒ¬ã‚¯ã‚¿å‡¦ç†ä¸­ã«ç™ºç”Ÿã—ãŸå…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ã‚’å–å¾—
         if (errorHandler.getErrorFieldCount() > 0) {
             returnCode = BATCH_ABNORMAL_END;
             if (log.isInfoEnabled()) {
@@ -112,7 +112,7 @@ public class B009003BLogic implements BLogic {
             }
         }
 
-        // ³íI—¹
+        // æ­£å¸¸çµ‚äº†
         return returnCode;
     }
 

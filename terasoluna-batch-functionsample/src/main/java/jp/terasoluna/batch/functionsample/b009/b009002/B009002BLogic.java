@@ -17,16 +17,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Validator;
 
 /**
- * “ü—Íƒf[ƒ^Žæ“¾‹@”\‚ðŽg—p‚µ‚½Û‚ÌŠg’£—áŠOƒnƒ“ƒhƒŠƒ“ƒO‚ÌƒTƒ“ƒvƒ‹<br>
+ * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ãŸéš›ã®æ‹¡å¼µä¾‹å¤–ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * Ž–‘O€”õFC:\tmp”z‰º‚ÉinputB009001.csvƒtƒ@ƒCƒ‹‚ð”z’u‚·‚é‚±‚Æ(DB‰Šú‰»—p)<br>
+ * äº‹å‰æº–å‚™ï¼šC:\tmpé…ä¸‹ã«inputB009001.csvãƒ•ã‚¡ã‚¤ãƒ«ã‚’é…ç½®ã™ã‚‹ã“ã¨(DBåˆæœŸåŒ–ç”¨)<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eFEMPLOYEE3ƒe[ƒuƒ‹‚ð“Ç‚ÝŽæ‚èAEMPLOYEE2ƒe[ƒuƒ‹‚Éo—Í‚·‚éB<br>
- * Šg’£—áŠOƒnƒ“ƒhƒŠƒ“ƒO‚ðŽg—p‚µAƒXƒe[ƒ^ƒX‚É‚ÍEND‚ð•Ô‹p‚·‚éB<br>
- * (ƒGƒ‰[‚ÍValidationErrorException‚ª“Š‚°‚ç‚ê‚é‚æ‚¤‚ÉŽÀ‘•‚µ‚Ä‚¢‚é)<br>
- * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½Žž“_‚ÅI—¹‚·‚é‚ªAI—¹ƒXƒe[ƒ^ƒX‚Í100‚ðƒZƒbƒg‚·‚éB<br>
- * (ƒ^ƒCƒ~ƒ“ƒO‚É‚æ‚Á‚ÄAEMPLOYEE2ƒe[ƒuƒ‹‚É‘}“ü‚³‚ê‚éŒ”‚Í•Ï“®‚·‚é)
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šEMPLOYEE3ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’èª­ã¿å–ã‚Šã€EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«ã«å‡ºåŠ›ã™ã‚‹ã€‚<br>
+ * æ‹¡å¼µä¾‹å¤–ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°ã‚’ä½¿ç”¨ã—ã€ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã«ã¯ENDã‚’è¿”å´ã™ã‚‹ã€‚<br>
+ * (ã‚¨ãƒ©ãƒ¼ã¯ValidationErrorExceptionãŒæŠ•ã’ã‚‰ã‚Œã‚‹ã‚ˆã†ã«å®Ÿè£…ã—ã¦ã„ã‚‹)<br>
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸæ™‚ç‚¹ã§çµ‚äº†ã™ã‚‹ãŒã€çµ‚äº†ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã¯100ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ã€‚<br>
+ * (ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ˆã£ã¦ã€EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«ã«æŒ¿å…¥ã•ã‚Œã‚‹ä»¶æ•°ã¯å¤‰å‹•ã™ã‚‹)
  * </p>
  */
 @Component
@@ -45,17 +45,17 @@ public class B009002BLogic extends AbstractTransactionBLogic {
 
     public int doMain(BLogicParam arg0) {
 
-        log.info("EMPLOYEE2ƒe[ƒuƒ‹‰Šú‰»:ŠJŽn");
+        log.info("EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«åˆæœŸåŒ–:é–‹å§‹");
 
         dao.deleteEmployee2();
 
-        log.info("EMPLOYEE2ƒe[ƒuƒ‹‰Šú‰»:I—¹");
+        log.info("EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«åˆæœŸåŒ–:çµ‚äº†");
 
         int returnCode = BATCH_NORMAL_END;
 
         int insertCount = 0;
 
-        log.info("EMPLOYEE3ƒe[ƒuƒ‹“Ç‚Ýž‚Ý:ŠJŽn");
+        log.info("EMPLOYEE3ãƒ†ãƒ¼ãƒ–ãƒ«èª­ã¿è¾¼ã¿:é–‹å§‹");
 
         CustomCollectorExceptionHandler cceHandler = new CustomCollectorExceptionHandler();
 
@@ -69,7 +69,7 @@ public class B009002BLogic extends AbstractTransactionBLogic {
                 CsvRecord csvRecord = collector.next();
                 if (csvRecord != null) {
                     log.info("NAME:{}", csvRecord.getFamilyName());
-                    // ƒoƒbƒ`XV‚É’Ç‰Á
+                    // ãƒãƒƒãƒæ›´æ–°ã«è¿½åŠ 
                     dao.insertEmployee2(csvRecord);
                     insertCount++;
                 }
@@ -78,18 +78,18 @@ public class B009002BLogic extends AbstractTransactionBLogic {
         } catch (Exception e) {
             throw new BatchException(e);
         } finally {
-            // ƒRƒŒƒNƒ^‚ÌƒNƒ[ƒY
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(collector);
         }
 
-        log.info("EMPLOYEE2ƒe[ƒuƒ‹:{}Œ‘}“ü‚µ‚Ü‚µ‚½B", insertCount);
+        log.info("EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«:{}ä»¶æŒ¿å…¥ã—ã¾ã—ãŸã€‚", insertCount);
 
-        // ‚PŒ‚Å‚àƒGƒ‰[‚ª”­¶‚µ‚½ê‡‚ÍA"100"‚ð•Ô‹p‚·‚éB
+        // ï¼‘ä»¶ã§ã‚‚ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã¯ã€"100"ã‚’è¿”å´ã™ã‚‹ã€‚
         if (cceHandler.getErrorFieldCount() > 0) {
             return 100;
         }
 
-        // ³íI—¹
+        // æ­£å¸¸çµ‚äº†
         return returnCode;
     }
 }

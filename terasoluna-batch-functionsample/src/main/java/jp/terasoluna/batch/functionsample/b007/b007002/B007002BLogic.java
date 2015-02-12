@@ -24,13 +24,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 
 /**
- * “ü—Íƒf[ƒ^æ“¾‹@”\‚ğg—p‚µ‚½DB-ƒtƒ@ƒCƒ‹ŠÖ˜AƒWƒ‡ƒu‚ÌƒTƒ“ƒvƒ‹<br>
+ * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ãŸDB-ãƒ•ã‚¡ã‚¤ãƒ«é–¢é€£ã‚¸ãƒ§ãƒ–ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * –‘O€”õFEMPLOYEEƒe[ƒuƒ‹‚ğì¬‚µ‚Ä‚¨‚­‚±‚Æ<br>
+ * äº‹å‰æº–å‚™ï¼šEMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆã—ã¦ãŠãã“ã¨<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eF“ü—Íƒf[ƒ^æ“¾‹@”\‚ğg—p‚µA<br>
- * DB‚ğQÆ‚µAƒtƒ@ƒCƒ‹(C:\\tmp\\outputB007002.csv)‚É‘‚«o‚·ƒTƒ“ƒvƒ‹B<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ã€<br>
+ * DBã‚’å‚ç…§ã—ã€ãƒ•ã‚¡ã‚¤ãƒ«(C:\\tmp\\outputB007002.csv)ã«æ›¸ãå‡ºã™ã‚µãƒ³ãƒ—ãƒ«ã€‚<br>
  * </p>
  */
 @Component
@@ -71,7 +71,7 @@ public class B007002BLogic implements BLogic {
             List<String> footer = new ArrayList<String>();
             footer.add("footer");
 
-            // ƒwƒbƒ_•”‚Ìo—Í
+            // ãƒ˜ãƒƒãƒ€éƒ¨ã®å‡ºåŠ›
             fileLineWriter.printHeaderLine(header);
 
             for (CsvRecord data : collector) {
@@ -82,24 +82,24 @@ public class B007002BLogic implements BLogic {
                             data.getFirstName(), data.getAge());
                 }
 
-                // ƒf[ƒ^•”‚Ìo—Í
+                // ãƒ‡ãƒ¼ã‚¿éƒ¨ã®å‡ºåŠ›
                 fileLineWriter.printDataLine(data);
             }
 
-            // ƒtƒbƒ_•”‚Ìo—Í
+            // ãƒ•ãƒƒãƒ€éƒ¨ã®å‡ºåŠ›
             fileLineWriter.printTrailerLine(footer);
 
             BatchUtil.commitTransaction(transactionManager, stat);
         } catch (Exception e) {
             throw new BatchException(e);
         } finally {
-            // ƒRƒŒƒNƒ^Eƒtƒ@ƒCƒ‹‚ÌƒNƒ[ƒY
+            // ã‚³ãƒ¬ã‚¯ã‚¿ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(collector);
             CollectorUtility.closeQuietly(fileLineWriter);
             BatchUtil.endTransaction(transactionManager, stat);
         }
 
-        // ³íI—¹
+        // æ­£å¸¸çµ‚äº†
         return BATCH_NORMAL_END;
     }
 

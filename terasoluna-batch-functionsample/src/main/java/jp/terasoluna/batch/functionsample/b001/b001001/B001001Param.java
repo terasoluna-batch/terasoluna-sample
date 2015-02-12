@@ -1,7 +1,7 @@
 package jp.terasoluna.batch.functionsample.b001.b001001;
 
 /**
- * EMPLOYEEテーブルの1レコードをマッピングするBean
+ * EMPLOYEE繝�繝ｼ繝悶Ν縺ｮ1繝ｬ繧ｳ繝ｼ繝峨ｒ繝槭ャ繝斐Φ繧ｰ縺吶ｋBean
  */
 public class B001001Param {
 
