@@ -6,7 +6,7 @@ import jp.terasoluna.fw.batch.blogic.AbstractTransactionBLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.collector.Collector;
-import jp.terasoluna.fw.collector.db.DBCollector;
+import jp.terasoluna.fw.collector.db.DaoCollector;
 import jp.terasoluna.fw.collector.util.CollectorUtility;
 
 import org.slf4j.Logger;
@@ -42,7 +42,7 @@ public class B001001BLogic extends AbstractTransactionBLogic {
 
         try {
             B001001Param param = new B001001Param();
-            collector = new DBCollector<B001001Param>(dao, "collectEmployee",
+            collector = new DaoCollector<B001001Param>(dao, "collectEmployee",
                     param);
 
             while (collector.hasNext()) {

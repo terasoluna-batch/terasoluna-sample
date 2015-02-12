@@ -7,7 +7,7 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.util.BatchUtil;
 import jp.terasoluna.fw.collector.Collector;
-import jp.terasoluna.fw.collector.db.DBCollector;
+import jp.terasoluna.fw.collector.db.DaoCollector;
 import jp.terasoluna.fw.collector.util.CollectorUtility;
 
 import org.slf4j.Logger;
@@ -53,7 +53,7 @@ public class B001002BLogic implements BLogic {
         try {
             B001002Param param = new B001002Param();
 
-            collector = new DBCollector<B001002Param>(dao, "collectEmployee",
+            collector = new DaoCollector<B001002Param>(dao, "collectEmployee",
                     param);
 
             // REQUIRES_NEWのトランザクション定義を生成
