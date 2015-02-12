@@ -1,4 +1,4 @@
--- 対象DBMS    :Oracle11g
+-- 対象DBMS    :Oracle12c
 -- テーブル削除
 @drop_all_tables.sql
 -- シーケンス削除
@@ -14,5 +14,4 @@
 -- データ挿入
 @insert_all_data.sql
 
-COMMIT;
 QUIT;
