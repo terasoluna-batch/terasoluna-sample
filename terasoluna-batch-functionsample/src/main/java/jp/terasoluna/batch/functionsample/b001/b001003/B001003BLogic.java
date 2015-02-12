@@ -7,7 +7,7 @@ import jp.terasoluna.fw.batch.blogic.AbstractTransactionBLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.collector.Collector;
-import jp.terasoluna.fw.collector.db.DBCollector;
+import jp.terasoluna.fw.collector.db.DaoCollector;
 import jp.terasoluna.fw.collector.util.CollectorUtility;
 
 import org.apache.ibatis.session.SqlSession;
@@ -48,7 +48,7 @@ public class B001003BLogic extends AbstractTransactionBLogic {
 
         try {
             B001003Param param = new B001003Param();
-            collector = new DBCollector<B001003Param>(dao, "collectEmployee",
+            collector = new DaoCollector<B001003Param>(dao, "collectEmployee",
                     param);
 
             int updateCount = 0;

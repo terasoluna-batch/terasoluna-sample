@@ -8,7 +8,7 @@ import jp.terasoluna.fw.batch.blogic.AbstractTransactionBLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.collector.Collector;
-import jp.terasoluna.fw.collector.db.DBValidateCollector;
+import jp.terasoluna.fw.collector.db.DaoValidateCollector;
 import jp.terasoluna.fw.collector.util.CollectorUtility;
 
 import org.slf4j.Logger;
@@ -59,7 +59,7 @@ public class B009002BLogic extends AbstractTransactionBLogic {
 
         CustomCollectorExceptionHandler cceHandler = new CustomCollectorExceptionHandler();
 
-        Collector<CsvRecord> collector = new DBValidateCollector<CsvRecord>(
+        Collector<CsvRecord> collector = new DaoValidateCollector<CsvRecord>(
                 dao, "collectEmployee", CsvRecord.class, 20, cceHandler,
                 beanValidator);
 

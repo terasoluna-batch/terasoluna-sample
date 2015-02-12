@@ -12,7 +12,7 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.util.BatchUtil;
 import jp.terasoluna.fw.collector.Collector;
-import jp.terasoluna.fw.collector.db.DBCollector;
+import jp.terasoluna.fw.collector.db.DaoCollector;
 import jp.terasoluna.fw.collector.util.CollectorUtility;
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 import jp.terasoluna.fw.file.dao.FileUpdateDAO;
@@ -60,7 +60,7 @@ public class B007002BLogic implements BLogic {
         FileLineWriter<CsvRecord> fileLineWriter = null;
 
         try {
-            collector = new DBCollector<CsvRecord>(dao, "collectEmployee",
+            collector = new DaoCollector<CsvRecord>(dao, "collectEmployee",
                     null);
 
             fileLineWriter = csvFileUpdateDAO.execute(OUTPUT_FILE,
