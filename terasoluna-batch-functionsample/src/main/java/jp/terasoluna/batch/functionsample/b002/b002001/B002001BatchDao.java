@@ -5,16 +5,16 @@ import org.apache.ibatis.session.ResultHandler;
 public interface B002001BatchDao {
 
     /**
-     * EMPLOYEEƒe[ƒuƒ‹‚Ìƒf[ƒ^‚ğæ“¾‚·‚éB
-     * @param object SQLƒpƒ‰ƒ[ƒ^ˆø”ƒIƒuƒWƒFƒNƒg
+     * EMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param object SQLãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¼•æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param handler ResultHandler
      */
     void collectEmployee(Object object, ResultHandler handler);
 
     /**
-     * EMPLOYEE2ƒe[ƒuƒ‹‚Éƒf[ƒ^‚ğ‘}“ü‚·‚éB
-     * @param param ‘}“ü‘ÎÛƒIƒuƒWƒFƒNƒg
-     * @return ‘}“üŒ”
+     * EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«ã«ãƒ‡ãƒ¼ã‚¿ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
+     * @param param æŒ¿å…¥å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return æŒ¿å…¥ä»¶æ•°
      */
     int insertEmployee2(B002001Param param);
 

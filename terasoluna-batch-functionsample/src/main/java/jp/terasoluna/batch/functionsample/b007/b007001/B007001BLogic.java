@@ -18,13 +18,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * “ü—Íƒf[ƒ^æ“¾‹@”\‚ğg—p‚µ‚½ƒtƒ@ƒCƒ‹-DBŠÖ˜AƒWƒ‡ƒu‚ÌƒTƒ“ƒvƒ‹<br>
+ * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«-DBé–¢é€£ã‚¸ãƒ§ãƒ–ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * –‘O€”õFC:\tmp”z‰º‚Éinput.csvƒtƒ@ƒCƒ‹‚ğ”z’u‚·‚é‚±‚Æ <br>
+ * äº‹å‰æº–å‚™ï¼šC:\tmpé…ä¸‹ã«input.csvãƒ•ã‚¡ã‚¤ãƒ«ã‚’é…ç½®ã™ã‚‹ã“ã¨ <br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eF“ü—Íƒf[ƒ^æ“¾‹@”\‚ğg—p‚µA<br>
- * ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İADB‚ÉXV‚·‚éƒTƒ“ƒvƒ‹B<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ã€<br>
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€DBã«æ›´æ–°ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã€‚<br>
  * </p>
  */
 @Component
@@ -50,7 +50,7 @@ public class B007001BLogic extends AbstractTransactionBLogic {
     @Override
     public int doMain(BLogicParam arg0) {
 
-        // EMPLOYEEƒe[ƒuƒ‹‚Ì‰Šú‰»
+        // EMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã®åˆæœŸåŒ–
         dao.deleteEmployees();
 
         Collector<CsvRecord> collector = new FileCollector<CsvRecord>(
@@ -72,9 +72,9 @@ public class B007001BLogic extends AbstractTransactionBLogic {
                 dao.insertEmployee(record);
                 insertCount++;
 
-                // 10Œ‚²‚Æ‚Éƒoƒbƒ`XVÀs
+                // 10ä»¶ã”ã¨ã«ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œ
                 if (insertCount % 10 == 0) {
-                    log.info("ƒoƒbƒ`XVÀs");
+                    log.info("ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œ");
                     sqlSession.flushStatements();
                 }
 
@@ -82,11 +82,11 @@ public class B007001BLogic extends AbstractTransactionBLogic {
         } catch (Exception e) {
             throw new BatchException(e);
         } finally {
-            // ƒRƒŒƒNƒ^‚ÌƒNƒ[ƒY
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(collector);
         }
 
-        // ³íI—¹
+        // æ­£å¸¸çµ‚äº†
         return BATCH_NORMAL_END;
     }
 

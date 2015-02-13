@@ -9,14 +9,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * ƒƒbƒZ[ƒWŠÇ—‹@”\‚ÌƒTƒ“ƒvƒ‹<br>
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç®¡ç†æ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * Ž–‘O€”õF‚È‚µ<br>
+ * äº‹å‰æº–å‚™ï¼šãªã—<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eFƒƒbƒZ[ƒWŠÇ—‹@”\‚ÌƒTƒ“ƒvƒ‹<br>
- * ƒWƒ‡ƒu‚ðŽÀs‚µ‚½Û‚Éumessages.propertiesv‚É’è‹`‚µ‚½ƒƒbƒZ[ƒW‚ð<br>
- * ŒÄ‚Ño‚µ‚Ä‚¢‚é‚±‚Æ‚ðŠm”F‚·‚é<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç®¡ç†æ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«<br>
+ * ã‚¸ãƒ§ãƒ–ã‚’å®Ÿè¡Œã—ãŸéš›ã«ã€Œmessages.propertiesã€ã«å®šç¾©ã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’<br>
+ * å‘¼ã³å‡ºã—ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
  * </p>
  */
 @Component

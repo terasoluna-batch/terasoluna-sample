@@ -14,13 +14,13 @@ import org.slf4j.LoggerFactory;
 public class CustomCollectorExceptionHandler implements
                                             CollectorExceptionHandler {
     /**
-     * ログ.<br>
+     * 繝ｭ繧ｰ.<br>
      */
     private static Logger log = LoggerFactory
             .getLogger(CustomCollectorExceptionHandler.class);
 
     /**
-     * 入力チェックエラー件数.<br>
+     * 蜈･蜉帙メ繧ｧ繝�繧ｯ繧ｨ繝ｩ繝ｼ莉ｶ謨ｰ.<br>
      */
     protected int errorFieldCount = 0;
 
@@ -40,7 +40,7 @@ public class CustomCollectorExceptionHandler implements
     }
 
     /**
-     * errorFieldCountを取得する。
+     * errorFieldCount繧貞叙蠕励☆繧九�
      * @return errorFieldCount
      */
     public int getErrorFieldCount() {

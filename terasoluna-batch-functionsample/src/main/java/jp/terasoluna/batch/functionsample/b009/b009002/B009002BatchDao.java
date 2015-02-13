@@ -5,22 +5,22 @@ import org.apache.ibatis.session.ResultHandler;
 public interface B009002BatchDao {
 
     /**
-     * EMPLOYEE2ƒe[ƒuƒ‹‚Ìƒf[ƒ^‚ğíœ‚·‚éB
-     * @return íœŒ”
+     * EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã™ã‚‹ã€‚
+     * @return å‰Šé™¤ä»¶æ•°
      */
     int deleteEmployee2();
 
     /**
-     * EMPLOYEE3ƒe[ƒuƒ‹‚Ìƒf[ƒ^‚ğæ“¾‚·‚éB
-     * @param object SQLƒpƒ‰ƒ[ƒ^ˆø”ƒIƒuƒWƒFƒNƒg
+     * EMPLOYEE3ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param object SQLãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¼•æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param handler ResultHandler
      */
     void collectEmployee(Object object, ResultHandler handler);
 
     /**
-     * EMPLOYEE2ƒe[ƒuƒ‹‚Éƒf[ƒ^‚ğ‘}“ü‚·‚éB
-     * @param record ‘}“ü‘ÎÛƒIƒuƒWƒFƒNƒg
-     * @return ‘}“üŒ”
+     * EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«ã«ãƒ‡ãƒ¼ã‚¿ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
+     * @param record æŒ¿å…¥å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return æŒ¿å…¥ä»¶æ•°
      */
     int insertEmployee2(CsvRecord record);
 

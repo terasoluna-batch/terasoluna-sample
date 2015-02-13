@@ -5,15 +5,15 @@ import jp.terasoluna.batch.functionsample.b008.ZipCode;
 public interface B008001BatchDao {
 
     /**
-     * ZIPCODEƒe[ƒuƒ‹‚Ìíœ
-     * @return íœŒ”
+     * ZIPCODEãƒ†ãƒ¼ãƒ–ãƒ«ã®å‰Šé™¤
+     * @return å‰Šé™¤ä»¶æ•°
      */
     int deleteZipCode();
 
     /**
-     * ZIPCODEƒe[ƒuƒ‹‚Ö‚Ìƒf[ƒ^‘}“ü
-     * @param zipCode ‘}“ü‘ÎÛƒIƒuƒWƒFƒNƒg
-     * @return ‘}“üŒ”
+     * ZIPCODEãƒ†ãƒ¼ãƒ–ãƒ«ã¸ã®ãƒ‡ãƒ¼ã‚¿æŒ¿å…¥
+     * @param zipCode æŒ¿å…¥å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return æŒ¿å…¥ä»¶æ•°
      */
     int insertZipCode(ZipCode zipCode);
 

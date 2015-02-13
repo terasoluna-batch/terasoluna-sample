@@ -5,16 +5,16 @@ import jp.terasoluna.batch.functionsample.b007.CsvRecord;
 public interface B007001BatchDao {
 
     /**
-     * EMPLOYEEƒe[ƒuƒ‹‚Ìƒf[ƒ^‚ğíœ‚·‚éB
-     * @param object SQLƒpƒ‰ƒ[ƒ^ˆø”ƒIƒuƒWƒFƒNƒg
+     * EMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã™ã‚‹ã€‚
+     * @param object SQLãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¼•æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param handler ResultHandler
      */
     void deleteEmployees();
 
     /**
-     * EMPLOYEEƒe[ƒuƒ‹‚Éƒf[ƒ^‚ğ‘}“ü‚·‚éB
-     * @param param ‘}“ü‘ÎÛƒIƒuƒWƒFƒNƒg
-     * @return ‘}“üŒ”
+     * EMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã«ãƒ‡ãƒ¼ã‚¿ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
+     * @param param æŒ¿å…¥å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return æŒ¿å…¥ä»¶æ•°
      */
     int insertEmployee(CsvRecord param);
 

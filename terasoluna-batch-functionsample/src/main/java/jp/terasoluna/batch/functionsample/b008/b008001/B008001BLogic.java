@@ -23,19 +23,19 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 
 /**
- * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‹@”\‚ÌƒTƒ“ƒvƒ‹<br>
+ * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯æ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * –‘O€”õFC:\tmp”z‰º‚ÉKEN_ALL.CSVƒtƒ@ƒCƒ‹‚ğ”z’u‚·‚é‚±‚Æ<br>
+ * äº‹å‰æº–å‚™ï¼šC:\tmpé…ä¸‹ã«KEN_ALL.CSVãƒ•ã‚¡ã‚¤ãƒ«ã‚’é…ç½®ã™ã‚‹ã“ã¨<br>
  * </p>
  * <p>
- * KEN_ALL.CSV‚ÍA‰º‹L‚Ì“ú–{—X­ƒOƒ‹[ƒv‚Ìƒz[ƒ€ƒy[ƒW‚©‚çƒ_ƒEƒ“ƒ[ƒh‚Å‚«‚Ü‚·B<br>
+ * KEN_ALL.CSVã¯ã€ä¸‹è¨˜ã®æ—¥æœ¬éƒµæ”¿ã‚°ãƒ«ãƒ¼ãƒ—ã®ãƒ›ãƒ¼ãƒ ãƒšãƒ¼ã‚¸ã‹ã‚‰ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã§ãã¾ã™ã€‚<br>
  * {@link http://www.post.japanpost.jp/zipcode/download.html}
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eFƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İADB‚ÉXV‚·‚éƒTƒ“ƒvƒ‹B <br>
- * ‘Oˆ—‚Å‚Í•¡”‚ÌƒuƒŒƒCƒNƒL[‚ğg—p‚µAƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”­¶‚É<br>
- * ƒƒO‚Ö‚Ìƒwƒbƒ_o—ÍAs’¬‘º”‚ÌƒJƒEƒ“ƒg‚ğs‚Á‚Ä‚¢‚éB<br>
- * Œãˆ—‚Å‚Í’Pˆê‚ÌƒuƒŒƒCƒNƒL[‚ğ—p‚¢‚ÄAƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚Ì”­¶‚ÌÛ‚Éƒoƒbƒ`XV‚ğs‚¤B<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€DBã«æ›´æ–°ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã€‚ <br>
+ * å‰å‡¦ç†ã§ã¯è¤‡æ•°ã®ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ã‚’ä½¿ç”¨ã—ã€ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ç™ºç”Ÿæ™‚ã«<br>
+ * ãƒ­ã‚°ã¸ã®ãƒ˜ãƒƒãƒ€å‡ºåŠ›ã€å¸‚ç”ºæ‘æ•°ã®ã‚«ã‚¦ãƒ³ãƒˆã‚’è¡Œã£ã¦ã„ã‚‹ã€‚<br>
+ * å¾Œå‡¦ç†ã§ã¯å˜ä¸€ã®ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ã‚’ç”¨ã„ã¦ã€ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã®ç™ºç”Ÿã®éš›ã«ãƒãƒƒãƒæ›´æ–°ã‚’è¡Œã†ã€‚<br>
  * </p>
  */
 @Component
@@ -61,39 +61,39 @@ public class B008001BLogic implements BLogic {
         TransactionStatus stat = null;
 
         // ////////////
-        // ‰Šú‰»
-        log.info("ZipCodeƒe[ƒuƒ‹‰Šú‰»:ŠJn");
+        // åˆæœŸåŒ–
+        log.info("ZipCodeãƒ†ãƒ¼ãƒ–ãƒ«åˆæœŸåŒ–:é–‹å§‹");
 
         try {
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹
             stat = BatchUtil.startTransaction(transactionManager);
 
-            // ZipCodeƒe[ƒuƒ‹‚Ì‰Šú‰»
+            // ZipCodeãƒ†ãƒ¼ãƒ–ãƒ«ã®åˆæœŸåŒ–
             dao.deleteZipCode();
 
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒRƒ~ƒbƒg
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚³ãƒŸãƒƒãƒˆ
             BatchUtil.commitTransaction(transactionManager, stat);
         } catch (Exception e) {
             throw new BatchException(e);
         } finally {
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“I—¹
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³çµ‚äº†
             BatchUtil.endTransaction(transactionManager, stat);
         }
 
-        log.info("ZipCodeƒe[ƒuƒ‹‰Šú‰»:I—¹");
+        log.info("ZipCodeãƒ†ãƒ¼ãƒ–ãƒ«åˆæœŸåŒ–:çµ‚äº†");
 
         Collector<ZipCode> collector = null;
 
         // ////////////
-        // “o˜^ˆ—
-        log.info("KEN_ALL.CSVƒtƒ@ƒCƒ‹“Ç‚İ‚İ:ŠJn");
+        // ç™»éŒ²å‡¦ç†
+        log.info("KEN_ALL.CSVãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿:é–‹å§‹");
 
         try {
             int municipalDistrictCnt = 0;
             int townRegionCnt = 0;
             int insertCount = 0;
 
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹
             stat = BatchUtil.startTransaction(transactionManager);
 
             collector = new FileCollector<ZipCode>(csvFileQueryDAO, INPUT_FILE,
@@ -103,27 +103,27 @@ public class B008001BLogic implements BLogic {
                 ZipCode record = collector.next();
                 townRegionCnt++;
 
-                // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNiƒwƒbƒ_‘¤j”»’è
+                // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ï¼ˆãƒ˜ãƒƒãƒ€å´ï¼‰åˆ¤å®š
                 boolean preCtrlBreak = ControlBreakChecker.isPreBreak(
                         collector, "adminDivisions", "municipalDistrict");
 
-                // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNiƒtƒbƒ^‘¤j”»’è
+                // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ï¼ˆãƒ•ãƒƒã‚¿å´ï¼‰åˆ¤å®š
                 boolean ctrlBreak = ControlBreakChecker.isBreak(collector,
                         "adminDivisions");
 
-                // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNiƒwƒbƒ_‘¤jˆ—
+                // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ï¼ˆãƒ˜ãƒƒãƒ€å´ï¼‰å‡¦ç†
                 if (preCtrlBreak) {
 
                     Map<String, Object> pbMap = ControlBreakChecker
                             .getPreBreakKey(collector, "adminDivisions",
                                     "municipalDistrict");
 
-                    // s‹æ’¬‘º–¼‚ª•Ï‚í‚Á‚½‚ÉƒJƒEƒ“ƒg‚·‚é
+                    // å¸‚åŒºç”ºæ‘åãŒå¤‰ã‚ã£ãŸæ™‚ã«ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
                     if (pbMap.containsKey("municipalDistrict")) {
                         municipalDistrictCnt++;
                     }
 
-                    // “s“¹•{Œ§–¼‚ª•Ï‚í‚Á‚½‚ÉƒƒO‚Éƒwƒbƒ_‚ğo—Í‚·‚é
+                    // éƒ½é“åºœçœŒåãŒå¤‰ã‚ã£ãŸæ™‚ã«ãƒ­ã‚°ã«ãƒ˜ãƒƒãƒ€ã‚’å‡ºåŠ›ã™ã‚‹
                     if (log.isInfoEnabled()
                             && pbMap.containsKey("adminDivisions")) {
                         log.info("=========================");
@@ -132,25 +132,25 @@ public class B008001BLogic implements BLogic {
 
                 }
 
-                // ƒoƒbƒ`XV‚É’Ç‰Á
+                // ãƒãƒƒãƒæ›´æ–°ã«è¿½åŠ 
                 dao.insertZipCode(record);
                 insertCount++;
 
-                // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNiƒtƒbƒ^‘¤jˆ—
+                // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ï¼ˆãƒ•ãƒƒã‚¿å´ï¼‰å‡¦ç†
                 if (ctrlBreak) {
                     Map<String, Object> brkMap = ControlBreakChecker
                             .getBreakKey(collector, "adminDivisions");
 
-                    // “s“¹•{Œ§–¼‚ª•Ï‚í‚Á‚½‚Éƒoƒbƒ`XV‚ğÀs‚·‚é
+                    // éƒ½é“åºœçœŒåãŒå¤‰ã‚ã£ãŸæ™‚ã«ãƒãƒƒãƒæ›´æ–°ã‚’å®Ÿè¡Œã™ã‚‹
                     if (brkMap.containsKey("adminDivisions")) {
-                        log.info("ƒoƒbƒ`XVÀs {}Œ s‹æ’¬‘º” {}Œ ’¬ˆæ” {}Œ", insertCount,
+                        log.info("ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œ {}ä»¶ å¸‚åŒºç”ºæ‘æ•° {}ä»¶ ç”ºåŸŸæ•° {}ä»¶", insertCount,
                                 municipalDistrictCnt, townRegionCnt);
 
-                        // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒRƒ~ƒbƒg‚Æƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn(ƒoƒbƒ`XVÀs)
+                        // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚³ãƒŸãƒƒãƒˆã¨ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹(ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œ)
                         stat = BatchUtil.commitRestartTransaction(
                                 transactionManager, stat);
 
-                        // ƒJƒEƒ“ƒ^ƒŠƒZƒbƒg
+                        // ã‚«ã‚¦ãƒ³ã‚¿ãƒªã‚»ãƒƒãƒˆ
                         municipalDistrictCnt = 0;
                         townRegionCnt = 0;
                         insertCount = 0;
@@ -158,21 +158,21 @@ public class B008001BLogic implements BLogic {
                 }
             }
 
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒRƒ~ƒbƒg(ƒoƒbƒ`XVÀs)
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚³ãƒŸãƒƒãƒˆ(ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œ)
             BatchUtil.commitTransaction(transactionManager, stat);
         } catch (Exception e) {
             throw new BatchException(e);
         } finally {
-            // ƒRƒŒƒNƒ^‚ÌƒNƒ[ƒY
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(collector);
 
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“I—¹
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³çµ‚äº†
             BatchUtil.endTransaction(transactionManager, stat);
         }
 
-        log.info("KEN_ALL.CSVƒtƒ@ƒCƒ‹“Ç‚İ‚İ:I—¹");
+        log.info("KEN_ALL.CSVãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿:çµ‚äº†");
 
-        // ³íI—¹
+        // æ­£å¸¸çµ‚äº†
         return BATCH_NORMAL_END;
     }
 }

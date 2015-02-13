@@ -6,14 +6,14 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import org.springframework.stereotype.Component;
 
 /**
- * —áŠOƒnƒ“ƒhƒŠƒ“ƒO‹@”\‚ÌƒTƒ“ƒvƒ‹<br>
+ * ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°æ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * Ž–‘O€”õF‚È‚µ<br>
+ * äº‹å‰æº–å‚™ï¼šãªã—<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eF—áŠOƒnƒ“ƒhƒŠƒ“ƒO‹@”\‚ÌƒTƒ“ƒvƒ‹<br>
- * ƒWƒ‡ƒu‚ðŽÀs‚µ‚½Û‚ÉB003001ExceptionHandlerƒNƒ‰ƒX‚ðŽg—p‚µ‚Ä<br>
- * ƒƒO‚É"RuntimeException is Thrown..."‚ª•\Ž¦‚³‚ê‚é‚±‚Æ‚ðŠm”F‚·‚éB<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šä¾‹å¤–ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°æ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«<br>
+ * ã‚¸ãƒ§ãƒ–ã‚’å®Ÿè¡Œã—ãŸéš›ã«B003001ExceptionHandlerã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨ã—ã¦<br>
+ * ãƒ­ã‚°ã«"RuntimeException is Thrown..."ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
  * </p>
  */
 @Component

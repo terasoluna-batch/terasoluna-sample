@@ -14,15 +14,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * ”ñ“¯ŠúŒ^ƒWƒ‡ƒu‚ÌƒTƒ“ƒvƒ‹<br>
+ * éžåŒæœŸåž‹ã‚¸ãƒ§ãƒ–ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * Ž–‘O€”õFEMPLOYEEƒe[ƒuƒ‹‚É‚PŒˆÈã‚Ìƒf[ƒ^‚ª‘¶Ý‚·‚é‚±‚Æ<br>
- * EMPLOYEE2ƒe[ƒuƒ‹‚ª‘¶Ý‚µ‚Ä‚¨‚èƒf[ƒ^‚ª‘¶Ý‚µ‚È‚¢‚±‚Æ<br>
+ * äº‹å‰æº–å‚™ï¼šEMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã«ï¼‘ä»¶ä»¥ä¸Šã®ãƒ‡ãƒ¼ã‚¿ãŒå­˜åœ¨ã™ã‚‹ã“ã¨<br>
+ * EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«ãŒå­˜åœ¨ã—ã¦ãŠã‚Šãƒ‡ãƒ¼ã‚¿ãŒå­˜åœ¨ã—ãªã„ã“ã¨<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eF“ü—Íƒf[ƒ^Žæ“¾‹@”\‚ðŽg—p‚µA<br>
- * EMPLOYEEƒe[ƒuƒ‹‚Ì‚·‚×‚Ä‚Ìƒf[ƒ^‚ðŽæ“¾‚·‚éB<br>
- * ‚»‚µ‚ÄŽæ“¾‚µ‚½ƒf[ƒ^‚ðEMPLOYEE2ƒe[ƒuƒ‹‚É‘}“ü‚·‚éƒTƒ“ƒvƒ‹<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ã€<br>
+ * EMPLOYEEãƒ†ãƒ¼ãƒ–ãƒ«ã®ã™ã¹ã¦ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚<br>
+ * ãã—ã¦å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’EMPLOYEE2ãƒ†ãƒ¼ãƒ–ãƒ«ã«æŒ¿å…¥ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«<br>
  * </p>
  */
 @Component
@@ -42,7 +42,7 @@ public class B002001BLogic extends AbstractTransactionBLogic {
                     Thread.currentThread().getId(), Thread.currentThread().getName());
         }
 
-        // ƒRƒŒƒNƒ^¶¬(“ü—Íƒf[ƒ^Žæ“¾‹@”\)
+        // ã‚³ãƒ¬ã‚¯ã‚¿ç”Ÿæˆ(å…¥åŠ›ãƒ‡ãƒ¼ã‚¿å–å¾—æ©Ÿèƒ½)
         Collector<B002001Param> collector = new DaoCollector<B002001Param>(dao,
                 "collectEmployee", null);
 
@@ -59,11 +59,11 @@ public class B002001BLogic extends AbstractTransactionBLogic {
         } catch (Exception e) {
             throw new BatchException(e);
         } finally {
-            // ƒtƒ@ƒCƒ‹‚ÌƒNƒ[ƒY
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¯ãƒ­ãƒ¼ã‚º
             CollectorUtility.closeQuietly(collector);
         }
 
-        // ³íI—¹
+        // æ­£å¸¸çµ‚äº†
         return BATCH_NORMAL_END;
     }
 }

@@ -9,14 +9,14 @@ import jp.terasoluna.fw.file.util.FileControl;
 import org.springframework.stereotype.Component;
 
 /**
- * ƒtƒ@ƒCƒ‹‘€ì‹@”\‚ÌƒTƒ“ƒvƒ‹<br>
+ * ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œæ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«<br>
  * <p>
- * –‘O€”õF‚È‚µ<br>
+ * äº‹å‰æº–å‚™ï¼šãªã—<br>
  * </p>
  * <p>
- * ƒTƒ“ƒvƒ‹“à—eFƒtƒ@ƒCƒ‹‘€ì‹@”\‚ÌƒTƒ“ƒvƒ‹<br>
- * ƒWƒ‡ƒu‚ğÀs‚µ‚½Û‚ÉuC:\\tmp\\input.csvv‚ªuC:\\tmp\\outputB004001.csvv‚É<br>
- * ƒRƒs[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+ * ã‚µãƒ³ãƒ—ãƒ«å†…å®¹ï¼šãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œæ©Ÿèƒ½ã®ã‚µãƒ³ãƒ—ãƒ«<br>
+ * ã‚¸ãƒ§ãƒ–ã‚’å®Ÿè¡Œã—ãŸéš›ã«ã€ŒC:\\tmp\\input.csvã€ãŒã€ŒC:\\tmp\\outputB004001.csvã€ã«<br>
+ * ã‚³ãƒ”ãƒ¼ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
  * </p>
  */
 @Component
