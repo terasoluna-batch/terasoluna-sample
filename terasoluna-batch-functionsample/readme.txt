@@ -143,20 +143,24 @@
      「/src/main/resources/beansAdminDef/AdminDataSource.xml」の
       システム利用DAO定義(PostgreSQL)をコメントアウトし、システム利用DAO定義(Oracle)のコメントアウトを外します。
 
-■ジョブの起動方法
-  ①実行環境の作成
-    1.Eclipse上で、③でインポートした「terasoluna-batch-functionsample」プロジェクトを
-      右クリックし、「実行＞Maven build...」をクリックします。
-    2.「構成の編集」の「Goals:」に「package」と入力し、「実行」をクリックします。
-      「BUILD SUCCESS」がログに出力されていることを確認します。
-  ②ジョブの起動
-     ①で作成した実行環境のscriptフォルダ配下にあるbatファイルから起動します。
-     実行環境は、「terasoluna-batch-functionsample」プロジェクトからの相対パスで以下にあります。
-    「target\terasoluna-batch-functionsample-(バージョン番号)-distribution.zip」
-     こちらを解凍して使用してください。
+■  ジョブの起動(開発環境)：
 
+    1.「/scripts/developments/copydependencies.bat」を実行し、「/lib」ディレクトリ配下に
+      現在のpom.xmlで依存関係が定義されたjarをすべてコピーします。
+      1度実行すれば、pom.xmlに変更を加えない限り、再実行する必要はありません。
+    2.開発環境で動作確認を行う場合は、「/scripts/developments/compile.bat」を実行し、
+      「/lib」ディレクトリ配下に 現在のソースコードでコンパイルされた
+      「terasoluna-batch-functionsample-(バージョン番号).jar」をコピーします。
+    3.「/scripts」ディレクトリ配下の起動スクリプト(B00X00X.bat)を実行します。
 
-■動作確認用サンプルのジョブについて
+■  ジョブの起動(試験環境・実運用環境)：
+
+    1.機能サンプルプロジェクトのルートディレクトリで、「mvn package」コマンドを実行します。
+    2.「/target」ディレクトリに「terasoluna-batch-functionsample-(バージョン番号)-distribution.zip」が作成されます。
+    3.「terasoluna-batch-functionsample-(バージョン番号)-distribution.zip」を試験環境・実運用環境へ移送し、解凍します。
+    4.「/scripts」ディレクトリ配下の起動スクリプト(B00X00X.bat)を実行します。
+
+■  動作確認用サンプルのジョブについて
 
     本サンプルのジョブ一覧を下記に示します。
 
