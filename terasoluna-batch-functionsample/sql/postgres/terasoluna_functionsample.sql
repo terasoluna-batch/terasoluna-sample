@@ -1,3 +1,4 @@
+SET CLIENT_ENCODING = "UTF-8";
 -- テーブル生成
 \i create_all_tables.sql
 
@@ -6,5 +7,3 @@
 
 -- データ挿入
 \i insert_all_data.sql
-
-COMMIT;

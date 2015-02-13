@@ -78,6 +78,3 @@ INSERT INTO employee3 (employee_id, employee_family_name, employee_first_name, e
 INSERT INTO employee3 (employee_id, employee_family_name, employee_first_name, employee_age) values ( 000078 , '池田' , '哲也' , 21 );
 INSERT INTO employee3 (employee_id, employee_family_name, employee_first_name, employee_age) values ( 000079 , '鈴木' , '次郎' , 18 );
 
-commit;
-
-exit;

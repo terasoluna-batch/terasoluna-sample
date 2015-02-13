@@ -33,8 +33,6 @@ CREATE TABLE job_control
   CONSTRAINT pk_job_control PRIMARY KEY (job_seq_id)
 );
 
-COMMIT;
-
 -- Table: employee
 
 DROP TABLE employee;
@@ -47,8 +45,6 @@ CREATE TABLE employee
   employee_age int8,
   CONSTRAINT pk_employee_id PRIMARY KEY (employee_id)
 );
-
-COMMIT;
 
 -- Table: employee2
 
@@ -63,8 +59,6 @@ CREATE TABLE employee2
   CONSTRAINT pk_employee2_id PRIMARY KEY (employee_id)
 );
 
-COMMIT;
-
 -- Table: employee3
 
 DROP TABLE employee3;
@@ -77,9 +71,6 @@ CREATE TABLE employee3
   employee_age int8,
   CONSTRAINT pk_employee3_id PRIMARY KEY (employee_id)
 );
-
-COMMIT;
-
 
 -- TABLE: personal_information
 
@@ -101,8 +92,6 @@ CREATE TABLE personal_information
 ALTER TABLE personal_information ADD 
   CONSTRAINT pk_personal_information PRIMARY KEY (code)
 ;
-
-COMMIT;
 
 -- TABLE: ZIP_CODE
 
@@ -138,5 +127,3 @@ ALTER TABLE ZIP_CODE ADD
         TOWN_REGION
     )
 ;
-
-COMMIT;

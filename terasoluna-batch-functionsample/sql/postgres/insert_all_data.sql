@@ -4,5 +4,3 @@
 
 \i insert_personal_information_table.sql
 
-
-COMMIT;
