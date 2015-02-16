@@ -1,6 +1,6 @@
 -- Table: job_control
 
-DROP TABLE job_control;
+-- DROP TABLE job_control;
 
 CREATE TABLE job_control
 (
@@ -33,5 +33,5 @@ CREATE TABLE job_control
   CONSTRAINT pk_job_control PRIMARY KEY (job_seq_id)
 );
 
-quit;
+COMMIT;
 
