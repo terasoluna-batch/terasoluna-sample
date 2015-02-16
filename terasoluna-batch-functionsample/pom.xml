@@ -6,6 +6,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <name>TERASOLUNA Batch Framework for Java Function Sample Project</name>
     <description>TERASOLUNA Batch Framework for Function Sample Project</description>
+
     <repositories>
         <repository>
             <id>terasoluna-batch-releases</id>
@@ -76,7 +77,6 @@
             <groupId>jp.terasoluna.fw.batch</groupId>
             <artifactId>terasoluna-batch</artifactId>
             <exclusions>
-                <!-- Include Spring Validator
                 <exclusion>
                     <groupId>jp.terasoluna.fw</groupId>
                     <artifactId>terasoluna-validator</artifactId>
@@ -85,8 +85,6 @@
                     <groupId>commons-validator</groupId>
                     <artifactId>commons-validator</artifactId>
                 </exclusion>
-                -->
-                <!-- Use SLF4J -->
                 <exclusion>
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>
