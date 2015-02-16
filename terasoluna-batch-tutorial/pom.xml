@@ -77,7 +77,6 @@
             <groupId>jp.terasoluna.fw.batch</groupId>
             <artifactId>terasoluna-batch</artifactId>
             <exclusions>
-                <!-- Use Hibernate Validator -->
                 <exclusion>
                     <groupId>jp.terasoluna.fw</groupId>
                     <artifactId>terasoluna-validator</artifactId>
@@ -86,7 +85,6 @@
                     <groupId>commons-validator</groupId>
                     <artifactId>commons-validator</artifactId>
                 </exclusion>
-                <!-- Use SLF4J -->
                 <exclusion>
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>
@@ -104,7 +102,6 @@
             <artifactId>commons-dbcp2</artifactId>
             <scope>runtime</scope>
             <exclusions>
-                <!-- Use SLF4J -->
                 <exclusion>
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>

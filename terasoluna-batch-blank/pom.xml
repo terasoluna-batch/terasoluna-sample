@@ -91,13 +91,13 @@
             <groupId>jp.terasoluna.fw.lib</groupId>
             <artifactId>terasoluna-collector</artifactId>
         </dependency>
+
         <!-- Data Source -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
             <scope>runtime</scope>
             <exclusions>
-                <!-- Use SLF4J -->
                 <exclusion>
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>

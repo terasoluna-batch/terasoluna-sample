@@ -26,7 +26,6 @@
     </repositories>
 
     <properties>
-
        <!-- JDK version -->
        <jdk.version>1.7</jdk.version>
 
@@ -105,7 +104,6 @@
             <artifactId>commons-dbcp2</artifactId>
             <scope>runtime</scope>
             <exclusions>
-                <!-- Use SLF4J -->
                 <exclusion>
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>
