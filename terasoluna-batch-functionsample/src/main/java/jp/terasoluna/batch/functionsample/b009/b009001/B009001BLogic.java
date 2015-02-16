@@ -56,7 +56,6 @@ public class B009001BLogic implements BLogic {
     FileUpdateDAO csvFileUpdateDAO;
 
     @Inject
-    @Named("beanValidator")
     Validator beanValidator;
 
     public int execute(BLogicParam arg0) {

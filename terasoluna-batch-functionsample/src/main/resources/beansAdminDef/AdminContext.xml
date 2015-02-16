@@ -15,7 +15,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <bean id="messageSource"
         class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames"
-            value="messages, ValidationMessages, application-messages" />
+            value="ValidationMessages, application-messages" />
     </bean>
 
     <!-- バッチ実行用スレッドプールタスクエグゼキュータ -->
