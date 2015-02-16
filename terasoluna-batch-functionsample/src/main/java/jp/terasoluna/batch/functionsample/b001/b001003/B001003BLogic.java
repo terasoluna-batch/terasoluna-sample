@@ -24,7 +24,7 @@ import org.springframework.stereotype.Component;
  * <p>
  * サンプル内容：入力データ取得機能を使用し、DBを参照し、DBをバッチ更新するサンプル<br>
  * AbstractTransactionBLogicを継承しフレームワーク側にトランザクション管理を任せる<br>
- * (データは全件一括に更新する)<br>
+ * メモリの枯渇を避けるため、10件ごとにバッチ更新を実行する。<br>
  * 処理終了後は、すべてのデータが鈴木太郎に書き換えられる<br>
  * </p>
  */
