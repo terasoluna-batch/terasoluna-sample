@@ -148,5 +148,4 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <property name="validationMessageSource" ref="messageSource"/>
     </bean>
-
 </beans>
