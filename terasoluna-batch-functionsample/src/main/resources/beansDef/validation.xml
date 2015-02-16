@@ -233,7 +233,7 @@
     </form>
 	-->
     
-    <!-- ・ｲ配列・コレクション型への入力チェック -->
+    <!-- ・イ配列・コレクション型への入力チェック -->
     <!--  
     <form name="arrayData">
       <field property="requiredArray" depends="requiredArray">
