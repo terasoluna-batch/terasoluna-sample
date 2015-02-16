@@ -86,14 +86,14 @@ DROP TABLE personal_information;
 CREATE TABLE personal_information
 (
   code VARCHAR(10) NOT NULL,
-  name VARCHAR(20),
-  name_kana VARCHAR(20),
+  name VARCHAR(30),
+  name_kana VARCHAR(30),
   sex VARCHAR(10),
   telnum VARCHAR(20),
   mail VARCHAR(50),
   birth VARCHAR(10),
   age VARCHAR(10),
-  hometown VARCHAR(10),
+  hometown VARCHAR(20),
   bloodtype VARCHAR(10)
 );
 
