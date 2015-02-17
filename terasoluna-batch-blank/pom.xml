@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
     <artifactId>terasoluna-batch-blank</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>3.5.0.RELEASE</version>
     <name>TERASOLUNA Batch Framework for Java Blank Project</name>
     <description>TERASOLUNA Batch Framework for Java Blank Project</description>
 
@@ -34,7 +34,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- dependency version -->
-        <terasoluna-fw-batch.version>3.5.0-SNAPSHOT</terasoluna-fw-batch.version>
+        <terasoluna-fw-batch.version>3.5.0.RELEASE</terasoluna-fw-batch.version>
 
         <!-- plugin version -->
         <maven-assembly-plugin.version>2.5.1</maven-assembly-plugin.version>
