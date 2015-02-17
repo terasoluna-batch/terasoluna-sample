@@ -80,29 +80,6 @@ CREATE TABLE employee3
 
 COMMIT;
 
--- TABLE: personal_information
-
-DROP TABLE personal_information;
-CREATE TABLE personal_information
-(
-  code VARCHAR(10) NOT NULL,
-  name VARCHAR(30),
-  name_kana VARCHAR(30),
-  sex VARCHAR(10),
-  telnum VARCHAR(20),
-  mail VARCHAR(50),
-  birth VARCHAR(10),
-  age VARCHAR(10),
-  hometown VARCHAR(20),
-  bloodtype VARCHAR(10)
-);
-
-ALTER TABLE personal_information ADD 
-  CONSTRAINT pk_personal_information PRIMARY KEY (code)
-;
-
-COMMIT;
-
 -- TABLE: ZIP_CODE
 
 DROP TABLE ZIP_CODE;
