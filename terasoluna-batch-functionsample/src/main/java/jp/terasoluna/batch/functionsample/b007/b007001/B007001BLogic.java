@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 /**
  * 入力データ取得機能を使用したファイル-DB関連ジョブのサンプル<br>
  * <p>
- * 事前準備：C:\tmp配下にinput.csvファイルを配置すること 。<br>
+ * 事前準備：C:\tmp配下にinput.csvファイルを配置すること。<br>
  * </p>
  * <p>
  * サンプル内容：入力データ取得機能を使用し、<br>
