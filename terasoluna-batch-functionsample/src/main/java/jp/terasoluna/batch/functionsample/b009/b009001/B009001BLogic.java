@@ -26,7 +26,7 @@ import org.springframework.validation.Validator;
 /**
  * 入力データ取得機能を使用した際の入力チェック機能のサンプル<br>
  * <p>
- * 事前準備：C:\tmp配下にinputB009001.csvファイルを配置すること<br>
+ * 事前準備：C:\tmp配下にinputB009001.csvファイルを配置すること。<br>
  * </p>
  * <p>
  * サンプル内容：inputB009001.csvファイルを読み取り、outputB009001.csvを出力する。<br>

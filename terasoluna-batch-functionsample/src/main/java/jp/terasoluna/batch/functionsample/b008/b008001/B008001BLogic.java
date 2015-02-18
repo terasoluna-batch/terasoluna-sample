@@ -25,10 +25,10 @@ import org.springframework.transaction.TransactionStatus;
 /**
  * コントロールブレイク機能のサンプル<br>
  * <p>
- * 事前準備：C:\tmp配下にKEN_ALL.CSVファイルを配置すること<br>
+ * 事前準備：C:\tmp配下にKEN_ALL.CSVファイルを配置すること。<br>
  * </p>
  * <p>
- * KEN_ALL.CSVは、下記の日本郵政グループのホームページからダウンロードできます。<br>
+ * KEN_ALL.CSVは、下記の日本郵政グループのホームページからダウンロードできる。<br>
  * {@link http://www.post.japanpost.jp/zipcode/download.html}
  * </p>
  * <p>

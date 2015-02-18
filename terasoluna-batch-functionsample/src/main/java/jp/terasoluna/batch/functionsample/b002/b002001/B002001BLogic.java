@@ -16,13 +16,13 @@ import org.springframework.stereotype.Component;
 /**
  * 非同期型ジョブのサンプル<br>
  * <p>
- * 事前準備：EMPLOYEEテーブルに１件以上のデータが存在すること<br>
- * EMPLOYEE2テーブルが存在しておりデータが存在しないこと<br>
+ * 事前準備：EMPLOYEEテーブルに１件以上のデータが存在すること。<br>
+ * EMPLOYEE2テーブルが存在しておりデータが存在しないこと。<br>
  * </p>
  * <p>
  * サンプル内容：入力データ取得機能を使用し、<br>
  * EMPLOYEEテーブルのすべてのデータを取得する。<br>
- * そして取得したデータをEMPLOYEE2テーブルに挿入するサンプル<br>
+ * そして取得したデータをEMPLOYEE2テーブルに挿入するサンプル。<br>
  * </p>
  */
 @Component
