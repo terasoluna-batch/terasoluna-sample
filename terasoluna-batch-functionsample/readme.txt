@@ -248,7 +248,7 @@
 
         ・jp.terasoluna.batch.functionsample.b005.b005001
             B005001BLogic：「scripts/B005001.bat」から起動する
-             「messages.properties」に定義したメッセージを利用したログ出力を行うサンプルです。
+             「application-messages.properties」に定義したメッセージを利用したログ出力を行うサンプルです。
 
     6. jp.terasoluna.batch.functionsample.b006
       ・本バージョンでは、「バッチ更新最適化機能」は提供していないため、サンプルはありません。

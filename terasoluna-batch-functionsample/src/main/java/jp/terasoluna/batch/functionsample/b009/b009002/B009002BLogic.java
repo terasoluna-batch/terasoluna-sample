@@ -19,14 +19,13 @@ import org.springframework.validation.Validator;
 /**
  * 入力データ取得機能を使用した際の拡張例外ハンドリングのサンプル<br>
  * <p>
- * 事前準備：C:\tmp配下にinputB009001.csvファイルを配置すること(DB初期化用)<br>
+ * 事前準備：なし<br>
  * </p>
  * <p>
  * サンプル内容：EMPLOYEE3テーブルを読み取り、EMPLOYEE2テーブルに出力する。<br>
  * 拡張例外ハンドリングを使用し、ステータスにはENDを返却する。<br>
  * (エラーはValidationErrorExceptionが投げられるように実装している)<br>
- * 入力チェックエラーが発生した時点で終了するが、終了ステータスは100をセットする。<br>
- * (タイミングによって、EMPLOYEE2テーブルに挿入される件数は変動する)
+ * 入力チェックエラーが発生した時点で終了し、終了ステータスに100をセットする。
  * </p>
  */
 @Component
@@ -67,12 +66,10 @@ public class B009002BLogic extends AbstractTransactionBLogic {
 
             while (collector.hasNext()) {
                 CsvRecord csvRecord = collector.next();
-                if (csvRecord != null) {
-                    log.info("NAME:{}", csvRecord.getFamilyName());
-                    // バッチ更新に追加
-                    dao.insertEmployee2(csvRecord);
-                    insertCount++;
-                }
+                log.info("NAME:{}", csvRecord.getFamilyName());
+                // バッチ更新に追加
+                dao.insertEmployee2(csvRecord);
+                insertCount++;
             }
 
         } catch (Exception e) {

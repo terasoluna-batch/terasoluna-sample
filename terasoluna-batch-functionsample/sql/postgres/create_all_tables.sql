@@ -72,27 +72,6 @@ CREATE TABLE employee3
   CONSTRAINT pk_employee3_id PRIMARY KEY (employee_id)
 );
 
--- TABLE: personal_information
-
-DROP TABLE personal_information;
-CREATE TABLE personal_information
-(
-  code VARCHAR(10) NOT NULL,
-  name VARCHAR(20),
-  name_kana VARCHAR(20),
-  sex VARCHAR(10),
-  telnum VARCHAR(20),
-  mail VARCHAR(50),
-  birth VARCHAR(10),
-  age VARCHAR(10),
-  hometown VARCHAR(10),
-  bloodtype VARCHAR(10)
-);
-
-ALTER TABLE personal_information ADD 
-  CONSTRAINT pk_personal_information PRIMARY KEY (code)
-;
-
 -- TABLE: ZIP_CODE
 
 DROP TABLE ZIP_CODE;

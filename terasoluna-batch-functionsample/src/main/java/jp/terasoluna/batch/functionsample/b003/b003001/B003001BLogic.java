@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * 事前準備：なし<br>
  * </p>
  * <p>
- * サンプル内容：例外ハンドリング機能のサンプル<br>
+ * サンプル内容：例外ハンドリング機能のサンプル。<br>
  * ジョブを実行した際にB003001ExceptionHandlerクラスを使用して<br>
  * ログに"RuntimeException is Thrown..."が表示されることを確認する。<br>
  * </p>

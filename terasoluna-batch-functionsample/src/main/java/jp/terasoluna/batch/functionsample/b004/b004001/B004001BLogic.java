@@ -14,9 +14,9 @@ import org.springframework.stereotype.Component;
  * 事前準備：なし<br>
  * </p>
  * <p>
- * サンプル内容：ファイル操作機能のサンプル<br>
+ * サンプル内容：ファイル操作機能のサンプル。<br>
  * ジョブを実行した際に「C:\\tmp\\input.csv」が「C:\\tmp\\outputB004001.csv」に<br>
- * コピーされていることを確認する<br>
+ * コピーされていることを確認する。<br>
  * </p>
  */
 @Component

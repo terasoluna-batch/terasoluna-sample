@@ -14,9 +14,9 @@ import org.springframework.stereotype.Component;
  * 事前準備：なし<br>
  * </p>
  * <p>
- * サンプル内容：メッセージ管理機能のサンプル<br>
- * ジョブを実行した際に「messages.properties」に定義したメッセージを<br>
- * 呼び出していることを確認する<br>
+ * サンプル内容：メッセージ管理機能のサンプル。<br>
+ * ジョブを実行した際に「application-messages.properties」に定義したメッセージを<br>
+ * 呼び出していることを確認する。<br>
  * </p>
  */
 @Component

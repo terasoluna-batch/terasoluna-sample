@@ -26,7 +26,7 @@ import org.springframework.transaction.TransactionStatus;
 /**
  * 入力データ取得機能を使用したDB-ファイル関連ジョブのサンプル<br>
  * <p>
- * 事前準備：EMPLOYEEテーブルを作成しておくこと<br>
+ * 事前準備：EMPLOYEEテーブルを作成しておくこと。<br>
  * </p>
  * <p>
  * サンプル内容：入力データ取得機能を使用し、<br>
