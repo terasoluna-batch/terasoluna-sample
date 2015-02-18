@@ -66,12 +66,10 @@ public class B009002BLogic extends AbstractTransactionBLogic {
 
             while (collector.hasNext()) {
                 CsvRecord csvRecord = collector.next();
-                if (csvRecord != null) {
-                    log.info("NAME:{}", csvRecord.getFamilyName());
-                    // バッチ更新に追加
-                    dao.insertEmployee2(csvRecord);
-                    insertCount++;
-                }
+                log.info("NAME:{}", csvRecord.getFamilyName());
+                // バッチ更新に追加
+                dao.insertEmployee2(csvRecord);
+                insertCount++;
             }
 
         } catch (Exception e) {
