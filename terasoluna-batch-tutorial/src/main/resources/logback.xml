@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-<!-- 
+<!--
     <appender name="fileLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>C:/tmp/terasoluna-batch.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
