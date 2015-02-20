@@ -1,4 +1,3 @@
-
 <configuration>
 
     <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
