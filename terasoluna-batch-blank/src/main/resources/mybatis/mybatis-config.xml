@@ -9,10 +9,4 @@
         <setting name="localCacheScope" value="STATEMENT" />
     </settings>
 
-    <typeAliases>
-        <package name="jp.terasoluna.batch.sample.b000001" />
-        <!-- 必要に応じてType Alias設定を追加する -->
-        <!-- <package name="jp.terasoluna.batch.sample.b00000x" /> -->
-    </typeAliases>
-
 </configuration>
