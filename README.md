@@ -14,4 +14,4 @@ TERASOLUNA Batch Framework for Javaの基本的な処理パターンと実装方
 
 ## Download
 
-* [Download from here](https://github.com/terasoluna-batch/terasoluna-batch/releases)
+* [Download from here](https://github.com/terasoluna-batch/terasoluna-sample/releases)
