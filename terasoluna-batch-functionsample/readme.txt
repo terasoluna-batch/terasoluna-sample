@@ -29,8 +29,8 @@
 ■  プロジェクトの実行：
      
   ①ZIPファイルの展開
-    terasoluna-batch4j-funcsample_(バージョン番号).zipを「C:\」直下に展開します。
-      ・例「C:\terasoluna-batch4j-funcsample_(バージョン番号)\」
+    terasoluna-batch-functionsample_(バージョン番号).zipを「C:\」直下に展開します。
+      ・例「C:\terasoluna-batch-functionsample_(バージョン番号)\」
        ※指定されたディレクトリは固定ではないため、適宜読み替えて実行してください。
        ここでは、（Windows 7の）C:\に展開すると仮定し、手順を進めます。
 
