@@ -77,4 +77,3 @@ INSERT INTO employee (employee_id, employee_family_name, employee_first_name, em
 INSERT INTO employee (employee_id, employee_family_name, employee_first_name, employee_age) values ( 000077 , 'ëÂñÏ' , 'ç_' , 55 );
 INSERT INTO employee (employee_id, employee_family_name, employee_first_name, employee_age) values ( 000078 , 'írìc' , 'ìNñÁ' , 21 );
 INSERT INTO employee (employee_id, employee_family_name, employee_first_name, employee_age) values ( 000079 , 'óÈñÿ' , 'éüòY' , 18 );
-COMMIT;

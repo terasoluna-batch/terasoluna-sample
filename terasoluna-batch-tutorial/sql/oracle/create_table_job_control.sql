@@ -32,6 +32,3 @@ CREATE TABLE job_control
   upd_date_time timestamp,
   CONSTRAINT pk_job_control PRIMARY KEY (job_seq_id)
 );
-
-COMMIT;
-
