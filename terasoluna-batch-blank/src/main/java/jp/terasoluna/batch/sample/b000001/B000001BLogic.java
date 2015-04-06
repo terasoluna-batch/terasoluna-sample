@@ -1,4 +1,4 @@
-package jp.terasoluna.batch.sample.b000001.blogic;
+package jp.terasoluna.batch.sample.b000001;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
