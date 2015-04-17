@@ -36,6 +36,9 @@
         <!-- dependency version -->
         <terasoluna-fw-batch.version>3.5.1-SNAPSHOT</terasoluna-fw-batch.version>
 
+        <!-- == Spring IO Platform == -->
+        <io.spring.platform.version>1.1.1.RELEASE</io.spring.platform.version>
+
         <!-- plugin version -->
         <maven-assembly-plugin.version>2.5.1</maven-assembly-plugin.version>
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
@@ -54,7 +57,7 @@
             <dependency>
                 <groupId>io.spring.platform</groupId>
                 <artifactId>platform-bom</artifactId>
-                <version>1.1.1.RELEASE</version>
+                <version>${io.spring.platform.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
