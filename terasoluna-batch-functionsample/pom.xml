@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>jp.terasoluna.fw</groupId>
     <artifactId>terasoluna-batch-functionsample</artifactId>
-    <version>3.5.1-SNAPSHOT</version>
+    <version>3.5.1.RELEASE</version>
     <name>TERASOLUNA Batch Framework for Java Function Sample Project</name>
     <description>TERASOLUNA Batch Framework for Function Sample Project</description>
 
@@ -34,7 +34,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- dependency version -->
-        <terasoluna-fw-batch.version>3.5.1-SNAPSHOT</terasoluna-fw-batch.version>
+        <terasoluna-fw-batch.version>3.5.1.RELEASE</terasoluna-fw-batch.version>
 
         <!-- == Spring IO Platform == -->
         <io.spring.platform.version>1.1.1.RELEASE</io.spring.platform.version>
