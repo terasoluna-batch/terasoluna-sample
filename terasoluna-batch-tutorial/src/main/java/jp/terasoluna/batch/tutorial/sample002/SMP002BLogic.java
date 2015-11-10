@@ -49,7 +49,7 @@ public class SMP002BLogic extends AbstractTransactionBLogic {
 
     public int doMain(BLogicParam param) {
 
-        // ジョブ終了コード(0:正常終了、-1:異常終了)
+        // ジョブ終了コード(0:正常終了、255:異常終了)
         int returnCode = 0;
 
         // コレクタ
@@ -74,13 +74,13 @@ public class SMP002BLogic extends AbstractTransactionBLogic {
                 log.error("データアクセスエラーが発生しました", e);
             }
 
-            returnCode = -1;
+            returnCode = 255;
         } catch (Exception e) {
             if (log.isErrorEnabled()) {
                 log.error("エラーが発生しました", e);
             }
 
-            returnCode = -1;
+            returnCode = 255;
         } finally {
             // コレクタのクローズ
             CollectorUtility.closeQuietly(collector);
