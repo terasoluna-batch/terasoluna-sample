@@ -6,6 +6,13 @@
     <version>3.6.0-SNAPSHOT</version>
     <name>TERASOLUNA Batch Framework for Java Tutorial Project</name>
     <description>TERASOLUNA Batch Framework for Java Tutorial Project</description>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
 
     <repositories>
         <repository>
