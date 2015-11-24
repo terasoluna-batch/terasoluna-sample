@@ -19,7 +19,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import jp.terasoluna.batch.tutorial.common.NyusyukkinData;
-import jp.terasoluna.fw.batch.blogic.AbstractTransactionBLogic;
+import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.db.DaoCollector;
@@ -36,7 +36,7 @@ import org.springframework.stereotype.Component;
  * ビジネスロジッククラス。(入出金テーブルをcsvファイルに出力するクラス)
  */
 @Component
-public class SMP005BLogic extends AbstractTransactionBLogic {
+public class SMP005BLogic implements BLogic {
 
     private static final Logger log = LoggerFactory.getLogger(SMP005BLogic.class);
 
@@ -47,7 +47,7 @@ public class SMP005BLogic extends AbstractTransactionBLogic {
     @Named("csvFileUpdateDAO")
     protected FileUpdateDAO csvFileUpdateDAO;
 
-    public int doMain(BLogicParam param) {
+    public int execute(BLogicParam param) {
 
         // ジョブ終了コード(0:正常終了、-1:異常終了)
         int returnCode = 0;
