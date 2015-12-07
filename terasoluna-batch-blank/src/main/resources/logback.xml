@@ -15,7 +15,7 @@
         </rollingPolicy>
         <encoder>
             <charset>UTF-8</charset>
-            <pattern>[%d{yyyy/MM/dd HH:mm:ss}] [%-22logger{22}] [%-5level] %msg%n</pattern>
+            <pattern>[%d{yyyy/MM/dd HH:mm:ss}] [%thread] [%-22logger{22}] [%-5level] %msg%n</pattern>
         </encoder>
     </appender>
 -->
