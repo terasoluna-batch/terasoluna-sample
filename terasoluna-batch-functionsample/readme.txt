@@ -74,7 +74,14 @@
     3.「/pom.xml jp.terasoluna.fw:terasoluna-batch-functionsample:(バージョン番号).jar」に
     　チェックが入っていることを確認後、「完了」をクリックします。
 
-  ④JDBCドライバの設定
+  ④Mavenのインストール
+    ・http://maven.apache.org
+      よりMaven(3.X以降)をダウンロードし、任意の場所に展開してください。
+      展開したディレクトリ配下のbinディレクトリを環境変数PATHに追加してください。
+      コマンドプロンプトで下記コマンドを入力し、バージョン情報が表示されればインストール完了です。
+      mvn --version
+
+  ⑤JDBCドライバの設定
   利用するDBMSにより設定手順が異なります。
    ◇PostgreSQLの場合
     1.「/pom.xml」の編集
@@ -131,10 +138,10 @@
            <scope>runtime</scope>
        </dependency>
 
-  ⑤入力用ファイルの配置
+  ⑥入力用ファイルの配置
     インポートしたプロジェクトに存在する「/input」フォルダの中身をC:\tmp\に配置します。
     
-  ⑥Oracleを使用する場合は、設定ファイルの書き換えを行います。(Postgresを使用する場合は不要)
+  ⑦Oracleを使用する場合は、設定ファイルの書き換えを行います。(Postgresを使用する場合は不要)
     1.データベース接続設定の書き換え
     「/src/main/resources/mybatisAdmin/jdbc.properties」および
     「/src/main/resources/mybatis/jdbc.properties」の内容を、自環境に合わせ書き換えます。

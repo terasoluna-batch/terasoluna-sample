@@ -44,6 +44,13 @@
     ・「/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(バージョン番号).jar」に
     　チェックが入っていることを確認後、「完了」をクリックします。
 
+  ③Mavenのインストール
+    ・http://maven.apache.org
+      よりMaven(3.X以降)をダウンロードし、任意の場所に展開してください。
+      展開したディレクトリ配下のbinディレクトリを環境変数PATHに追加してください。
+      コマンドプロンプトで下記コマンドを入力し、バージョン情報が表示されればインストール完了です。
+      mvn --version
+
 ■  ジョブの起動(開発環境)：
 
     ・「(ブランクプロジェクトのルートディレクトリ)/scripts/developments」ディレクトリ配下の
