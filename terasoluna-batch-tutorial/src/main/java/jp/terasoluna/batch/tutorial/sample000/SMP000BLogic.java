@@ -119,7 +119,7 @@ public class SMP000BLogic extends AbstractTransactionBLogic {
 
         } catch (Exception e) {
             // 例外処理(エラーコードの設定)
-            resultNum = -1;
+            resultNum = 255;
         }
         return resultNum;
     }
