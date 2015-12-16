@@ -7,4 +7,4 @@ COPY target\*.jar lib\
 
 POPD
 
-pause
+PAUSE

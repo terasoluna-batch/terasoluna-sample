@@ -5,7 +5,7 @@ SET CD_BACK=%CD%
 
 CD ..\sql\oracle\
 
-echo exit|CALL init_job_control.bat
+ECHO exit|CALL init_job_control.bat
 
 CD %CD_BACK%
 SET CD_BACK=
@@ -16,4 +16,4 @@ java jp.terasoluna.fw.batch.executor.AsyncBatchExecutor
 
 ECHO %ERRORLEVEL%
 
-pause
+PAUSE

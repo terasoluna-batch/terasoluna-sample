@@ -17,4 +17,4 @@ java jp.terasoluna.fw.batch.executor.AsyncBatchExecutor
 
 ECHO %ERRORLEVEL%
 
-pause
+PAUSE
