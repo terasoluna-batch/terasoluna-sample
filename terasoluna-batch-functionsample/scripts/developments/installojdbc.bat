@@ -13,4 +13,4 @@ REM インストール
 CD /D %~DP0
 CALL mvn install:install-file -Dfile=%FILE_NAME% -DgroupId=%GROUP_ID% -DartifactId=%ARTIFACT_ID% -Dversion=%VERSION% -Dpackaging=jar -DgeneratePom=true -DcreateChecksum=true
 
-pause
+PAUSE

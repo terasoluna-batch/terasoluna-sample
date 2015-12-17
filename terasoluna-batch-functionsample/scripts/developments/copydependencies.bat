@@ -7,4 +7,4 @@ CALL mvn dependency:copy-dependencies -DoutputDirectory=.\lib
 
 POPD
 
-pause
+PAUSE
