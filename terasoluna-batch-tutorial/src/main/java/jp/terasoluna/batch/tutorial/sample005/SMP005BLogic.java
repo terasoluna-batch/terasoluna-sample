@@ -41,11 +41,11 @@ public class SMP005BLogic implements BLogic {
     private static final Logger log = LoggerFactory.getLogger(SMP005BLogic.class);
 
     @Inject
-    protected SMP005Dao dao;
+    SMP005Dao dao;
 
     @Inject
     @Named("csvFileUpdateDAO")
-    protected FileUpdateDAO csvFileUpdateDAO;
+    FileUpdateDAO csvFileUpdateDAO;
 
     public int execute(BLogicParam param) {
 

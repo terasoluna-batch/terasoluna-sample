@@ -48,11 +48,11 @@ public class SMP004BLogic implements BLogic {
 
     @Inject
     @Named("csvFileQueryDAO")
-    protected FileQueryDAO csvFileQueryDAO;
+    FileQueryDAO csvFileQueryDAO;
 
     @Inject
     @Named("csvFileUpdateDAO")
-    protected FileUpdateDAO csvFileUpdateDAO;
+    FileUpdateDAO csvFileUpdateDAO;
 
     public int execute(BLogicParam param) {
 
