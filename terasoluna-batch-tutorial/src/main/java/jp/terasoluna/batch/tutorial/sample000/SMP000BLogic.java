@@ -42,7 +42,7 @@ public class SMP000BLogic extends AbstractTransactionBLogic {
     private static final Logger log = LoggerFactory.getLogger(SMP000BLogic.class);
 
     @Inject
-    protected SMP000Dao dao;
+    SMP000Dao dao;
 
     @Override
     public int doMain(BLogicParam param) {

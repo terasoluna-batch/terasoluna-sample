@@ -41,11 +41,11 @@ public class SMP002BLogic extends AbstractTransactionBLogic {
             .getLogger(SMP002BLogic.class);
 
     @Inject
-    protected SMP002Dao dao;
+    SMP002Dao dao;
 
     @Inject
     @Named ("csvFileQueryDAO")
-    protected FileQueryDAO csvFileQueryDAO;
+    FileQueryDAO csvFileQueryDAO;
 
     public int doMain(BLogicParam param) {
 

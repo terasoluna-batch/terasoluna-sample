@@ -42,11 +42,11 @@ public class SMP001BLogic implements BLogic {
             .getLogger(SMP001BLogic.class);
 
     @Inject
-    protected SMP001Dao dao;
+    SMP001Dao dao;
 
     @Inject
     @Named("csvFileUpdateDAO")
-    protected FileUpdateDAO csvFileUpdateDAO;
+    FileUpdateDAO csvFileUpdateDAO;
 
     public int execute(BLogicParam param) {
 
