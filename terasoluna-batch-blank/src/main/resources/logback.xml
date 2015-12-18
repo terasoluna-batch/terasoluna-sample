@@ -23,6 +23,8 @@
     <logger name="org.springframework" level="ERROR" />
     <logger name="org.apache.ibatis" level="ERROR" />
     <logger name="org.mybatis.spring" level="ERROR" />
+    <logger name="org.dozer" level="ERROR" />
+    <logger name="org.hibernate.validator" level="ERROR" />
     <logger name="java.sql.Connection" level="ERROR" />
     <logger name="java.sql.Statement" level="ERROR" />
     <logger name="java.sql.PreparedStatement" level="ERROR" />
