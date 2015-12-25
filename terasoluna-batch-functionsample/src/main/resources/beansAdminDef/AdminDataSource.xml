@@ -83,7 +83,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <constructor-arg index="6" ref="jobStatusChanger" />
     </bean>
 
-    <!-- データベース異常時のリトライ機能(非同期型ジョブ実行機能用) AOP定義 -->
+    <!-- データベース異常時のリトライ機能(非同期型ジョブ実行機能用) AOP定義
     <bean id="adminConnectionRetryInterceptor"
         class="jp.terasoluna.fw.batch.executor.AdminConnectionRetryInterceptor" />
     <aop:config>
@@ -92,5 +92,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
                        || execution(* jp.terasoluna.fw.batch.executor.repository.JobControlFinder.*(..))" />
         <aop:advisor advice-ref="adminConnectionRetryInterceptor" pointcut-ref="adminConnectionRetryPointcut" />
     </aop:config>
+    -->
 
 </beans>
