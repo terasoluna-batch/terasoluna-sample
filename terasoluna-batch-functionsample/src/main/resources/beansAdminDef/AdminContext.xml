@@ -91,21 +91,6 @@ http://www.springframework.org/schema/cache http://www.springframework.org/schem
         <constructor-arg index="4" ref="blogicExecutor" />
     </bean>
 
-    <!-- 非同期型ジョブの操作クラス -->
-    <bean id="asyncJobOperator"
-        class="jp.terasoluna.fw.batch.executor.controller.AsyncJobOperatorImpl">
-        <constructor-arg index="0" ref="jobControlFinder" />
-        <constructor-arg index="1" ref="asyncJobLauncher" />
-        <constructor-arg index="2" ref="asyncBatchStopper" />
-    </bean>
-
-    <!-- 非同期型ジョブの起動クラス -->
-    <bean id="asyncJobLauncher"
-        class="jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl">
-        <constructor-arg index="0" ref="batchTaskExecutor" />
-        <constructor-arg index="1" ref="asyncJobWorker" />
-    </bean>
-
     <!-- 非同期型ジョブ実行クラス -->
     <bean id="asyncJobWorker"
         class="jp.terasoluna.fw.batch.executor.AsyncJobWorkerImpl">
@@ -121,7 +106,22 @@ http://www.springframework.org/schema/cache http://www.springframework.org/schem
     <!-- 非同期型ジョブ実行用スレッドプールタスクエグゼキュータ -->
     <task:executor id="batchTaskExecutor" pool-size="10-10" queue-capacity="10" />
 
+    <!-- 非同期型ジョブの起動クラス -->
+    <bean id="asyncJobLauncher"
+        class="jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl">
+        <constructor-arg index="0" ref="batchTaskExecutor" />
+        <constructor-arg index="1" ref="asyncJobWorker" />
+    </bean>
+
     <!-- 非同期型ジョブ実行機能の停止クラス -->
     <bean id="asyncBatchStopper" class="jp.terasoluna.fw.batch.executor.controller.EndFileStopper" />
+
+    <!-- 非同期型ジョブの操作クラス -->
+    <bean id="asyncJobOperator"
+        class="jp.terasoluna.fw.batch.executor.controller.AsyncJobOperatorImpl">
+        <constructor-arg index="0" ref="jobControlFinder" />
+        <constructor-arg index="1" ref="asyncJobLauncher" />
+        <constructor-arg index="2" ref="asyncBatchStopper" />
+    </bean>
 
 </beans>
