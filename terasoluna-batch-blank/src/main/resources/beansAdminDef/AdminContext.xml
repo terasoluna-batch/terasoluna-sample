@@ -2,13 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
     xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:task="http://www.springframework.org/schema/task"
+    xmlns:task="http://www.springframework.org/schema/task" xmlns:cache="http://www.springframework.org/schema/cache"
     xsi:schemaLocation="
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <!-- アノテーションによる設定 -->
     <context:annotation-config />
@@ -18,6 +19,9 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
 
     <!-- メッセージアクセサ -->
     <bean id="msgAcc" class="jp.terasoluna.fw.batch.message.MessageAccessorImpl" />
+    <bean class="jp.terasoluna.fw.batch.util.MessageUtil">
+        <property name="messageAccessor" ref="msgAcc" />
+    </bean>
 
     <!-- メッセージプロパティファイル設定 -->
     <bean id="messageSource"
@@ -26,19 +30,48 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     </bean>
 
     <!-- ジョブ個別例外ハンドラの解決クラス -->
-    <bean id="blogicExceptionHandlerResolver" class="jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolverImpl" />
+    <bean id="blogicExceptionHandlerResolver"
+        class="jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolverImpl" />
 
     <!-- ジョブBean定義ファイルの解決クラス -->
-    <bean id="blogicApplicationContextResolver" class="jp.terasoluna.fw.batch.executor.ApplicationContextResolverImpl">
-        <!-- 共通コンテキスト -->
-        <property name="commonContextClassPath" value="classpath:beansDef/commonContext.xml" />
+    <bean id="blogicApplicationContextResolver"
+        class="jp.terasoluna.fw.batch.executor.ApplicationContextResolverImpl">
+        <description>キャッシュ機能なしのジョブBean定義ファイルの解決クラス。共通コンテキストを業務コンテキストの親とする場合、
+            commonContextClassPathでBean定義ファイルのクラスパスを記述する。 (複数指定時はカンマ区切り)
+        </description>
+        <property name="commonContextClassPath"
+            value="classpath:beansDef/commonContext.xml, classpath:beansDef/dataSource.xml" />
     </bean>
+
+    <!-- ジョブBean定義ファイルの解決クラス (キャッシュ機能つき)
+    <cache:annotation-driven proxy-target-class="true" />
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean
+                    class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+                    <description>valueの値はbusinessContext固定とする。</description>
+                    <property name="name" value="businessContext" />
+                </bean>
+            </set>
+        </property>
+    </bean>
+    <bean id="blogicApplicationContextResolver"
+        class="jp.terasoluna.fw.batch.executor.CacheableApplicationContextResolverImpl">
+        <description>CacheManagerを使用したキャッシュ機能つきのジョブBean定義ファイルの解決クラス。共通コンテキストを業務コンテキストの親とする場合、
+            commonContextClassPathでBean定義ファイルのクラスパスを記述する。 (複数指定時はカンマ区切り)
+        </description>
+        <property name="commonContextClassPath"
+            value="classpath:beansDef/commonContext.xml, classpath:beansDef/dataSource.xml" />
+        <property name="cacheManager" ref="cacheManager" />
+    </bean>
+    -->
 
     <!-- ビジネスロジックの解決クラス -->
     <bean id="blogicResolver" class="jp.terasoluna.fw.batch.blogic.BLogicResolverImpl" />
 
     <!-- ビジネスロジックの実行クラス -->
-    <bean id="blogicExecutor" class="jp.terasoluna.fw.batch.executor.worker.BLogicExecutorImpl" />
+    <bean id="blogicExecutor" class="jp.terasoluna.fw.batch.executor.BLogicExecutorImpl" />
 
     <!-- ジョブ起動引数をビジネスロジックの入力パラメータに変換するクラス -->
     <bean id="blogicParamConverter" class="jp.terasoluna.fw.batch.blogic.vo.BLogicParamConverterImpl">
@@ -48,10 +81,47 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
         </constructor-arg>
     </bean>
 
+    <!-- 同期型ジョブの操作クラス -->
+    <bean id="syncJobOperator"
+        class="jp.terasoluna.fw.batch.executor.controller.SyncJobOperatorImpl">
+        <constructor-arg index="0" ref="blogicApplicationContextResolver" />
+        <constructor-arg index="1" ref="blogicParamConverter" />
+        <constructor-arg index="2" ref="blogicExceptionHandlerResolver" />
+        <constructor-arg index="3" ref="blogicResolver" />
+        <constructor-arg index="4" ref="blogicExecutor" />
+    </bean>
+
+    <!-- 非同期型ジョブ実行クラス -->
+    <bean id="asyncJobWorker"
+        class="jp.terasoluna.fw.batch.executor.AsyncJobWorkerImpl">
+        <constructor-arg index="0" ref="blogicResolver" />
+        <constructor-arg index="1" ref="blogicExceptionHandlerResolver" />
+        <constructor-arg index="2" ref="blogicApplicationContextResolver" />
+        <constructor-arg index="3" ref="jobControlFinder" />
+        <constructor-arg index="4" ref="blogicParamConverter" />
+        <constructor-arg index="5" ref="blogicExecutor" />
+        <constructor-arg index="6" ref="jobStatusChanger" />
+    </bean>
+
     <!-- 非同期型ジョブ実行用スレッドプールタスクエグゼキュータ -->
     <task:executor id="batchTaskExecutor" pool-size="10-10" queue-capacity="10" />
 
+    <!-- 非同期型ジョブの起動クラス -->
+    <bean id="asyncJobLauncher"
+        class="jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl">
+        <constructor-arg index="0" ref="batchTaskExecutor" />
+        <constructor-arg index="1" ref="asyncJobWorker" />
+    </bean>
+
     <!-- 非同期型ジョブ実行機能の停止クラス -->
     <bean id="asyncBatchStopper" class="jp.terasoluna.fw.batch.executor.controller.EndFileStopper" />
+
+    <!-- 非同期型ジョブの操作クラス -->
+    <bean id="asyncJobOperator"
+        class="jp.terasoluna.fw.batch.executor.controller.AsyncJobOperatorImpl">
+        <constructor-arg index="0" ref="jobControlFinder" />
+        <constructor-arg index="1" ref="asyncJobLauncher" />
+        <constructor-arg index="2" ref="asyncBatchStopper" />
+    </bean>
 
 </beans>

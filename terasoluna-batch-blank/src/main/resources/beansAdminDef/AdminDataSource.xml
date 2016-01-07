@@ -49,7 +49,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     </bean>
 
     <!-- ジョブのパラメータ検索クラス -->
-    <bean id="jobControlFinder" class="jp.terasoluna.fw.batch.executor.repository.MyBatchJobDataRepository">
+    <bean id="jobControlFinder" class="jp.terasoluna.fw.batch.executor.repository.JobControlFinderImpl">
         <constructor-arg index="0" ref="systemDao" />
     </bean>
 
@@ -59,31 +59,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <constructor-arg index="1" ref="adminTransactionManager" />
     </bean>
 
-    <!-- 非同期型ジョブの操作クラス -->
-    <bean id="jobOperator" class="jp.terasoluna.fw.batch.executor.controller.AsyncJobOperatorImpl">
-        <constructor-arg index="0" ref="jobControlFinder" />
-        <constructor-arg index="1" ref="asyncJobLauncher" />
-        <constructor-arg index="2" ref="asyncBatchStopper" />
-    </bean>
-
-    <!-- 非同期型ジョブの起動クラス -->
-    <bean id="asyncJobLauncher" class="jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl">
-        <constructor-arg index="0" ref="batchTaskExecutor" />
-        <constructor-arg index="1" ref="asyncJobWorker" />
-    </bean>
-
-    <!-- 非同期型ジョブ実行クラス -->
-    <bean id="asyncJobWorker" class="jp.terasoluna.fw.batch.executor.worker.AsyncJobWorkerImpl">
-        <constructor-arg index="0" ref="blogicResolver" />
-        <constructor-arg index="1" ref="blogicExceptionHandlerResolver" />
-        <constructor-arg index="2" ref="blogicApplicationContextResolver" />
-        <constructor-arg index="3" ref="jobControlFinder" />
-        <constructor-arg index="4" ref="blogicParamConverter" />
-        <constructor-arg index="5" ref="blogicExecutor" />
-        <constructor-arg index="6" ref="jobStatusChanger" />
-    </bean>
-
-    <!-- データベース異常時のリトライ機能(非同期型ジョブ実行機能用) AOP定義 -->
+    <!-- データベース異常時のリトライ機能(非同期型ジョブ実行機能用) AOP定義
     <bean id="adminConnectionRetryInterceptor"
         class="jp.terasoluna.fw.batch.executor.AdminConnectionRetryInterceptor" />
     <aop:config>
@@ -92,5 +68,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
                        || execution(* jp.terasoluna.fw.batch.executor.repository.JobControlFinder.*(..))" />
         <aop:advisor advice-ref="adminConnectionRetryInterceptor" pointcut-ref="adminConnectionRetryPointcut" />
     </aop:config>
+    -->
 
 </beans>
