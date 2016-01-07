@@ -9,7 +9,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- DBCPのデータソースを設定する。 -->
-    <context:property-placeholder location="mybatisAdmin/jdbc.properties" />
+    <context:property-placeholder location="mybatisAdmin/jdbc.properties" order="2" ignore-unresolvable="true" />
     <bean id="adminDataSource" destroy-method="close"
         class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="${jdbc.driver}" />
@@ -47,5 +47,27 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
             value="jp.terasoluna.fw.batch.executor.dao.SystemPostgreSQLDao" />
         <property name="sqlSessionFactory" ref="sysSqlSessionFactory" />
     </bean>
+
+    <!-- ジョブのパラメータ検索クラス -->
+    <bean id="jobControlFinder" class="jp.terasoluna.fw.batch.executor.repository.JobControlFinderImpl">
+        <constructor-arg index="0" ref="systemDao" />
+    </bean>
+
+    <!-- ジョブの実行ステータス更新クラス -->
+    <bean id="jobStatusChanger" class="jp.terasoluna.fw.batch.executor.repository.JobStatusChangerImpl">
+        <constructor-arg index="0" ref="systemDao" />
+        <constructor-arg index="1" ref="adminTransactionManager" />
+    </bean>
+
+    <!-- データベース異常時のリトライ機能(非同期型ジョブ実行機能用) AOP定義
+    <bean id="adminConnectionRetryInterceptor"
+        class="jp.terasoluna.fw.batch.executor.AdminConnectionRetryInterceptor" />
+    <aop:config>
+        <aop:pointcut id="adminConnectionRetryPointcut"
+            expression=" execution(* jp.terasoluna.fw.batch.executor.repository.JobStatusChanger.*(..))
+                       || execution(* jp.terasoluna.fw.batch.executor.repository.JobControlFinder.*(..))" />
+        <aop:advisor advice-ref="adminConnectionRetryInterceptor" pointcut-ref="adminConnectionRetryPointcut" />
+    </aop:config>
+    -->
 
 </beans>

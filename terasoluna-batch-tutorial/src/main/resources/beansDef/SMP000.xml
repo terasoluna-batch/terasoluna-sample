@@ -11,19 +11,13 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <!-- アノテーションによる設定 -->
     <context:annotation-config/>
 
-    <!-- 共通コンテキスト(フレームワークの共通機能を使う場合、かならずインポートすること。)  -->
-    <import  resource="classpath:beansDef/commonContext.xml" />
-
-    <!-- データソース設定  -->
-    <import  resource="classpath:beansDef/dataSource.xml" />
-
     <!-- コンポーネントスキャン設定 -->
     <context:component-scan base-package="jp.terasoluna.batch.tutorial.sample000" />
     
     <!-- SMP000Dao設定 -->
     <bean class="org.mybatis.spring.mapper.MapperFactoryBean">
-    	<property name="mapperInterface" value="jp.terasoluna.batch.tutorial.sample000.SMP000Dao" />
-    	<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+        <property name="mapperInterface" value="jp.terasoluna.batch.tutorial.sample000.SMP000Dao" />
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
     </bean>
 
 </beans>

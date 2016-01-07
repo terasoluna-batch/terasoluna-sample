@@ -44,7 +44,7 @@
         <terasoluna-fw-batch.version>3.6.0-SNAPSHOT</terasoluna-fw-batch.version>
 
         <!-- == Spring IO Platform == -->
-        <io.spring.platform.version>1.1.3.RELEASE</io.spring.platform.version>
+        <io.spring.platform.version>2.0.1.RELEASE</io.spring.platform.version>
 
         <!-- plugin version -->
         <maven-assembly-plugin.version>2.5.1</maven-assembly-plugin.version>
@@ -86,20 +86,6 @@
         <dependency>
             <groupId>jp.terasoluna.fw.batch</groupId>
             <artifactId>terasoluna-batch</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>jp.terasoluna.fw</groupId>
-                    <artifactId>terasoluna-validator</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>commons-validator</groupId>
-                    <artifactId>commons-validator</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>jp.terasoluna.fw.lib</groupId>
