@@ -10,12 +10,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <!-- アノテーションによる設定 -->
     <context:annotation-config />
 
-    <!-- 共通コンテキスト(フレームワークの共通機能を使う場合、かならずインポートすること。) -->
-    <import resource="classpath:beansDef/commonContext.xml" />
-
-    <!-- データベース接続設定 -->
-    <import resource="classpath:beansDef/dataSource.xml" />
-
     <!-- コンポーネントスキャン設定 -->
     <context:component-scan
         base-package="jp.terasoluna.batch.functionsample.b002.b002001" />
