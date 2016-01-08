@@ -9,7 +9,7 @@ public interface B001001Dao {
      * @param object SQLパラメータ引数オブジェクト
      * @param handler ResultHandler
      */
-    void collectEmployee(Object object, ResultHandler handler);
+    void collectEmployee(Object object, ResultHandler<B001001Param> handler);
 
     /**
      * EMPLOYEEテーブルを更新する。

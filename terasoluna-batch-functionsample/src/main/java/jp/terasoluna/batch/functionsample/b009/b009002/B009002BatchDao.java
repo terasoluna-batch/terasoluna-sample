@@ -15,7 +15,7 @@ public interface B009002BatchDao {
      * @param object SQLパラメータ引数オブジェクト
      * @param handler ResultHandler
      */
-    void collectEmployee(Object object, ResultHandler handler);
+    void collectEmployee(Object object, ResultHandler<CsvRecord> handler);
 
     /**
      * EMPLOYEE2テーブルにデータを挿入する。
