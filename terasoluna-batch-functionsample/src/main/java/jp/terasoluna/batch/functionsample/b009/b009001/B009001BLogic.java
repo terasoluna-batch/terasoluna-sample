@@ -6,10 +6,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import jp.terasoluna.batch.functionsample.b009.SkipValidationErrorHandler;
+import jp.terasoluna.batch.functionsample.b009.CustomValidationErrorHandler;
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
+import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.file.FileValidateCollector;
 import jp.terasoluna.fw.collector.util.CollectorUtility;
@@ -56,13 +57,16 @@ public class B009001BLogic implements BLogic {
     FileUpdateDAO csvFileUpdateDAO;
 
     @Inject
+    MessageAccessor messageAccessor;
+
+    @Inject
     Validator beanValidator;
 
     public int execute(BLogicParam arg0) {
 
         int returnCode = BATCH_NORMAL_END;
 
-        SkipValidationErrorHandler errorHandler = new SkipValidationErrorHandler();
+        CustomValidationErrorHandler errorHandler = new CustomValidationErrorHandler(messageAccessor);
         Collector<CsvRecord> collector = new FileValidateCollector<CsvRecord>(
                 csvFileQueryDAO, INPUT_FILE, CsvRecord.class, beanValidator,
                 errorHandler);
