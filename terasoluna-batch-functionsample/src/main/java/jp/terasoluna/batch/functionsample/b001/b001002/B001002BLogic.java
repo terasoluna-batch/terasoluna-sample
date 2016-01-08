@@ -69,7 +69,6 @@ public class B001002BLogic implements BLogic {
                 innerStat = BatchUtil.startTransaction(transactionManager, def);
 
                 int updateCount = 0;
-                int commitCount = 0;
 
                 while (collector.hasNext()) {
                     B001002Param data = collector.next();
@@ -92,7 +91,6 @@ public class B001002BLogic implements BLogic {
                         // トランザクションコミットし再開始する
                         innerStat = BatchUtil.commitRestartTransaction(
                                 transactionManager, innerStat, def);
-                        commitCount++;
                     }
                 }
 

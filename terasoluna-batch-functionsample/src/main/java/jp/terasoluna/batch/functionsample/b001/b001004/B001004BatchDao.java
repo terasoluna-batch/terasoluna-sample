@@ -9,8 +9,8 @@ public interface B001004BatchDao {
      * @param object SQLパラメータ引数オブジェクト
      * @param handler ResultHandler
      */
-    void collectEmployee(Object object, ResultHandler handler);
-    
+    void collectEmployee(Object object, ResultHandler<B001004Param> handler);
+
     /**
      * EMPLOYEEテーブルを更新する。
      * @param param 更新対象オブジェクト
