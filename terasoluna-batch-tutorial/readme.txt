@@ -2,7 +2,7 @@
       TERASOLUNA Batch Framework for Java 
 　　　チュートリアルプロジェクトについて
 
-      Copyright 2015 NTT DATA Corporation.
+      Copyright (c) 2007-2016 NTT DATA Corporation.
 *******************************************************************************
 
   本プロジェクトは、TERASOLUNA Batch Framework for Javaの基本的な処理パターンと
@@ -12,4 +12,4 @@
   別資料「Batch Framework for Java 3.x チュートリアルマニュアル」を参照する事。
 
 -------------------------------------------------------------------------------
-Copyright 2015 NTT DATA Corporation.
+Copyright (c) b2007-2016 NTT DATA Corporation.
