@@ -21,61 +21,56 @@
 
   ・Java SE Runtime Environment Standard Edition 1.7.0
   ・Eclipse SDK 3.7.2 + Mavenプラグイン
+  ・Apache Maven (3.X以降)
   ・PostgreSQL 9.3
   　または
   ・Oracle 12c
 
 ■  プロジェクトのインポート：
 
-  ①ZIPファイルの展開
-    terasoluna-batch-blank-(バージョン番号).zipを任意のフォルダに展開します。 
+  1.ZIPファイルの展開
 
-    展開されたterasoluna-batch-blank-(バージョン番号).zipのフォルダ名が
+    terasoluna-batch-blank-(version_number).zipを任意のフォルダに展開します。 
+
+    展開されたterasoluna-batch-blank-(version_number).zipのフォルダ名が
     「terasoluna-batch-blank」であることを確認します。
     展開ツールや展開のしかたによっては、フォルダ名が
-    「terasoluna-batch-blank-(バージョン番号)」となる場合がありますが、
+    「terasoluna-batch-blank-(version_number)」となる場合がありますが、
     フォルダ名を手動で「terasoluna-batch-blank」に変更してください。 
 
-  ②Eclipseへのインポート
+  2.Eclipseへのインポート
     ・Eclipse画面にて「ファイル＞インポート」を実行し、
       「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
     ・「RootDirectory:」の「Browse...」をクリックし、
-    　プロジェクト内容のブラウズから①で展開したディレクトリを指定します。
-    ・「/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(バージョン番号).jar」に
+    　プロジェクト内容のブラウズから本ディレクトリを指定します。
+    ・「/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(version_number).jar」に
     　チェックが入っていることを確認後、「完了」をクリックします。
-
-  ③Mavenのインストール
-    ・http://maven.apache.org
-      よりMaven(3.X以降)をダウンロードし、任意の場所に展開してください。
-      展開したディレクトリ配下のbinディレクトリを環境変数PATHに追加してください。
-      コマンドプロンプトで下記コマンドを入力し、バージョン情報が表示されればインストール完了です。
-      mvn --version
 
 ■  ジョブの起動(開発環境)：
 
-    ・「(ブランクプロジェクトのルートディレクトリ)/scripts/developments」ディレクトリ配下の
-    copydependencies.batを実行し、「(ブランクプロジェクトのルートディレクトリ)/lib」ディレクトリ配下に
+    ・「(project-root)/scripts/developments」ディレクトリ配下の
+    copydependencies.batを実行し、「(project-root)/lib」ディレクトリ配下に
     現在のpom.xmlで依存関係が定義されたjarをすべてコピーします。
     1度実行すれば、pom.xmlに変更を加えない限り、再実行する必要はありません。
-    ・開発環境で動作確認を行う場合は、「(ブランクプロジェクトのルートディレクトリ)/scripts/developments」ディレクトリ配下の
-    compile.batを実行し、「(ブランクプロジェクトのルートディレクトリ)/lib」ディレクトリ配下に
-    現在のソースコードでコンパイルされた「terasoluna-batch-blank-(バージョン番号).jar」をコピーします。
-    ・「(ブランクプロジェクトのルートディレクトリ)/scripts」ディレクトリ配下の起動スクリプト
+    ・開発環境で動作確認を行う場合は、「(project-root)/scripts/developments」ディレクトリ配下の
+    compile.batを実行し、「(project-root)/lib」ディレクトリ配下に
+    現在のソースコードでコンパイルされた「terasoluna-batch-blank-(version_number).jar」をコピーします。
+    ・「(project-root)/scripts」ディレクトリ配下の起動スクリプト
     (ブランクプロジェクトにあらかじめ含まれるサンプルでは、B000001.bat)を実行します。
 
 ■  ジョブの起動(試験環境・実運用環境)：
 
     ・ブランクプロジェクトのルートディレクトリで、「mvn package」コマンドを実行します。
-    ・「(ブランクプロジェクトのルートディレクトリ)/target」ディレクトリに
-    「terasoluna-batch-blank-(バージョン番号)-distribution.zip」が作成されます。
-    ・「terasoluna-batch-blank-(バージョン番号)-distribution.zip」を試験環境・実運用環境へ移送し、解凍します。
-    ・「(ブランクプロジェクトのルートディレクトリ)/scripts」ディレクトリ配下の起動スクリプト
+    ・「(project-root)/target」ディレクトリに
+    「terasoluna-batch-blank-(version_number)-distribution.zip」が作成されます。
+    ・「terasoluna-batch-blank-(version_number)-distribution.zip」を試験環境・実運用環境へ移送し、解凍します。
+    ・「(project-root)/scripts」ディレクトリ配下の起動スクリプト
     (ブランクプロジェクトにあらかじめ含まれるサンプルでは、B000001.bat)を実行します。
 
 ■  Maven3.2.3以降を使用する際の注意
     ・Maven3.2.3以降、セントラルリポジトリにはHTTPSを使用してアクセスするため、
-      「(ユーザーのホームディレクトリ)/.m2/settings.xml」に設定を追加する必要がある。
-      追加する設定内容については、以下のURLを参照すること。
+      「(ユーザーのホームディレクトリ)/.m2/settings.xml」に設定を追加する必要があります。
+      追加する設定内容については、以下のURLを参照してください。
       http://central.sonatype.org/pages/consumers.html#apache-maven
 
 -------------------------------------------------------------------------------
