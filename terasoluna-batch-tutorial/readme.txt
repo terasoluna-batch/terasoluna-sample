@@ -1,15 +1,15 @@
 *******************************************************************************
       TERASOLUNA Batch Framework for Java 
-�@�@�@�`���[�g���A���v���W�F�N�g�ɂ���
+　　　チュートリアルプロジェクトについて
 
       Copyright (c) 2007-2016 NTT DATA Corporation.
 *******************************************************************************
 
-  �{�v���W�F�N�g�́ATERASOLUNA Batch Framework for Java�̊�{�I�ȏ����p�^�[����
-  �������@���w�K���邽�߂ɗp�ӂ����`���[�g���A���v���W�F�N�g�ł���B
+  本プロジェクトは、TERASOLUNA Batch Framework for Javaの基本的な処理パターンと
+  実装方法を学習するために用意したチュートリアルプロジェクトである。
   
-  �g�p���@�Ȃǂ̏ڍׂɂ��ẮA
-  �ʎ����uBatch Framework for Java 3.x �`���[�g���A���}�j���A���v���Q�Ƃ��鎖�B
+  使用方法などの詳細については、
+  別資料「Batch Framework for Java 3.x チュートリアルマニュアル」を参照する事。
 
 -------------------------------------------------------------------------------
 Copyright (c) b2007-2016 NTT DATA Corporation.

@@ -1,92 +1,92 @@
 *******************************************************************************
       TERASOLUNA Batch Framework for Java
-              �@�\�T���v�� �����菇�ɂ���
+              機能サンプル 導入手順について
 
       Copyright (c) 2007-2016 NTT DATA Corporation.
 *******************************************************************************
 
-��  �T�v�F
+■  概要：
 
-  ����readme�́ATERASOLUNA Batch Framework for Java��
-  �@�\�T���v���v���W�F�N�g�𓱓�����菇���ł��B
-  ���L�菇�ɏ]�����Ƃɂ��ATERASOLUNA�t���[�����[�N�̋@�\�T���v����
-  ���s�����������邱�Ƃ��ł��܂��B
+  このreadmeは、TERASOLUNA Batch Framework for Javaの
+  機能サンプルプロジェクトを導入する手順書です。
+  下記手順に従うことにより、TERASOLUNAフレームワークの機能サンプルの
+  実行環境を準備することができます。
 
-��  �O������F
+■  前提条件：
 
-  �J�����ɂ́A���炩���߉��L�̂��̂��p�ӂ���Ă���K�v������܂��B
-  �܂����L����Ă���o�[�W���������ɓ���m�F���s�Ȃ��Ă��܂����A
-  ���̃o�[�W�����ȊO�̊��œ���𐧌����邱�Ƃ��������̂ł͂���܂���B
-  �܂��A�����̃C���X�g�[���y�ѐݒ�̎菇�ɂ��ẮA
-  �ʓrWeb��̗��p�K�C�h�����Q�Ƃ��Ă��������B 
+  開発環境には、あらかじめ下記のものが用意されている必要があります。
+  また併記されているバージョンを元に動作確認を行なっていますが、
+  このバージョン以外の環境で動作を制限することを示すものではありません。
+  また、これらのインストール及び設定の手順については、
+  別途Web上の利用ガイド等を参照してください。 
 
-  �EJava 2 Runtime Environment Standard Edition 1.7.0
-  �EEclipse SDK 3.7.2 + Maven�v���O�C��
-  �EPostgreSQL 9.3
-    �܂���
-  �EOracle 12c
+  ・Java 2 Runtime Environment Standard Edition 1.7.0
+  ・Eclipse SDK 3.7.2 + Mavenプラグイン
+  ・PostgreSQL 9.3
+    または
+  ・Oracle 12c
         
-��  �v���W�F�N�g�̎��s�F
+■  プロジェクトの実行：
      
-  �@ZIP�t�@�C���̓W�J
-    terasoluna-batch-functionsample-(�o�[�W�����ԍ�).zip���uC:\�v�����ɓW�J���܂��B
-      �E��uC:\terasoluna-batch-functionsample-(�o�[�W�����ԍ�)\�v
-       ���w�肳�ꂽ�f�B���N�g���͌Œ�ł͂Ȃ����߁A�K�X�ǂݑւ��Ď��s���Ă��������B
-       �����ł́A�iWindows 7�́jC:\�ɓW�J����Ɖ��肵�A�菇��i�߂܂��B
+  ①ZIPファイルの展開
+    terasoluna-batch-functionsample-(バージョン番号).zipを「C:\」直下に展開します。
+      ・例「C:\terasoluna-batch-functionsample-(バージョン番号)\」
+       ※指定されたディレクトリは固定ではないため、適宜読み替えて実行してください。
+       ここでは、（Windows 7の）C:\に展開すると仮定し、手順を進めます。
 
-  �A�f�[�^�x�[�X���̐ݒ�A������(�W���u���s�O�ɕK�����s����)
-   ��PostgreSQL�̏ꍇ
-    1.�O�����(���ɂ��ύX�\)
-      pgAdmin���N�����A�V�����f�[�^�x�[�X���쐬����B
-        ���O���functionsampledb
-        �I�[�i�[���sample
-        �G���R�[�f�B���O���UTF8
-        Template����i�Ȃ��j
-        �e�[�u����ԥ��pg_default
+  ②データベース環境の設定、初期化(ジョブ実行前に必ず実行する)
+   ◇PostgreSQLの場合
+    1.前提条件(環境により変更可能)
+      pgAdminを起動し、新しいデータベースを作成する。
+        名前･･･functionsampledb
+        オーナー･･･sample
+        エンコーディング･･･UTF8
+        Template･･･（なし）
+        テーブル空間･･･pg_default
 
-    2.�usetup_for_PostgreSQL.bat�v�̕ҏW
-       �u/sql/postgresql/setup_for_PostgreSQL.bat�v����сu/sql/postgresql/init_job_control.bat�v��
-        ���[���̊��ɍ������l�ɏ��������܂��B
-        �ڍׂ́u/sql/postgresql/setup_for_PostgreSQL.bat�v���Q�Ƃ��Ă��������B
+    2.「setup_for_PostgreSQL.bat」の編集
+       「/sql/postgresql/setup_for_PostgreSQL.bat」および「/sql/postgresql/init_job_control.bat」を
+        自端末の環境に合った値に書き換えます。
+        詳細は「/sql/postgresql/setup_for_PostgreSQL.bat」を参照してください。
 
-    3.�e�[�u���̍쐬
-       �u/sql/postgresql/setup_for_PostgreSQL.bat�v�����s���܂��B(eclipse������s�s��)
+    3.テーブルの作成
+       「/sql/postgresql/setup_for_PostgreSQL.bat」を実行します。(eclipseから実行不可)
 
-   ��Oracle�̏ꍇ
-    1.�O�����(���ɂ��ύX�\)
-        �C���X�^���X�����XE
-        DB���[�U�[��/�p�X���[�h���sample/sample
+   ◇Oracleの場合
+    1.前提条件(環境により変更可能)
+        インスタンス名･･･XE
+        DBユーザー名/パスワード･･･sample/sample
 
-    2.�usetup_for_Oracle.bat�v�̕ҏW
-        �u/sql/oracle/setup_for_Oracle.bat�v����сu/sql/oracle/init_job_control.bat�v��
-        ���[���̊��ɍ������l�ɏ��������܂��B
-        �ڍׂ́u/sql/oracle/setup_for_Oracle.bat�v���Q�Ƃ��Ă��������B
+    2.「setup_for_Oracle.bat」の編集
+        「/sql/oracle/setup_for_Oracle.bat」および「/sql/oracle/init_job_control.bat」を
+        自端末の環境に合った値に書き換えます。
+        詳細は「/sql/oracle/setup_for_Oracle.bat」を参照してください。
 
-    3.�e�[�u���̍쐬
-      �u/sql/oracle/setup_for_Oracle.bat�v�����s���܂��B(eclipse������s�s��)
-      �uSQL> �v���\�����ꂽ�� exit�Ɠ��͂��ďI�����܂��B
+    3.テーブルの作成
+      「/sql/oracle/setup_for_Oracle.bat」を実行します。(eclipseから実行不可)
+      「SQL> 」が表示されたら exitと入力して終了します。
 
-  �BEclipse�ւ̃C���|�[�g
-    1.Eclipse��ʂɂāu�t�@�C�����C���|�[�g�v�����s���A
-      �uMaven��Existing Maven Projects�v��I�����u���ցv���N���b�N���܂��B
-    2.�uRootDirectory:�v�́uBrowse...�v���N���b�N���A
-    �@�v���W�F�N�g���e�̃u���E�Y����@�œW�J�����f�B���N�g�����w�肵�܂��B
-    3.�u/pom.xml jp.terasoluna.fw:terasoluna-batch-functionsample:(�o�[�W�����ԍ�).jar�v��
-    �@�`�F�b�N�������Ă��邱�Ƃ��m�F��A�u�����v���N���b�N���܂��B
+  ③Eclipseへのインポート
+    1.Eclipse画面にて「ファイル＞インポート」を実行し、
+      「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
+    2.「RootDirectory:」の「Browse...」をクリックし、
+    　プロジェクト内容のブラウズから①で展開したディレクトリを指定します。
+    3.「/pom.xml jp.terasoluna.fw:terasoluna-batch-functionsample:(バージョン番号).jar」に
+    　チェックが入っていることを確認後、「完了」をクリックします。
 
-  �CMaven�̃C���X�g�[��
-    �Ehttp://maven.apache.org
-      ���Maven(3.X�ȍ~)���_�E�����[�h���A�C�ӂ̏ꏊ�ɓW�J���Ă��������B
-      �W�J�����f�B���N�g���z����bin�f�B���N�g�������ϐ�PATH�ɒǉ����Ă��������B
-      �R�}���h�v�����v�g�ŉ��L�R�}���h����͂��A�o�[�W������񂪕\�������΃C���X�g�[�������ł��B
+  ④Mavenのインストール
+    ・http://maven.apache.org
+      よりMaven(3.X以降)をダウンロードし、任意の場所に展開してください。
+      展開したディレクトリ配下のbinディレクトリを環境変数PATHに追加してください。
+      コマンドプロンプトで下記コマンドを入力し、バージョン情報が表示されればインストール完了です。
       mvn --version
 
-  �DJDBC�h���C�o�̐ݒ�
-  ���p����DBMS�ɂ��ݒ�菇���قȂ�܂��B
-   ��PostgreSQL�̏ꍇ
-    1.�u/pom.xml�v�̕ҏW
-       Maven�̃Z���g�������|�W�g������JDBC�h���C�o���擾���܂��B
-       pom.xml�Ɉȉ��̂悤�ȋL�q���K�v�ɂȂ�܂�(���炩���ߐݒ肳��Ă��܂�)�B
+  ⑤JDBCドライバの設定
+  利用するDBMSにより設定手順が異なります。
+   ◇PostgreSQLの場合
+    1.「/pom.xml」の編集
+       MavenのセントラルリポジトリからJDBCドライバを取得します。
+       pom.xmlに以下のような記述が必要になります(あらかじめ設定されています)。
 
        <!-- JDBC Driver(PostgreSQL) -->
        <dependency>
@@ -96,214 +96,214 @@
            <scope>runtime</scope>
        </dependency>
 
-       ��<version>�^�O�ɋL�ڂ���o�[�W�����́A���p����PostgreSQL�̃o�[�W�����ɍ��킹�đI�����Ă��������B
-         Maven�̃Z���g�������|�W�g���Ɍ��J����Ă���o�[�W�����́A�ȉ���URL���猟�����邱�Ƃ��ł��܂��B
+       ※<version>タグに記載するバージョンは、利用するPostgreSQLのバージョンに合わせて選択してください。
+         Mavenのセントラルリポジトリに公開されているバージョンは、以下のURLから検索することができます。
          http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.postgresql%22%20AND%20a%3A%22postgresql%22
 
-   ��Oracle�̏ꍇ
-    1.JDBC�h���C�o�̎擾
-       �ȉ���URL����JDBC�h���C�o���擾���A�u/scripts/developments�v�t�H���_�ɔz�u���Ă��������B
+   ◇Oracleの場合
+    1.JDBCドライバの取得
+       以下のURLからJDBCドライバを取得し、「/scripts/developments」フォルダに配置してください。
           http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html
 
-    2.�u/scripts/developments/installojdbc.bat�v�̕ҏW
-       �u/scripts/developments/installojdbc.bat�v��FILE_NAME�AGROUP_ID�AARTIFACT_ID�AVERSION�̒l���A
-        �ȉ��̂悤�Ɏ����Ŏg�p����JDBC�h���C�o�̒l�ɏ��������Ă��������B
+    2.「/scripts/developments/installojdbc.bat」の編集
+       「/scripts/developments/installojdbc.bat」のFILE_NAME、GROUP_ID、ARTIFACT_ID、VERSIONの値を、
+        以下のように自環境で使用するJDBCドライバの値に書き換えてください。
 
-        REM �C���X�g�[������jar�t�@�C���̖��O
+        REM インストールするjarファイルの名前
         SET FILE_NAME=ojdbc7.jar
-        REM �C���X�g�[������jar��groupId (�ύX�s�v)
+        REM インストールするjarのgroupId (変更不要)
         SET GROUP_ID=com.oracle
-        REM �C���X�g�[������jar��artifactId (�t�@�C�����Ƒ�����)
+        REM インストールするjarのartifactId (ファイル名と揃える)
         SET ARTIFACT_ID=ojdbc7
-        REM �C���X�g�[������jar�̃o�[�W����
+        REM インストールするjarのバージョン
         SET VERSION=12.1.0.1
 
-        ��bat�t�@�C���ɂ�Oracle Database 12c Release 1��ojdbc7.jar���g�p����ꍇ��
-          �ݒ肪���炩���ߋL�ڂ���Ă��܂��B
+        ※batファイルにはOracle Database 12c Release 1のojdbc7.jarを使用する場合の
+          設定があらかじめ記載されています。
 
-    3.�u/scripts/developments/installojdbc.bat�v�̎��s
-       2.�ŕҏW�����u/scripts/developments/installojdbc.bat�v�����s���܂��B
-       �R�}���h�v�����v�g�������オ��A�uBUILD SUCCESS�v�����O�ɏo�͂���Ă��邱�Ƃ��m�F���܂��B
+    3.「/scripts/developments/installojdbc.bat」の実行
+       2.で編集した「/scripts/developments/installojdbc.bat」を実行します。
+       コマンドプロンプトが立ち上がり、「BUILD SUCCESS」がログに出力されていることを確認します。
 
-    4.�u/pom.xml�v�̕ҏW
-       2.�ŃC���X�g�[������JDBC�h���C�o���擾���邽�߂ɁA
-       pom.xml�Ɉȉ��̂悤�ȋL�q���K�v�ɂȂ�܂�(���炩���ߐݒ肪�R�����g�A�E�g����Ă��܂�)�B
-       2.�Ŏw�肵��GROUP_ID�AARTIFACT_ID�AVERSION�̊e�l���g�p���܂��B
+    4.「/pom.xml」の編集
+       2.でインストールしたJDBCドライバを取得するために、
+       pom.xmlに以下のような記述が必要になります(あらかじめ設定がコメントアウトされています)。
+       2.で指定したGROUP_ID、ARTIFACT_ID、VERSIONの各値を使用します。
 
        <!-- JDBC Driver(Oracle) -->
        <dependency>
-           <groupId>com.oracle</groupId> <!-- 2.�Ŏw�肵��GROUP_ID�̒l -->
-           <artifactId>ojdbc7</artifactId> <!-- 2.�Ŏw�肵��ARTIFACT_ID�̒l -->
-           <version>12.1.0.1</version> <!-- 2.�Ŏw�肵��VERSION�̒l -->
+           <groupId>com.oracle</groupId> <!-- 2.で指定したGROUP_IDの値 -->
+           <artifactId>ojdbc7</artifactId> <!-- 2.で指定したARTIFACT_IDの値 -->
+           <version>12.1.0.1</version> <!-- 2.で指定したVERSIONの値 -->
            <scope>runtime</scope>
        </dependency>
 
-  �E���͗p�t�@�C���̔z�u
-    �C���|�[�g�����v���W�F�N�g�ɑ��݂���u/input�v�t�H���_�̒��g��C:\tmp\�ɔz�u���܂��B
+  ⑥入力用ファイルの配置
+    インポートしたプロジェクトに存在する「/input」フォルダの中身をC:\tmp\に配置します。
     
-  �FOracle���g�p����ꍇ�́A�ݒ�t�@�C���̏����������s���܂��B(Postgres���g�p����ꍇ�͕s�v)
-    1.�f�[�^�x�[�X�ڑ��ݒ�̏�������
-    �u/src/main/resources/mybatisAdmin/jdbc.properties�v�����
-    �u/src/main/resources/mybatis/jdbc.properties�v�̓��e���A�����ɍ��킹���������܂��B
+  ⑦Oracleを使用する場合は、設定ファイルの書き換えを行います。(Postgresを使用する場合は不要)
+    1.データベース接続設定の書き換え
+    「/src/main/resources/mybatisAdmin/jdbc.properties」および
+    「/src/main/resources/mybatis/jdbc.properties」の内容を、自環境に合わせ書き換えます。
     
-    2.�V�X�e�������p����DAO�̏�������
-     �u/src/main/resources/beansAdminDef/AdminDataSource.xml�v��
-      �V�X�e�����pDAO��`(PostgreSQL)���R�����g�A�E�g���A�V�X�e�����pDAO��`(Oracle)�̃R�����g�A�E�g���O���܂��B
+    2.システムが利用するDAOの書き換え
+     「/src/main/resources/beansAdminDef/AdminDataSource.xml」の
+      システム利用DAO定義(PostgreSQL)をコメントアウトし、システム利用DAO定義(Oracle)のコメントアウトを外します。
 
-��  �W���u�̋N��(�J����)�F
+■  ジョブの起動(開発環境)：
 
-    1.�u/scripts/developments/copydependencies.bat�v�����s���A�u/lib�v�f�B���N�g���z����
-      ���݂�pom.xml�ňˑ��֌W����`���ꂽjar�����ׂăR�s�[���܂��B
-      1�x���s����΁Apom.xml�ɕύX�������Ȃ�����A�Ď��s����K�v�͂���܂���B
-    2.�J�����œ���m�F���s���ꍇ�́A�u/scripts/developments/compile.bat�v�����s���A
-      �u/lib�v�f�B���N�g���z���� ���݂̃\�[�X�R�[�h�ŃR���p�C�����ꂽ
-      �uterasoluna-batch-functionsample-(�o�[�W�����ԍ�).jar�v���R�s�[���܂��B
-    3.�u/scripts�v�f�B���N�g���z���̋N���X�N���v�g(B00X00X.bat)�����s���܂��B
+    1.「/scripts/developments/copydependencies.bat」を実行し、「/lib」ディレクトリ配下に
+      現在のpom.xmlで依存関係が定義されたjarをすべてコピーします。
+      1度実行すれば、pom.xmlに変更を加えない限り、再実行する必要はありません。
+    2.開発環境で動作確認を行う場合は、「/scripts/developments/compile.bat」を実行し、
+      「/lib」ディレクトリ配下に 現在のソースコードでコンパイルされた
+      「terasoluna-batch-functionsample-(バージョン番号).jar」をコピーします。
+    3.「/scripts」ディレクトリ配下の起動スクリプト(B00X00X.bat)を実行します。
 
-��  �W���u�̋N��(�������E���^�p��)�F
+■  ジョブの起動(試験環境・実運用環境)：
 
-    1.�@�\�T���v���v���W�F�N�g�̃��[�g�f�B���N�g���ŁA�umvn package�v�R�}���h�����s���܂��B
-    2.�u/target�v�f�B���N�g���Ɂuterasoluna-batch-functionsample-(�o�[�W�����ԍ�)-distribution.zip�v���쐬����܂��B
-    3.�uterasoluna-batch-functionsample-(�o�[�W�����ԍ�)-distribution.zip�v���������E���^�p���ֈڑ����A�𓀂��܂��B
-    4.�u/scripts�v�f�B���N�g���z���̋N���X�N���v�g(B00X00X.bat)�����s���܂��B
+    1.機能サンプルプロジェクトのルートディレクトリで、「mvn package」コマンドを実行します。
+    2.「/target」ディレクトリに「terasoluna-batch-functionsample-(バージョン番号)-distribution.zip」が作成されます。
+    3.「terasoluna-batch-functionsample-(バージョン番号)-distribution.zip」を試験環境・実運用環境へ移送し、解凍します。
+    4.「/scripts」ディレクトリ配下の起動スクリプト(B00X00X.bat)を実行します。
 
-��  ����m�F�p�T���v���̃W���u�ɂ���
+■  動作確認用サンプルのジョブについて
 
-    �{�T���v���̃W���u�ꗗ�����L�Ɏ����܂��B
+    本サンプルのジョブ一覧を下記に示します。
 
     1. jp.terasoluna.batch.functionsample.b001
-      �E�����^�W���u���s�@�\�A�r�W�l�X���W�b�N���s�@�\�A�g�����U�N�V�����Ǘ��@�\�A�f�[�^�x�[�X�A�N�Z�X�@�\�̃T���v��
+      ・同期型ジョブ実行機能、ビジネスロジック実行機能、トランザクション管理機能、データベースアクセス機能のサンプル
 
-        ���ׂẴf�[�^��familyName���u��؁v�ɁAfirstName���u���Y�v�ɏ��������鏈�����s���܂��B
-        �g�����U�N�V�����Ǘ��@�\�ƃf�[�^�x�[�X�A�N�Z�X�@�\�̃o���G�[�V������4�ɕ������Ă��܂��B
+        すべてのデータのfamilyNameを「鈴木」に、firstNameを「太郎」に書き換える処理を行います。
+        トランザクション管理機能とデータベースアクセス機能のバリエーションで4つに分けられています。
        
-        �Ejp.terasoluna.batch.functionsample.b001.b001001
-            B001001�F�uscripts/B001001.bat�v����N������
-              �g�����U�N�V�����Ǘ�:
-                AbstractTransactionBLogic���p�����t���[�����[�N����
-                �g�����U�N�V�����Ǘ���C����T���v���ł��B
-                �f�[�^�͑S���ꊇ�ŃR�~�b�g����܂��B
-              �f�[�^�x�[�X�A�N�Z�X�@�\:
-                �o�b�`�X�V��p���Ȃ��T���v���ł��B
+        ・jp.terasoluna.batch.functionsample.b001.b001001
+            B001001：「scripts/B001001.bat」から起動する
+              トランザクション管理:
+                AbstractTransactionBLogicを継承しフレームワーク側に
+                トランザクション管理を任せるサンプルです。
+                データは全件一括でコミットされます。
+              データベースアクセス機能:
+                バッチ更新を用いないサンプルです。
 
-        �Ejp.terasoluna.batch.functionsample.b001.b001002
-            B001002�F�uscripts/B001002.bat�v����N������
-              �g�����U�N�V�����Ǘ�:
-                BLogic�C���^�t�F�[�X���p�����r�W�l�X���W�b�N����
-                �g�����U�N�V�����̊Ǘ����s���T���v���ł��B
-                �f�[�^��10�����ƂɃR�~�b�g����܂��B
-              �f�[�^�x�[�X�A�N�Z�X�@�\:
-                �o�b�`�X�V��p���Ȃ��T���v���ł��B
+        ・jp.terasoluna.batch.functionsample.b001.b001002
+            B001002：「scripts/B001002.bat」から起動する
+              トランザクション管理:
+                BLogicインタフェースを継承しビジネスロジック内で
+                トランザクションの管理を行うサンプルです。
+                データは10件ごとにコミットされます。
+              データベースアクセス機能:
+                バッチ更新を用いないサンプルです。
 
-        �Ejp.terasoluna.batch.functionsample.b001.b001003
-             B001003�F�uscripts/B001003.bat�v����N������
-              �g�����U�N�V�����Ǘ�:
-                AbstractTransactionBLogic���p�����t���[�����[�N����
-                �g�����U�N�V�����Ǘ���C����T���v���ł��B
-                �f�[�^�͑S���ꊇ�ŃR�~�b�g����܂��B
-              �f�[�^�x�[�X�A�N�Z�X�@�\:
-                �o�b�`�X�V��p����T���v���ł��B
-                �X�V�n��SQL���܂Ƃ߂Ď��s����ꍇ�A�o�b�`�X�V��p����Ɛ��\�̌��オ�����߂܂��B
-                �������̌͊�������邽�߁A�R�~�b�g���ȊO�ɁA
-                MyBatis3��@Flush�A�m�e�[�V�������g�p���A10�����ƂɃo�b�`�X�V(�R�~�b�g�͍s��Ȃ�)�����s���Ă��܂��B
+        ・jp.terasoluna.batch.functionsample.b001.b001003
+             B001003：「scripts/B001003.bat」から起動する
+              トランザクション管理:
+                AbstractTransactionBLogicを継承しフレームワーク側に
+                トランザクション管理を任せるサンプルです。
+                データは全件一括でコミットされます。
+              データベースアクセス機能:
+                バッチ更新を用いるサンプルです。
+                更新系のSQLをまとめて実行する場合、バッチ更新を用いると性能の向上が見込めます。
+                メモリの枯渇を避けるため、コミット時以外に、
+                MyBatis3の@Flushアノテーションを使用し、10件ごとにバッチ更新(コミットは行わない)を実行しています。
 
-        �Ejp.terasoluna.batch.functionsample.b001.b001004
-            B001004�F�uscripts/B001004.bat�v����N������
-              �g�����U�N�V�����Ǘ�:
-                BLogic�C���^�t�F�[�X���p�����r�W�l�X���W�b�N����
-                �g�����U�N�V�����̊Ǘ����s���T���v���ł��B
-                �f�[�^��10�����ƂɃR�~�b�g����܂��B
-              �f�[�^�x�[�X�A�N�Z�X�@�\:
-                �o�b�`�X�V��p����T���v���ł��B
-                �X�V�n��SQL���܂Ƃ߂Ď��s����ꍇ�A�o�b�`�X�V��p����Ɛ��\�̌��オ�����߂܂��B
-                10�����ƂɃR�~�b�g���Ă���A�R�~�b�g�̃^�C�~���O(�R�~�b�g���O)�Ńo�b�`�X�V�����s����邽�߁A
-                MyBatis3��@Flush�A�m�e�[�V�������g�p�����o�b�`�X�V�͎��s���Ă��܂���B
+        ・jp.terasoluna.batch.functionsample.b001.b001004
+            B001004：「scripts/B001004.bat」から起動する
+              トランザクション管理:
+                BLogicインタフェースを継承しビジネスロジック内で
+                トランザクションの管理を行うサンプルです。
+                データは10件ごとにコミットされます。
+              データベースアクセス機能:
+                バッチ更新を用いるサンプルです。
+                更新系のSQLをまとめて実行する場合、バッチ更新を用いると性能の向上が見込めます。
+                10件ごとにコミットしており、コミットのタイミング(コミット直前)でバッチ更新が実行されるため、
+                MyBatis3の@Flushアノテーションを使用したバッチ更新は実行していません。
 
     2. jp.terasoluna.batch.functionsample.b002
-      �E�񓯊��^�W���u�̃T���v��
+      ・非同期型ジョブのサンプル
 
-          Employee�e�[�u���̓��e��Employee2�e�[�u���ɃR�s�[���鏈�����s���܂��B
+          Employeeテーブルの内容をEmployee2テーブルにコピーする処理を行います。
 
-        �Ejp.terasoluna.batch.functionsample.b002.b002001
-            B002001BLogic�F�uscripts/B002001_forPostgreSQL.bat�v����N������
-              �񓯊��^�W���u�G�O�[�L���[�^�\���N�����ăW���u��񓯊��Ɏ��s����T���v���ł��B
+        ・jp.terasoluna.batch.functionsample.b002.b002001
+            B002001BLogic：「scripts/B002001_forPostgreSQL.bat」から起動する
+              非同期型ジョブエグゼキュータ―を起動してジョブを非同期に実行するサンプルです。
 
-              ��DB��Oracle���g�p���Ă���ꍇ�́uB002001_forOracle.bat�v����N�����Ă��������B
+              ※DBにOracleを使用している場合は「B002001_forOracle.bat」から起動してください。
 
-              ���񓯊��^�W���u�G�O�[�L���[�^�[���I������ɂ�
-              �uscripts/B002001_TERMINATE.bat�v�����s���Ă��������B
+              ※非同期型ジョブエグゼキューターを終了するには
+              「scripts/B002001_TERMINATE.bat」を実行してください。
 
     3. jp.terasoluna.batch.functionsample.b003
-      �E��O�n���h�����O�@�\�̃T���v��
+      ・例外ハンドリング機能のサンプル
 
-        �Ejp.terasoluna.batch.functionsample.b003.b003001
-            B003001BLogic�F�uscripts/B003001.bat�v����N������
-              �W���u���s���Ƀr�W�l�X���W�b�N�ŗ�O�����������ꍇ�ɁA
-              B003001ExceptionHandler�N���X�Ńn���h�����O���s���T���v���ł��B
+        ・jp.terasoluna.batch.functionsample.b003.b003001
+            B003001BLogic：「scripts/B003001.bat」から起動する
+              ジョブ実行時にビジネスロジックで例外が発生した場合に、
+              B003001ExceptionHandlerクラスでハンドリングを行うサンプルです。
 
     4. jp.terasoluna.batch.functionsample.b004
-      �E�t�@�C������@�\�̃T���v��
+      ・ファイル操作機能のサンプル
 
-        �Ejp.terasoluna.batch.functionsample.b004.b004001
-            B004001BLogic�F�uscripts/B004001.bat�v����N������
-             �uC:/tmp/input.csv�v�t�@�C�����uC:/tmp/outputB004001.csv�v��
-              �R�s�[����T���v���ł��B
+        ・jp.terasoluna.batch.functionsample.b004.b004001
+            B004001BLogic：「scripts/B004001.bat」から起動する
+             「C:/tmp/input.csv」ファイルを「C:/tmp/outputB004001.csv」に
+              コピーするサンプルです。
     
     5. jp.terasoluna.batch.functionsample.b005
-      �E���b�Z�[�W�Ǘ��@�\�̃T���v��
+      ・メッセージ管理機能のサンプル
 
-        �Ejp.terasoluna.batch.functionsample.b005.b005001
-            B005001BLogic�F�uscripts/B005001.bat�v����N������
-             �uapplication-messages.properties�v�ɒ�`�������b�Z�[�W�𗘗p�������O�o�͂��s���T���v���ł��B
+        ・jp.terasoluna.batch.functionsample.b005.b005001
+            B005001BLogic：「scripts/B005001.bat」から起動する
+             「application-messages.properties」に定義したメッセージを利用したログ出力を行うサンプルです。
 
     6. jp.terasoluna.batch.functionsample.b006
-      �E�{�o�[�W�����ł́A�u�o�b�`�X�V�œK���@�\�v�͒񋟂��Ă��Ȃ����߁A�T���v���͂���܂���B
-        �f�[�^�x�[�X�A�N�Z�X�@�\�̃o�b�`�X�V��p����T���v��(B001003�AB001004)�𗘗p���Ă��������B
+      ・本バージョンでは、「バッチ更新最適化機能」は提供していないため、サンプルはありません。
+        データベースアクセス機能のバッチ更新を用いるサンプル(B001003、B001004)を利用してください。
 
     7. jp.terasoluna.batch.functionsample.b007
-      �E���̓f�[�^�擾�@�\�A�f�[�^�x�[�X�A�N�Z�X�@�\�A�t�@�C���A�N�Z�X�@�\�̃T���v��
+      ・入力データ取得機能、データベースアクセス機能、ファイルアクセス機能のサンプル
 
-        �Ejp.terasoluna.batch.functionsample.b007.b007001
-            B007001BLogic�F�uscripts/B007001.bat�v����N������
-              ���̓f�[�^�擾�@�\�𗘗p���ăt�@�C���uC:/tmp/input.csv�v�̓��e��ǂݍ��݁A
-              �f�[�^�x�[�X�A�N�Z�X�@�\�𗘗p���āuEmployee�e�[�u���v�Ƀf�[�^��}������T���v���ł��B
+        ・jp.terasoluna.batch.functionsample.b007.b007001
+            B007001BLogic：「scripts/B007001.bat」から起動する
+              入力データ取得機能を利用してファイル「C:/tmp/input.csv」の内容を読み込み、
+              データベースアクセス機能を利用して「Employeeテーブル」にデータを挿入するサンプルです。
 
-        �Ejp.terasoluna.batch.functionsample.b007.b007002
-            B007002BLogic�F�uscripts/B007002.bat�v����N������
-              ���̓f�[�^�擾�@�\�𗘗p���ăf�[�^�x�[�X�uEmployee�e�[�u���v�̓��e��ǂݍ��݁A
-              �t�@�C���A�N�Z�X�@�\�𗘗p���āuC:/tmp/outputB007002.csv�v�Ƀf�[�^��}������T���v���ł��B
+        ・jp.terasoluna.batch.functionsample.b007.b007002
+            B007002BLogic：「scripts/B007002.bat」から起動する
+              入力データ取得機能を利用してデータベース「Employeeテーブル」の内容を読み込み、
+              ファイルアクセス機能を利用して「C:/tmp/outputB007002.csv」にデータを挿入するサンプルです。
 
     8. jp.terasoluna.batch.functionsample.b008
-      �E�R���g���[���u���C�N�@�\�̃T���v��
+      ・コントロールブレイク機能のサンプル
 
-        �Ejp.terasoluna.batch.functionsample.b008.b008001
-            B008001BLogic�F�uscripts/B008001.bat�v����N������
-              �s���{�����Ƃ̎s�撬���A���悪�L�ڂ���Ă���uC:/tmp/KEN_ALL.csv�v��ǂݍ��݁A
-              �s���{���P�ʂŁuZIP_CODE�v�e�[�u���Ƀf�[�^��}������T���v���ł��B
-              ���̍ۂɁA�s���{�����Ƃ̎s�撬�����A���搔�����O�ɏo�͂��܂��B
+        ・jp.terasoluna.batch.functionsample.b008.b008001
+            B008001BLogic：「scripts/B008001.bat」から起動する
+              都道府県ごとの市区町村、町域が記載されている「C:/tmp/KEN_ALL.csv」を読み込み、
+              都道府県単位で「ZIP_CODE」テーブルにデータを挿入するサンプルです。
+              その際に、都道府県ごとの市区町村数、町域数をログに出力します。
 
     9. jp.terasoluna.batch.functionsample.b009
-      �E���̓f�[�^�擾�@�\�g�p���̓��̓`�F�b�N�@�\�A��O�n���h�����O�̃T���v��
+      ・入力データ取得機能使用時の入力チェック機能、例外ハンドリングのサンプル
 
-        �Ejp.terasoluna.batch.functionsample.b009.b009001
-            B009001BLogic�F�uscripts/B009001.bat�v����N������
-              �uC:/tmp/inputB009001.csv�v��ǂݍ��݁A�uC:/tmp/outputB009001.csv�v�ɏo�͂��܂��B
-              ���̎��ABeanValidation�𗘗p�������̓`�F�b�N�����s����A
-              2,11,16���ڂ̃f�[�^�œ��̓`�F�b�N�G���[���������܂��B
-              ���̃T���v���ł́A�g�����̓`�F�b�N�G���[�n���h�����O�N���X��p�ӂ��A
-              Status�uSKIP�v��ԋp���Ă��邽�߁A2,11,16���ڂ̃f�[�^�̓t�@�C���ɏo�͂���܂���B
+        ・jp.terasoluna.batch.functionsample.b009.b009001
+            B009001BLogic：「scripts/B009001.bat」から起動する
+              「C:/tmp/inputB009001.csv」を読み込み、「C:/tmp/outputB009001.csv」に出力します。
+              この時、BeanValidationを利用した入力チェックが実行され、
+              2,11,16件目のデータで入力チェックエラーが発生します。
+              このサンプルでは、拡張入力チェックエラーハンドリングクラスを用意し、
+              Status「SKIP」を返却しているため、2,11,16件目のデータはファイルに出力されません。
           
-        �Ejp.terasoluna.batch.functionsample.b009.b009002
-            B009002BLogic�F�uscripts/B009002.bat�v����N������
-              Employee3�e�[�u����ǂݍ��݁AEmployee2�e�[�u���ɃR�s�[���܂��B
-              ���̎��ABeanValidation�𗘗p�������̓`�F�b�N�����s����A
-              2,7,12���ڂ̃f�[�^�œ��̓`�F�b�N�G���[���������܂��B
-              ���̃T���v���ł́A���̓f�[�^�擾�@�\�g�p���̊g����O�n���h�����O�N���X��p�ӂ��A
-              Status�uEND�v��ԋp���Ă��邽�߁A2���ڂ̃f�[�^�œ��̓f�[�^�̎擾����~���܂��B
-              ���̂��߁AEmployee�e�[�u���ɂ�1���̂݃f�[�^���R�s�[����܂��B
+        ・jp.terasoluna.batch.functionsample.b009.b009002
+            B009002BLogic：「scripts/B009002.bat」から起動する
+              Employee3テーブルを読み込み、Employee2テーブルにコピーします。
+              この時、BeanValidationを利用した入力チェックが実行され、
+              2,7,12件目のデータで入力チェックエラーが発生します。
+              このサンプルでは、入力データ取得機能使用時の拡張例外ハンドリングクラスを用意し、
+              Status「END」を返却しているため、2件目のデータで入力データの取得が停止します。
+              そのため、Employeeテーブルには1件のみデータがコピーされます。
 
-���t�@�C�����o�͂���W���u�Ɋւ��āA�t�@�C���̍폜�����͓��ɋL�q���Ă��炸�A
-  �t�@�C���o�͎��ɂ͏㏑���ƂȂ�悤�ݒ肵�Ă��܂��B
+※ファイルを出力するジョブに関して、ファイルの削除処理は特に記述しておらず、
+  ファイル出力時には上書きとなるよう設定しています。
 
 -------------------------------------------------------------------------------
 Copyright (c) 2007-2016 NTT DATA Corporation.

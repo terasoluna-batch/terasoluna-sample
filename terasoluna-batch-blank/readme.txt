@@ -1,76 +1,76 @@
 *******************************************************************************
       TERASOLUNA Batch Framework for Java
-      �u�����N�v���W�F�N�g �����菇
+      ブランクプロジェクト 導入手順
 
       Copyright (c) 2011-2016 NTT DATA Corporation.
 *******************************************************************************
 
-��  �T�v�F
+■  概要：
 
-  ����readme�́ATERASOLUNA Batch Framework for Java�̃u�����N�v���W�F�N�g�𓱓�����菇���ł��B
-�@�u�����N�v���W�F�N�g�𓱓����邱�Ƃɂ��ATERASOLUNA�t���[�����[�N���g����
-�@�A�v���P�[�V�����J�������\�z���邱�Ƃ��\�ɂȂ�܂��B 
+  このreadmeは、TERASOLUNA Batch Framework for Javaのブランクプロジェクトを導入する手順書です。
+　ブランクプロジェクトを導入することにより、TERASOLUNAフレームワークを使った
+　アプリケーション開発環境を構築することが可能になります。 
 
-��  �O������F
+■  前提条件：
 
-  �J�����ɂ́A���炩���߉��L�̂��̂��p�ӂ���Ă���K�v������܂��B
-  �܂����L����Ă���o�[�W���������ɓ���m�F���s�Ȃ��Ă��܂����A
-  ���̃o�[�W�����ȊO�̊��œ���𐧌����邱�Ƃ��������̂ł͂���܂���B
-  �܂��A�����̃C���X�g�[���y�ѐݒ�̎菇�ɂ��ẮA
-  �ʓrWeb��̗��p�K�C�h�����Q�Ƃ��Ă��������B 
+  開発環境には、あらかじめ下記のものが用意されている必要があります。
+  また併記されているバージョンを元に動作確認を行なっていますが、
+  このバージョン以外の環境で動作を制限することを示すものではありません。
+  また、これらのインストール及び設定の手順については、
+  別途Web上の利用ガイド等を参照してください。 
 
-  �EJava SE Runtime Environment Standard Edition 1.7.0
-  �EEclipse SDK 3.7.2 + Maven�v���O�C��
-  �EApache Maven (3.X�ȍ~)
-  �EPostgreSQL 9.3
-  �@�܂���
-  �EOracle 12c
+  ・Java SE Runtime Environment Standard Edition 1.7.0
+  ・Eclipse SDK 3.7.2 + Mavenプラグイン
+  ・Apache Maven (3.X以降)
+  ・PostgreSQL 9.3
+  　または
+  ・Oracle 12c
 
-��  �v���W�F�N�g�̃C���|�[�g�F
+■  プロジェクトのインポート：
 
-  1.ZIP�t�@�C���̓W�J
+  1.ZIPファイルの展開 (Maven archetypeからブランクプロジェクトを生成した場合は本項を読み飛ばしてください。)
 
-    terasoluna-batch-blank-(version_number).zip��C�ӂ̃t�H���_�ɓW�J���܂��B 
+    terasoluna-batch-blank-(version_number).zipを任意のフォルダに展開します。 
 
-    �W�J���ꂽterasoluna-batch-blank-(version_number).zip�̃t�H���_����
-    �uterasoluna-batch-blank�v�ł��邱�Ƃ��m�F���܂��B
-    �W�J�c�[����W�J�̂������ɂ���ẮA�t�H���_����
-    �uterasoluna-batch-blank-(version_number)�v�ƂȂ�ꍇ������܂����A
-    �t�H���_�����蓮�Łuterasoluna-batch-blank�v�ɕύX���Ă��������B 
+    展開されたterasoluna-batch-blank-(version_number).zipのフォルダ名が
+    「terasoluna-batch-blank」であることを確認します。
+    展開ツールや展開のしかたによっては、フォルダ名が
+    「terasoluna-batch-blank-(version_number)」となる場合がありますが、
+    フォルダ名を手動で「terasoluna-batch-blank」に変更してください。 
 
-  2.Eclipse�ւ̃C���|�[�g
-    �EEclipse��ʂɂāu�t�@�C�����C���|�[�g�v�����s���A
-      �uMaven��Existing Maven Projects�v��I�����u���ցv���N���b�N���܂��B
-    �E�uRootDirectory:�v�́uBrowse...�v���N���b�N���A
-    �@�v���W�F�N�g���e�̃u���E�Y����{�f�B���N�g�����w�肵�܂��B
-    �E�u/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(version_number).jar�v��
-    �@�`�F�b�N�������Ă��邱�Ƃ��m�F��A�u�����v���N���b�N���܂��B
+  2.Eclipseへのインポート
+    ・Eclipse画面にて「ファイル＞インポート」を実行し、
+      「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
+    ・「RootDirectory:」の「Browse...」をクリックし、
+    　プロジェクト内容のブラウズから本ディレクトリを指定します。
+    ・「/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(version_number).jar」に
+    　チェックが入っていることを確認後、「完了」をクリックします。
 
-��  �W���u�̋N��(�J����)�F
+■  ジョブの起動(開発環境)：
 
-    �E�u(project-root)/scripts/developments�v�f�B���N�g���z����
-    copydependencies.bat�����s���A�u(project-root)/lib�v�f�B���N�g���z����
-    ���݂�pom.xml�ňˑ��֌W����`���ꂽjar�����ׂăR�s�[���܂��B
-    1�x���s����΁Apom.xml�ɕύX�������Ȃ�����A�Ď��s����K�v�͂���܂���B
-    �E�J�����œ���m�F���s���ꍇ�́A�u(project-root)/scripts/developments�v�f�B���N�g���z����
-    compile.bat�����s���A�u(project-root)/lib�v�f�B���N�g���z����
-    ���݂̃\�[�X�R�[�h�ŃR���p�C�����ꂽ�uterasoluna-batch-blank-(version_number).jar�v���R�s�[���܂��B
-    �E�u(project-root)/scripts�v�f�B���N�g���z���̋N���X�N���v�g
-    (�u�����N�v���W�F�N�g�ɂ��炩���ߊ܂܂��T���v���ł́AB000001.bat)�����s���܂��B
+    ・「(project-root)/scripts/developments」ディレクトリ配下の
+    copydependencies.batを実行し、「(project-root)/lib」ディレクトリ配下に
+    現在のpom.xmlで依存関係が定義されたjarをすべてコピーします。
+    1度実行すれば、pom.xmlに変更を加えない限り、再実行する必要はありません。
+    ・開発環境で動作確認を行う場合は、「(project-root)/scripts/developments」ディレクトリ配下の
+    compile.batを実行し、「(project-root)/lib」ディレクトリ配下に
+    現在のソースコードでコンパイルされた「terasoluna-batch-blank-(version_number).jar」をコピーします。
+    ・「(project-root)/scripts」ディレクトリ配下の起動スクリプト
+    (ブランクプロジェクトにあらかじめ含まれるサンプルでは、B000001.bat)を実行します。
 
-��  �W���u�̋N��(�������E���^�p��)�F
+■  ジョブの起動(試験環境・実運用環境)：
 
-    �E�u�����N�v���W�F�N�g�̃��[�g�f�B���N�g���ŁA�umvn package�v�R�}���h�����s���܂��B
-    �E�u(project-root)/target�v�f�B���N�g����
-    �uterasoluna-batch-blank-(version_number)-distribution.zip�v���쐬����܂��B
-    �E�uterasoluna-batch-blank-(version_number)-distribution.zip�v���������E���^�p���ֈڑ����A�𓀂��܂��B
-    �E�u(project-root)/scripts�v�f�B���N�g���z���̋N���X�N���v�g
-    (�u�����N�v���W�F�N�g�ɂ��炩���ߊ܂܂��T���v���ł́AB000001.bat)�����s���܂��B
+    ・ブランクプロジェクトのルートディレクトリで、「mvn package」コマンドを実行します。
+    ・「(project-root)/target」ディレクトリに
+    「terasoluna-batch-blank-(version_number)-distribution.zip」が作成されます。
+    ・「terasoluna-batch-blank-(version_number)-distribution.zip」を試験環境・実運用環境へ移送し、解凍します。
+    ・「(project-root)/scripts」ディレクトリ配下の起動スクリプト
+    (ブランクプロジェクトにあらかじめ含まれるサンプルでは、B000001.bat)を実行します。
 
-��  Maven3.2.3�ȍ~���g�p����ۂ̒���
-    �EMaven3.2.3�ȍ~�A�Z���g�������|�W�g���ɂ�HTTPS���g�p���ăA�N�Z�X���邽�߁A
-      �u(���[�U�[�̃z�[���f�B���N�g��)/.m2/settings.xml�v�ɐݒ��ǉ�����K�v������܂��B
-      �ǉ�����ݒ���e�ɂ��ẮA�ȉ���URL���Q�Ƃ��Ă��������B
+■  Maven3.2.3以降を使用する際の注意
+    ・Maven3.2.3以降、セントラルリポジトリにはHTTPSを使用してアクセスするため、
+      「(ユーザーのホームディレクトリ)/.m2/settings.xml」に設定を追加する必要があります。
+      追加する設定内容については、以下のURLを参照してください。
       http://central.sonatype.org/pages/consumers.html#apache-maven
 
 -------------------------------------------------------------------------------

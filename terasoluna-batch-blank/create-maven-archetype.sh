@@ -30,14 +30,14 @@ mv src/main/resources/jp/terasoluna/batch/sample/b000001 src/main/resources/__pa
 rm -rf src/main/resources/jp/terasoluna/batch
 
 mvn versions:set -DnewVersion=${version} -DallowSnapshots=true
+mvn versions:update-property -Dproperty=terasoluna-fw-batch.version -DnewVersion=${version} -DallowSnapshots=true
+mvn versions:commit
 
 mvn archetype:create-from-project -DpackageName=jp.terasoluna.batch.sample
 
 pushd target/generated-sources/archetype
 
 sed -i -e "s/xxxxxx\.yyyyyy\.zzzzzz/jp.terasoluna.fw.batch/g" pom.xml
-sed -i -e "61s/UTF-8/Windows-31J/" src/main/resources/META-INF/maven/archetype-metadata.xml
-sed -i -e '33,42d' -e "s/2.Eclipse/Eclipse/" -e "s/xxxxxx.yyyyyy.zzzzzz/\${groupId}/g" -e "s/(version_number)/\${version}/g" -e "s/(project-root)/\${artifactId}/g" -e "s/terasoluna-batch-blank/\${artifactId}/g" src/main/resources/archetype-resources/readme.txt
-sed -i -e "s/<terasoluna-fw-batch\.version>.*<\/terasoluna-fw-batch\.version>/<terasoluna-fw-batch\.version>${version}<\/terasoluna-fw-batch\.version>/g" src/main/resources/archetype-resources/pom.xml
+sed -i -e "s/xxxxxx.yyyyyy.zzzzzz/\${groupId}/g" -e "s/(version_number)/\${version}/g" -e "s/(project-root)/\${artifactId}/g" -e "s/terasoluna-batch-blank/\${artifactId}/g" src/main/resources/archetype-resources/readme.txt
 
 mvn ${goal}
