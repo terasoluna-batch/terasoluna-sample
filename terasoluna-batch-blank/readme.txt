@@ -1,81 +1,76 @@
 *******************************************************************************
       TERASOLUNA Batch Framework for Java
-      ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg “±“üŽè‡
+      ãƒ–ãƒ©ãƒ³ã‚¯ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ å°Žå…¥æ‰‹é †
 
       Copyright (c) 2011-2016 NTT DATA Corporation.
 *******************************************************************************
 
-¡  ŠT—vF
+â–   æ¦‚è¦ï¼š
 
-  ‚±‚Ìreadme‚ÍATERASOLUNA Batch Framework for Java‚Ìƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚ð“±“ü‚·‚éŽè‡‘‚Å‚·B
-@ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚ð“±“ü‚·‚é‚±‚Æ‚É‚æ‚èATERASOLUNAƒtƒŒ[ƒ€ƒ[ƒN‚ðŽg‚Á‚½
-@ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ŠJ”­ŠÂ‹«‚ð\’z‚·‚é‚±‚Æ‚ª‰Â”\‚É‚È‚è‚Ü‚·B 
+  ã“ã®readmeã¯ã€TERASOLUNA Batch Framework for Javaã®ãƒ–ãƒ©ãƒ³ã‚¯ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å°Žå…¥ã™ã‚‹æ‰‹é †æ›¸ã§ã™ã€‚
+ã€€ãƒ–ãƒ©ãƒ³ã‚¯ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å°Žå…¥ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€TERASOLUNAãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‚’ä½¿ã£ãŸ
+ã€€ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³é–‹ç™ºç’°å¢ƒã‚’æ§‹ç¯‰ã™ã‚‹ã“ã¨ãŒå¯èƒ½ã«ãªã‚Šã¾ã™ã€‚ 
 
-¡  ‘O’ñðŒF
+â–   å‰ææ¡ä»¶ï¼š
 
-  ŠJ”­ŠÂ‹«‚É‚ÍA‚ ‚ç‚©‚¶‚ß‰º‹L‚Ì‚à‚Ì‚ª—pˆÓ‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·B
-  ‚Ü‚½•¹‹L‚³‚ê‚Ä‚¢‚éƒo[ƒWƒ‡ƒ“‚ðŒ³‚É“®ìŠm”F‚ðs‚È‚Á‚Ä‚¢‚Ü‚·‚ªA
-  ‚±‚Ìƒo[ƒWƒ‡ƒ“ˆÈŠO‚ÌŠÂ‹«‚Å“®ì‚ð§ŒÀ‚·‚é‚±‚Æ‚ðŽ¦‚·‚à‚Ì‚Å‚Í‚ ‚è‚Ü‚¹‚ñB
-  ‚Ü‚½A‚±‚ê‚ç‚ÌƒCƒ“ƒXƒg[ƒ‹‹y‚ÑÝ’è‚ÌŽè‡‚É‚Â‚¢‚Ä‚ÍA
-  •Ê“rWebã‚Ì—˜—pƒKƒCƒh“™‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B 
+  é–‹ç™ºç’°å¢ƒã«ã¯ã€ã‚ã‚‰ã‹ã˜ã‚ä¸‹è¨˜ã®ã‚‚ã®ãŒç”¨æ„ã•ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
+  ã¾ãŸä½µè¨˜ã•ã‚Œã¦ã„ã‚‹ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å…ƒã«å‹•ä½œç¢ºèªã‚’è¡Œãªã£ã¦ã„ã¾ã™ãŒã€
+  ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ä»¥å¤–ã®ç’°å¢ƒã§å‹•ä½œã‚’åˆ¶é™ã™ã‚‹ã“ã¨ã‚’ç¤ºã™ã‚‚ã®ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚
+  ã¾ãŸã€ã“ã‚Œã‚‰ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«åŠã³è¨­å®šã®æ‰‹é †ã«ã¤ã„ã¦ã¯ã€
+  åˆ¥é€”Webä¸Šã®åˆ©ç”¨ã‚¬ã‚¤ãƒ‰ç­‰ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚ 
 
-  EJava SE Runtime Environment Standard Edition 1.7.0
-  EEclipse SDK 3.7.2 + Mavenƒvƒ‰ƒOƒCƒ“
-  EPostgreSQL 9.3
-  @‚Ü‚½‚Í
-  EOracle 12c
+  ãƒ»Java SE Runtime Environment Standard Edition 1.7.0
+  ãƒ»Eclipse SDK 3.7.2 + Mavenãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+  ãƒ»Apache Maven (3.Xä»¥é™)
+  ãƒ»PostgreSQL 9.3
+  ã€€ã¾ãŸã¯
+  ãƒ»Oracle 12c
 
-¡  ƒvƒƒWƒFƒNƒg‚ÌƒCƒ“ƒ|[ƒgF
+â–   ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¤ãƒ³ãƒãƒ¼ãƒˆï¼š
 
-  ‡@ZIPƒtƒ@ƒCƒ‹‚Ì“WŠJ
-    terasoluna-batch-blank-(ƒo[ƒWƒ‡ƒ“”Ô†).zip‚ð”CˆÓ‚ÌƒtƒHƒ‹ƒ_‚É“WŠJ‚µ‚Ü‚·B 
+  1.ZIPãƒ•ã‚¡ã‚¤ãƒ«ã®å±•é–‹ (Maven archetypeã‹ã‚‰ãƒ–ãƒ©ãƒ³ã‚¯ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—ãŸå ´åˆã¯æœ¬é …ã‚’èª­ã¿é£›ã°ã—ã¦ãã ã•ã„ã€‚)
 
-    “WŠJ‚³‚ê‚½terasoluna-batch-blank-(ƒo[ƒWƒ‡ƒ“”Ô†).zip‚ÌƒtƒHƒ‹ƒ_–¼‚ª
-    uterasoluna-batch-blankv‚Å‚ ‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·B
-    “WŠJƒc[ƒ‹‚â“WŠJ‚Ì‚µ‚©‚½‚É‚æ‚Á‚Ä‚ÍAƒtƒHƒ‹ƒ_–¼‚ª
-    uterasoluna-batch-blank-(ƒo[ƒWƒ‡ƒ“”Ô†)v‚Æ‚È‚éê‡‚ª‚ ‚è‚Ü‚·‚ªA
-    ƒtƒHƒ‹ƒ_–¼‚ðŽè“®‚Åuterasoluna-batch-blankv‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢B 
+    terasoluna-batch-blank-(version_number).zipã‚’ä»»æ„ã®ãƒ•ã‚©ãƒ«ãƒ€ã«å±•é–‹ã—ã¾ã™ã€‚ 
 
-  ‡AEclipse‚Ö‚ÌƒCƒ“ƒ|[ƒg
-    EEclipse‰æ–Ê‚É‚Äuƒtƒ@ƒCƒ‹„ƒCƒ“ƒ|[ƒgv‚ðŽÀs‚µA
-      uMaven„Existing Maven Projectsv‚ð‘I‘ð‚µuŽŸ‚Öv‚ðƒNƒŠƒbƒN‚µ‚Ü‚·B
-    EuRootDirectory:v‚ÌuBrowse...v‚ðƒNƒŠƒbƒN‚µA
-    @ƒvƒƒWƒFƒNƒg“à—e‚Ìƒuƒ‰ƒEƒY‚©‚ç‡@‚Å“WŠJ‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚ðŽw’è‚µ‚Ü‚·B
-    Eu/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(ƒo[ƒWƒ‡ƒ“”Ô†).jarv‚É
-    @ƒ`ƒFƒbƒN‚ª“ü‚Á‚Ä‚¢‚é‚±‚Æ‚ðŠm”FŒãAuŠ®—¹v‚ðƒNƒŠƒbƒN‚µ‚Ü‚·B
+    å±•é–‹ã•ã‚ŒãŸterasoluna-batch-blank-(version_number).zipã®ãƒ•ã‚©ãƒ«ãƒ€åãŒ
+    ã€Œterasoluna-batch-blankã€ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã—ã¾ã™ã€‚
+    å±•é–‹ãƒ„ãƒ¼ãƒ«ã‚„å±•é–‹ã®ã—ã‹ãŸã«ã‚ˆã£ã¦ã¯ã€ãƒ•ã‚©ãƒ«ãƒ€åãŒ
+    ã€Œterasoluna-batch-blank-(version_number)ã€ã¨ãªã‚‹å ´åˆãŒã‚ã‚Šã¾ã™ãŒã€
+    ãƒ•ã‚©ãƒ«ãƒ€åã‚’æ‰‹å‹•ã§ã€Œterasoluna-batch-blankã€ã«å¤‰æ›´ã—ã¦ãã ã•ã„ã€‚ 
 
-  ‡BMaven‚ÌƒCƒ“ƒXƒg[ƒ‹
-    Ehttp://maven.apache.org
-      ‚æ‚èMaven(3.XˆÈ~)‚ðƒ_ƒEƒ“ƒ[ƒh‚µA”CˆÓ‚ÌêŠ‚É“WŠJ‚µ‚Ä‚­‚¾‚³‚¢B
-      “WŠJ‚µ‚½ƒfƒBƒŒƒNƒgƒŠ”z‰º‚ÌbinƒfƒBƒŒƒNƒgƒŠ‚ðŠÂ‹«•Ï”PATH‚É’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
-      ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚Å‰º‹LƒRƒ}ƒ“ƒh‚ð“ü—Í‚µAƒo[ƒWƒ‡ƒ“î•ñ‚ª•\Ž¦‚³‚ê‚ê‚ÎƒCƒ“ƒXƒg[ƒ‹Š®—¹‚Å‚·B
-      mvn --version
+  2.Eclipseã¸ã®ã‚¤ãƒ³ãƒãƒ¼ãƒˆ
+    ãƒ»Eclipseç”»é¢ã«ã¦ã€Œãƒ•ã‚¡ã‚¤ãƒ«ï¼žã‚¤ãƒ³ãƒãƒ¼ãƒˆã€ã‚’å®Ÿè¡Œã—ã€
+      ã€ŒMavenï¼žExisting Maven Projectsã€ã‚’é¸æŠžã—ã€Œæ¬¡ã¸ã€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¾ã™ã€‚
+    ãƒ»ã€ŒRootDirectory:ã€ã®ã€ŒBrowse...ã€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã€
+    ã€€ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå†…å®¹ã®ãƒ–ãƒ©ã‚¦ã‚ºã‹ã‚‰æœ¬ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã—ã¾ã™ã€‚
+    ãƒ»ã€Œ/pom.xml xxxxxx.yyyyyy.zzzzzz:terasoluna-batch-blank:(version_number).jarã€ã«
+    ã€€ãƒã‚§ãƒƒã‚¯ãŒå…¥ã£ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªå¾Œã€ã€Œå®Œäº†ã€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¾ã™ã€‚
 
-¡  ƒWƒ‡ƒu‚Ì‹N“®(ŠJ”­ŠÂ‹«)F
+â–   ã‚¸ãƒ§ãƒ–ã®èµ·å‹•(é–‹ç™ºç’°å¢ƒ)ï¼š
 
-    Eu(ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ)/scripts/developmentsvƒfƒBƒŒƒNƒgƒŠ”z‰º‚Ì
-    copydependencies.bat‚ðŽÀs‚µAu(ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ)/libvƒfƒBƒŒƒNƒgƒŠ”z‰º‚É
-    Œ»Ý‚Ìpom.xml‚ÅˆË‘¶ŠÖŒW‚ª’è‹`‚³‚ê‚½jar‚ð‚·‚×‚ÄƒRƒs[‚µ‚Ü‚·B
-    1“xŽÀs‚·‚ê‚ÎApom.xml‚É•ÏX‚ð‰Á‚¦‚È‚¢ŒÀ‚èAÄŽÀs‚·‚é•K—v‚Í‚ ‚è‚Ü‚¹‚ñB
-    EŠJ”­ŠÂ‹«‚Å“®ìŠm”F‚ðs‚¤ê‡‚ÍAu(ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ)/scripts/developmentsvƒfƒBƒŒƒNƒgƒŠ”z‰º‚Ì
-    compile.bat‚ðŽÀs‚µAu(ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ)/libvƒfƒBƒŒƒNƒgƒŠ”z‰º‚É
-    Œ»Ý‚Ìƒ\[ƒXƒR[ƒh‚ÅƒRƒ“ƒpƒCƒ‹‚³‚ê‚½uterasoluna-batch-blank-(ƒo[ƒWƒ‡ƒ“”Ô†).jarv‚ðƒRƒs[‚µ‚Ü‚·B
-    Eu(ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ)/scriptsvƒfƒBƒŒƒNƒgƒŠ”z‰º‚Ì‹N“®ƒXƒNƒŠƒvƒg
-    (ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚É‚ ‚ç‚©‚¶‚ßŠÜ‚Ü‚ê‚éƒTƒ“ƒvƒ‹‚Å‚ÍAB000001.bat)‚ðŽÀs‚µ‚Ü‚·B
+    ãƒ»ã€Œ(project-root)/scripts/developmentsã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé…ä¸‹ã®
+    copydependencies.batã‚’å®Ÿè¡Œã—ã€ã€Œ(project-root)/libã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé…ä¸‹ã«
+    ç¾åœ¨ã®pom.xmlã§ä¾å­˜é–¢ä¿‚ãŒå®šç¾©ã•ã‚ŒãŸjarã‚’ã™ã¹ã¦ã‚³ãƒ”ãƒ¼ã—ã¾ã™ã€‚
+    1åº¦å®Ÿè¡Œã™ã‚Œã°ã€pom.xmlã«å¤‰æ›´ã‚’åŠ ãˆãªã„é™ã‚Šã€å†å®Ÿè¡Œã™ã‚‹å¿…è¦ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚
+    ãƒ»é–‹ç™ºç’°å¢ƒã§å‹•ä½œç¢ºèªã‚’è¡Œã†å ´åˆã¯ã€ã€Œ(project-root)/scripts/developmentsã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé…ä¸‹ã®
+    compile.batã‚’å®Ÿè¡Œã—ã€ã€Œ(project-root)/libã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé…ä¸‹ã«
+    ç¾åœ¨ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã§ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã•ã‚ŒãŸã€Œterasoluna-batch-blank-(version_number).jarã€ã‚’ã‚³ãƒ”ãƒ¼ã—ã¾ã™ã€‚
+    ãƒ»ã€Œ(project-root)/scriptsã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé…ä¸‹ã®èµ·å‹•ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+    (ãƒ–ãƒ©ãƒ³ã‚¯ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«ã‚ã‚‰ã‹ã˜ã‚å«ã¾ã‚Œã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã¯ã€B000001.bat)ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 
-¡  ƒWƒ‡ƒu‚Ì‹N“®(ŽŽŒ±ŠÂ‹«EŽÀ‰^—pŠÂ‹«)F
+â–   ã‚¸ãƒ§ãƒ–ã®èµ·å‹•(è©¦é¨“ç’°å¢ƒãƒ»å®Ÿé‹ç”¨ç’°å¢ƒ)ï¼š
 
-    Eƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚ÅAumvn packagevƒRƒ}ƒ“ƒh‚ðŽÀs‚µ‚Ü‚·B
-    Eu(ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ)/targetvƒfƒBƒŒƒNƒgƒŠ‚É
-    uterasoluna-batch-blank-(ƒo[ƒWƒ‡ƒ“”Ô†)-distribution.zipv‚ªì¬‚³‚ê‚Ü‚·B
-    Euterasoluna-batch-blank-(ƒo[ƒWƒ‡ƒ“”Ô†)-distribution.zipv‚ðŽŽŒ±ŠÂ‹«EŽÀ‰^—pŠÂ‹«‚ÖˆÚ‘—‚µA‰ð“€‚µ‚Ü‚·B
-    Eu(ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ)/scriptsvƒfƒBƒŒƒNƒgƒŠ”z‰º‚Ì‹N“®ƒXƒNƒŠƒvƒg
-    (ƒuƒ‰ƒ“ƒNƒvƒƒWƒFƒNƒg‚É‚ ‚ç‚©‚¶‚ßŠÜ‚Ü‚ê‚éƒTƒ“ƒvƒ‹‚Å‚ÍAB000001.bat)‚ðŽÀs‚µ‚Ü‚·B
+    ãƒ»ãƒ–ãƒ©ãƒ³ã‚¯ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã§ã€ã€Œmvn packageã€ã‚³ãƒžãƒ³ãƒ‰ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
+    ãƒ»ã€Œ(project-root)/targetã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«
+    ã€Œterasoluna-batch-blank-(version_number)-distribution.zipã€ãŒä½œæˆã•ã‚Œã¾ã™ã€‚
+    ãƒ»ã€Œterasoluna-batch-blank-(version_number)-distribution.zipã€ã‚’è©¦é¨“ç’°å¢ƒãƒ»å®Ÿé‹ç”¨ç’°å¢ƒã¸ç§»é€ã—ã€è§£å‡ã—ã¾ã™ã€‚
+    ãƒ»ã€Œ(project-root)/scriptsã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé…ä¸‹ã®èµ·å‹•ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+    (ãƒ–ãƒ©ãƒ³ã‚¯ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«ã‚ã‚‰ã‹ã˜ã‚å«ã¾ã‚Œã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã¯ã€B000001.bat)ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 
-¡  Maven3.2.3ˆÈ~‚ðŽg—p‚·‚éÛ‚Ì’ˆÓ
-    EMaven3.2.3ˆÈ~AƒZƒ“ƒgƒ‰ƒ‹ƒŠƒ|ƒWƒgƒŠ‚É‚ÍHTTPS‚ðŽg—p‚µ‚ÄƒAƒNƒZƒX‚·‚é‚½‚ßA
-      u(ƒ†[ƒU[‚Ìƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ)/.m2/settings.xmlv‚ÉÝ’è‚ð’Ç‰Á‚·‚é•K—v‚ª‚ ‚éB
-      ’Ç‰Á‚·‚éÝ’è“à—e‚É‚Â‚¢‚Ä‚ÍAˆÈ‰º‚ÌURL‚ðŽQÆ‚·‚é‚±‚ÆB
+â–   Maven3.2.3ä»¥é™ã‚’ä½¿ç”¨ã™ã‚‹éš›ã®æ³¨æ„
+    ãƒ»Maven3.2.3ä»¥é™ã€ã‚»ãƒ³ãƒˆãƒ©ãƒ«ãƒªãƒã‚¸ãƒˆãƒªã«ã¯HTTPSã‚’ä½¿ç”¨ã—ã¦ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ãŸã‚ã€
+      ã€Œ(ãƒ¦ãƒ¼ã‚¶ãƒ¼ã®ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª)/.m2/settings.xmlã€ã«è¨­å®šã‚’è¿½åŠ ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
+      è¿½åŠ ã™ã‚‹è¨­å®šå†…å®¹ã«ã¤ã„ã¦ã¯ã€ä»¥ä¸‹ã®URLã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
       http://central.sonatype.org/pages/consumers.html#apache-maven
 
 -------------------------------------------------------------------------------
