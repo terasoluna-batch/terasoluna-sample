@@ -70,7 +70,7 @@
     1.Eclipse画面にて「ファイル＞インポート」を実行し、
       「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
     2.「RootDirectory:」の「Browse...」をクリックし、
-    　プロジェクト内容のブラウズから①で展開したディレクトリを指定します。
+    　プロジェクト内容のブラウズから「1.ZIPファイルの展開」で展開したディレクトリを指定します。
     3.「/pom.xml jp.terasoluna.fw:terasoluna-batch-functionsample:(バージョン番号).jar」に
     　チェックが入っていることを確認後、「完了」をクリックします。
 
