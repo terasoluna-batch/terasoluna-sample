@@ -28,13 +28,13 @@
         
 ■  プロジェクトの実行：
      
-  ①ZIPファイルの展開
+  1.ZIPファイルの展開
     terasoluna-batch-functionsample-(バージョン番号).zipを「C:\」直下に展開します。
       ・例「C:\terasoluna-batch-functionsample-(バージョン番号)\」
        ※指定されたディレクトリは固定ではないため、適宜読み替えて実行してください。
        ここでは、（Windows 7の）C:\に展開すると仮定し、手順を進めます。
 
-  ②データベース環境の設定、初期化(ジョブ実行前に必ず実行する)
+  2.データベース環境の設定、初期化(ジョブ実行前に必ず実行する)
    ◇PostgreSQLの場合
     1.前提条件(環境により変更可能)
       pgAdminを起動し、新しいデータベースを作成する。
@@ -66,7 +66,7 @@
       「/sql/oracle/setup_for_Oracle.bat」を実行します。(eclipseから実行不可)
       「SQL> 」が表示されたら exitと入力して終了します。
 
-  ③Eclipseへのインポート
+  3.Eclipseへのインポート
     1.Eclipse画面にて「ファイル＞インポート」を実行し、
       「Maven＞Existing Maven Projects」を選択し「次へ」をクリックします。
     2.「RootDirectory:」の「Browse...」をクリックし、
@@ -74,14 +74,14 @@
     3.「/pom.xml jp.terasoluna.fw:terasoluna-batch-functionsample:(バージョン番号).jar」に
     　チェックが入っていることを確認後、「完了」をクリックします。
 
-  ④Mavenのインストール
+  4.Mavenのインストール
     ・http://maven.apache.org
       よりMaven(3.X以降)をダウンロードし、任意の場所に展開してください。
       展開したディレクトリ配下のbinディレクトリを環境変数PATHに追加してください。
       コマンドプロンプトで下記コマンドを入力し、バージョン情報が表示されればインストール完了です。
       mvn --version
 
-  ⑤JDBCドライバの設定
+  5.JDBCドライバの設定
   利用するDBMSにより設定手順が異なります。
    ◇PostgreSQLの場合
     1.「/pom.xml」の編集
@@ -138,10 +138,10 @@
            <scope>runtime</scope>
        </dependency>
 
-  ⑥入力用ファイルの配置
+  6.入力用ファイルの配置
     インポートしたプロジェクトに存在する「/input」フォルダの中身をC:\tmp\に配置します。
     
-  ⑦Oracleを使用する場合は、設定ファイルの書き換えを行います。(Postgresを使用する場合は不要)
+  7.Oracleを使用する場合は、設定ファイルの書き換えを行います。(Postgresを使用する場合は不要)
     1.データベース接続設定の書き換え
     「/src/main/resources/mybatisAdmin/jdbc.properties」および
     「/src/main/resources/mybatis/jdbc.properties」の内容を、自環境に合わせ書き換えます。
