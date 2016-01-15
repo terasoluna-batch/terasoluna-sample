@@ -39,5 +39,3 @@ pushd target/generated-sources/archetype
 
 sed -i -e "s/xxxxxx\.yyyyyy\.zzzzzz/jp.terasoluna.fw.batch/g" pom.xml
 sed -i -e "s/xxxxxx.yyyyyy.zzzzzz/\${groupId}/g" -e "s/(version_number)/\${version}/g" -e "s/(project-root)/\${artifactId}/g" -e "s/terasoluna-batch-blank/\${artifactId}/g" src/main/resources/archetype-resources/readme.txt
-
-mvn ${goal}
