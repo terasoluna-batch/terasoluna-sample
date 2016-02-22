@@ -15,3 +15,25 @@ TERASOLUNA Batch Framework for Javaの基本的な処理パターンと実装方
 ## Download
 
 * [Download from here](https://github.com/terasoluna-batch/terasoluna-sample/releases)
+
+## Create blank project by archetype
+#### for CommandPrompt
+
+``` console
+mvn archetype:generate^
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases/^
+ -DarchetypeGroupId=jp.terasoluna.fw.batch^
+ -DarchetypeArtifactId=terasoluna-batch-blank-archetype^
+ -DarchetypeVersion=3.6.0.RELEASE
+```
+
+#### for Bash
+
+``` console
+mvn archetype:generate\
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases/\
+ -DarchetypeGroupId=jp.terasoluna.fw.batch\
+ -DarchetypeArtifactId=terasoluna-batch-blank-archetype\
+ -DarchetypeVersion=3.6.0.RELEASE
+```
+
