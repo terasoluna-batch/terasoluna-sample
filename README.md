@@ -24,7 +24,7 @@ mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases/^
  -DarchetypeGroupId=jp.terasoluna.fw.batch^
  -DarchetypeArtifactId=terasoluna-batch-blank-archetype^
- -DarchetypeVersion=3.6.0.RELEASE
+ -DarchetypeVersion=3.6.1.RELEASE
 ```
 
 #### for Bash
@@ -34,6 +34,6 @@ mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases/\
  -DarchetypeGroupId=jp.terasoluna.fw.batch\
  -DarchetypeArtifactId=terasoluna-batch-blank-archetype\
- -DarchetypeVersion=3.6.0.RELEASE
+ -DarchetypeVersion=3.6.1.RELEASE
 ```
 
