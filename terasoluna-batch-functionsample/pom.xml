@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>jp.terasoluna.fw</groupId>
     <artifactId>terasoluna-batch-functionsample</artifactId>
-    <version>3.6.1-SNAPSHOT</version>
+    <version>3.6.1.RELEASE</version>
     <name>TERASOLUNA Batch Framework for Java Function Sample Project</name>
     <description>TERASOLUNA Batch Framework for Function Sample Project</description>
     <licenses>
