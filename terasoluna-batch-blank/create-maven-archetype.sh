@@ -30,7 +30,6 @@ mv src/main/resources/jp/terasoluna/batch/sample/b000001 src/main/resources/__pa
 rm -rf src/main/resources/jp/terasoluna/batch
 
 mvn versions:set -DnewVersion=${version} -DallowSnapshots=true
-mvn versions:update-property -Dproperty=terasoluna-fw-batch.version -DnewVersion=${version} -DallowSnapshots=true
 mvn versions:commit
 
 mvn archetype:create-from-project -DpackageName=jp.terasoluna.batch.sample
