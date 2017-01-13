@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
     <artifactId>terasoluna-batch-blank</artifactId>
-    <version>3.6.1-SNAPSHOT</version>
+    <version>3.6.2-SNAPSHOT</version>
     <name>TERASOLUNA Batch Framework for Java Blank Project</name>
     <description>TERASOLUNA Batch Framework for Java Blank Project</description>
     <licenses>
@@ -41,10 +41,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- dependency version -->
-        <terasoluna-fw-batch.version>3.6.1-SNAPSHOT</terasoluna-fw-batch.version>
+        <terasoluna-fw-batch.version>3.6.2-SNAPSHOT</terasoluna-fw-batch.version>
 
         <!-- == Spring IO Platform == -->
-        <io.spring.platform.version>2.0.5.RELEASE</io.spring.platform.version>
+        <io.spring.platform.version>Athens-SR2</io.spring.platform.version>
 
         <!-- plugin version -->
         <maven-assembly-plugin.version>2.5.1</maven-assembly-plugin.version>
