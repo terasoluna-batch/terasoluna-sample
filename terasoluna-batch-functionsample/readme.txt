@@ -2,7 +2,7 @@
       TERASOLUNA Batch Framework for Java
               機能サンプル 導入手順について
 
-      Copyright (c) 2007-2016 NTT DATA Corporation.
+      Copyright (c) 2007-2017 NTT DATA Corporation.
 *******************************************************************************
 
 ■  概要：
@@ -306,4 +306,4 @@
   ファイル出力時には上書きとなるよう設定しています。
 
 -------------------------------------------------------------------------------
-Copyright (c) 2007-2016 NTT DATA Corporation.
+Copyright (c) 2007-2017 NTT DATA Corporation.

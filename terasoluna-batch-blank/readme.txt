@@ -2,7 +2,7 @@
       TERASOLUNA Batch Framework for Java
       ブランクプロジェクト 導入手順
 
-      Copyright (c) 2011-2016 NTT DATA Corporation.
+      Copyright (c) 2011-2017 NTT DATA Corporation.
 *******************************************************************************
 
 ■  概要：
@@ -74,4 +74,4 @@
       http://central.sonatype.org/pages/consumers.html#apache-maven
 
 -------------------------------------------------------------------------------
-Copyright (c) 2011-2016 NTT DATA Corporation.
+Copyright (c) 2011-2017 NTT DATA Corporation.

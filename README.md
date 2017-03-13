@@ -20,20 +20,19 @@ TERASOLUNA Batch Framework for Javaの基本的な処理パターンと実装方
 #### for CommandPrompt
 
 ``` console
-mvn archetype:generate^
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases/^
  -DarchetypeGroupId=jp.terasoluna.fw.batch^
  -DarchetypeArtifactId=terasoluna-batch-blank-archetype^
- -DarchetypeVersion=3.6.0.RELEASE
+ -DarchetypeVersion=3.6.2.RELEASE
 ```
 
 #### for Bash
 
 ``` console
-mvn archetype:generate\
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases/\
  -DarchetypeGroupId=jp.terasoluna.fw.batch\
  -DarchetypeArtifactId=terasoluna-batch-blank-archetype\
- -DarchetypeVersion=3.6.0.RELEASE
+ -DarchetypeVersion=3.6.2.RELEASE
 ```
-
