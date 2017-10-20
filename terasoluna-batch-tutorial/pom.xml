@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>jp.terasoluna.fw</groupId>
     <artifactId>terasoluna-batch-tutorial</artifactId>
-    <version>3.6.2-SNAPSHOT</version>
+    <version>3.6.3-SNAPSHOT</version>
     <name>TERASOLUNA Batch Framework for Java Tutorial Project</name>
     <description>TERASOLUNA Batch Framework for Java Tutorial Project</description>
     <licenses>
@@ -41,10 +41,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- dependency version -->
-        <terasoluna-fw-batch.version>3.6.2-SNAPSHOT</terasoluna-fw-batch.version>
+        <terasoluna-fw-batch.version>3.6.3-SNAPSHOT</terasoluna-fw-batch.version>
 
         <!-- == Spring IO Platform == -->
-        <io.spring.platform.version>Athens-SR2</io.spring.platform.version>
+        <io.spring.platform.version>Brussels-SR</io.spring.platform.version>
 
         <!-- plugin version -->
         <maven-assembly-plugin.version>2.5.1</maven-assembly-plugin.version>
