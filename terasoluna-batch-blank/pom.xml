@@ -44,7 +44,7 @@
         <terasoluna-fw-batch.version>3.6.3.RELEASE</terasoluna-fw-batch.version>
 
         <!-- == Spring IO Platform == -->
-        <io.spring.platform.version>Athens-SR2</io.spring.platform.version>
+        <io.spring.platform.version>Brussels-SR5</io.spring.platform.version>
 
         <!-- plugin version -->
         <maven-assembly-plugin.version>2.5.1</maven-assembly-plugin.version>
