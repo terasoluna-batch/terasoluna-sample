@@ -24,7 +24,7 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases/^
  -DarchetypeGroupId=jp.terasoluna.fw.batch^
  -DarchetypeArtifactId=terasoluna-batch-blank-archetype^
- -DarchetypeVersion=3.6.2.RELEASE
+ -DarchetypeVersion=3.6.3.RELEASE
 ```
 
 #### for Bash
@@ -34,5 +34,5 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases/\
  -DarchetypeGroupId=jp.terasoluna.fw.batch\
  -DarchetypeArtifactId=terasoluna-batch-blank-archetype\
- -DarchetypeVersion=3.6.2.RELEASE
+ -DarchetypeVersion=3.6.3.RELEASE
 ```

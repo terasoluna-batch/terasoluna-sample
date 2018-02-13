@@ -1,6 +1,6 @@
 #!/bin/sh
 
-version="3.6.3.RELEASE"
+version="3.6.4.RELEASE"
 goal="install"
 
 if [ $1 ]; then
